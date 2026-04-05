@@ -35,7 +35,7 @@ const navConfig = [
         description: "Explore the DEJOIY brand website.",
         href: "https://www.dejoiy.co.in",
         icon: <Building2 size={20} />
-      }
+      },
     ]
   },
   {
