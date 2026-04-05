@@ -40,43 +40,53 @@ const people = [
   },
   {
     name: "Syed Adnan Alir",
-    role: "Buisness Manager",
+    role: "Business Manager",
     quote: "Operational quality is built one process at a time.",
     image: "/employees/emp7.jpg"
-  }
-];
- {
+  },
+  {
     name: "Khushi Sharma",
-    role: "Operations support",
+    role: "Operations Support",
     quote: "Speed matters, but consistency wins trust.",
     image: "/employees/emp8.jpg"
   },
-{
+  {
     name: "Harjoi Bajaj",
     role: "Brand Ambassador",
     quote: "The best operations feel invisible and indispensable.",
     image: "/employees/emp9.jpg"
   }
 ];
+
 export default function OurPeoplePage() {
   return (
     <div className="section-wrap py-20">
       <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 min-h-[360px]">
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-primary/30" />
+
         <div className="relative z-10 p-10 md:p-16">
-          <p className="text-sm uppercase tracking-[0.25em] text-highlight">Our People</p>
-          <h1 className="mt-4 text-5xl md:text-6xl font-bold max-w-4xl">
+          <p className="text-sm uppercase tracking-[0.25em] text-highlight">
+            Our People
+          </p>
+          <h1 className="mt-4 max-w-4xl text-5xl md:text-6xl font-bold">
             The team powering premium execution at global scale
           </h1>
           <p className="mt-6 max-w-2xl text-white/70 text-lg">
-            DEJOIY combines operational rigor, service excellence and AI-first thinking through a team built for modern enterprise delivery.
+            DEJOIY combines operational rigor, service excellence and AI-first thinking
+            through a team built for modern enterprise delivery.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <span className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-md">Operations Leaders</span>
-            <span className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-md">AI Specialists</span>
-            <span className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-md">Client Success Experts</span>
+            <span className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-md">
+              Operations Leaders
+            </span>
+            <span className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-md">
+              AI Specialists
+            </span>
+            <span className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-md">
+              Client Success Experts
+            </span>
           </div>
         </div>
       </div>
@@ -124,13 +134,16 @@ export default function OurPeoplePage() {
 
       <section className="pb-20">
         <div className="rounded-[2.5rem] glass p-10 md:p-14 bg-card-gradient-2">
-          <p className="text-sm uppercase tracking-[0.25em] text-highlight">Growing Team</p>
+          <p className="text-sm uppercase tracking-[0.25em] text-highlight">
+            Growing Team
+          </p>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold">
             More team members can be added anytime
           </h2>
           <p className="mt-4 max-w-3xl text-white/70 text-lg">
-            This page is designed to scale. As DEJOIY grows, you can easily add more team members,
-            departments, leadership profiles and employee spotlights without changing the layout structure.
+            This page is designed to scale. As DEJOIY grows, you can easily add more
+            team members, departments, leadership profiles and employee spotlights
+            without changing the layout structure.
           </p>
         </div>
       </section>
