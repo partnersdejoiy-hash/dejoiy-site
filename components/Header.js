@@ -29,13 +29,13 @@ const navConfig = [
         description: "Talent, innovation and service excellence at scale.",
         href: "/our-people",
         icon: <Sparkles size={20} />
-      }
+      },
       {
         title: "Brand Profile",
         description: "Explore the DEJOIY brand website.",
         href: "https://www.dejoiy.co.in",
         icon: <Building2 size={20} />
-      },
+      }
     ]
   },
   {
