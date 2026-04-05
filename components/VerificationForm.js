@@ -50,7 +50,7 @@ export default function VerificationForm() {
           : "No file uploaded"
       };
 
-      const response = await fetch("/api/employee-verification", {
+      const response = await fetch("/api/verification", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
