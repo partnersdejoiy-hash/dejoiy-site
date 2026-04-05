@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const { company, email, employeeName, employeeId, purpose } = req.body;
 
     const data = await resend.emails.send({
-      from: "DEJOIY <onboarding@resend.dev>",
+      from: "DEJOIY <no-reply.notifications@corp.dejoiy.com>",
       to: ["employment.verification@dejoiy.com"],
       subject: "Employee Verification Request",
       html: `
