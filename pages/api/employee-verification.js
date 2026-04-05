@@ -13,8 +13,8 @@ export default async function handler(req, res) {
     const { company, email, employeeName, employeeId, purpose } = req.body;
 
     await resend.emails.send({
-      from: `DEJOIY <${process.env.FROM_EMAIL}>`,
-      to: [process.env.VERIFICATION_EMAIL],
+      from: `DEJOIY <${no-reply.notifications@corp.dejoiy.com}>`,
+      to: employement.verification@corp.dejoiy.com],
       subject: "Employee Verification Request",
       html: `
         <h2>Employee Verification Request</h2>
