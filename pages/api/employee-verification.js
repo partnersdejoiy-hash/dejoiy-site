@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
     const data = await resend.emails.send({
       from: "DEJOIY <no-reply.notifications@corp.dejoiy.com>",
-      to: ["employment.verification@dejoiy.com"],
+      to: [process.env.VERIFICATION_EMAIL],
       subject: "Employee Verification Request",
       html: `
         <h2>Employee Verification Request</h2>
@@ -39,5 +39,6 @@ export default async function handler(req, res) {
       error: "Email failed",
       details: error.message
     });
+
   }
 }
