@@ -5,22 +5,26 @@ const insights = [
   {
     category: "Articles",
     title: "How AI + human workflows are redefining global operations",
-    excerpt: "Why the strongest enterprise models combine automation, governance and people-led judgment."
+    excerpt: "Why the strongest enterprise models combine automation, governance and people-led judgment.",
+    image: "/insights/article-1.jpg"
   },
   {
     category: "Case Studies",
     title: "Scaling customer support for high-growth digital brands",
-    excerpt: "A modern framework for support quality, speed and customer loyalty."
+    excerpt: "A modern framework for support quality, speed and customer loyalty.",
+    image: "/insights/article-2.jpg"
   },
   {
     category: "Reports",
     title: "The future of trust & safety operations",
-    excerpt: "Emerging challenges, new standards and operational design patterns for digital platforms."
+    excerpt: "Emerging challenges, new standards and operational design patterns for digital platforms.",
+    image: "/insights/article-3.jpg"
   },
   {
     category: "News",
     title: "DEJOIY expands premium enterprise service capabilities",
-    excerpt: "New investments in AI operations, delivery systems and talent acceleration."
+    excerpt: "New investments in AI operations, delivery systems and talent acceleration.",
+    image: "/insights/article-4.jpg"
   }
 ];
 
