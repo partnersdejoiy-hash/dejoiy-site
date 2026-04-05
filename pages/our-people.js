@@ -138,12 +138,10 @@ export default function OurPeoplePage() {
             Growing Team
           </p>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold">
-            More team members can be added anytime
+            We are thrileed to have more people on this wall of us!
           </h2>
           <p className="mt-4 max-w-3xl text-white/70 text-lg">
-            This page is designed to scale. As DEJOIY grows, you can easily add more
-            team members, departments, leadership profiles and employee spotlights
-            without changing the layout structure.
+            “The people you see here are shaping DEJOIY today — and we’re thrilled to welcome many more innovators, builders, and dreamers to this wall.”
           </p>
         </div>
       </section>
