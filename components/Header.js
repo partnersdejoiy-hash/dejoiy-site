@@ -188,8 +188,13 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const activeMenuData = navConfig.find((item) => item.key === activeMenu);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-primary/70 backdrop-blur-xl">
+    <header
+      className="sticky top-0 z-50 border-b border-white/10 bg-primary/70 backdrop-blur-xl"
+      onMouseLeave={() => setActiveMenu(null)}
+    >
       <div className="section-wrap">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
@@ -202,19 +207,17 @@ export default function Header() {
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8 relative">
+          <nav className="hidden lg:flex items-center gap-8">
             {navConfig.map((item) => (
-              <div
+              <button
                 key={item.key}
-                className="relative"
                 onMouseEnter={() => setActiveMenu(item.key)}
-                onMouseLeave={() => setActiveMenu(null)}
+                className={`text-sm transition-colors ${
+                  activeMenu === item.key ? "text-white" : "text-white/80 hover:text-white"
+                }`}
               >
-                <button className="text-sm text-white/80 hover:text-white transition-colors">
-                  {item.label}
-                </button>
-                <MegaMenu open={activeMenu === item.key} items={item.items} />
-              </div>
+                {item.label}
+              </button>
             ))}
           </nav>
 
@@ -255,6 +258,14 @@ export default function Header() {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="relative hidden lg:block">
+        <div className="absolute left-1/2 top-0 w-full -translate-x-1/2 px-6">
+          <div className="mx-auto max-w-6xl">
+            <MegaMenu open={!!activeMenuData} items={activeMenuData?.items || []} centered />
+          </div>
+        </div>
       </div>
     </header>
   );
