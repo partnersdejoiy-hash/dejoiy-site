@@ -11,7 +11,7 @@ export default function MegaMenu({ open, items }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 14 }}
           transition={{ duration: 0.25 }}
-          className="fixed left-1/2 -translate-x-1/2 top-[88px] w-[860px] max-w-[90vw] rounded-[2rem] glass-strong mega-shadow p-6 overflow-hidden"
+          className="fixed left-[50vw] -translate-x-1/2 top-[88px] w-[860px] max-w-[90vw] rounded-[2rem] glass-strong mega-shadow p-6 overflow-hidden"
         >
           <div className="grid grid-cols-3 gap-4 w-full">
             {items.map((item, idx) => (
