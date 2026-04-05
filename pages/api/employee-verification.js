@@ -12,8 +12,8 @@ export default async function handler(req, res) {
 
     const { company, email, employeeName, employeeId, purpose } = req.body;
 
-    const data = await resend.emails.send({
-      from: "DEJOIY <no-reply.notifications@corp.dejoiy.com>",
+    await resend.emails.send({
+      from: `DEJOIY <${process.env.FROM_EMAIL}>`,
       to: [process.env.VERIFICATION_EMAIL],
       subject: "Employee Verification Request",
       html: `
@@ -26,8 +26,6 @@ export default async function handler(req, res) {
         <p><b>Purpose:</b> ${purpose}</p>
       `
     });
-
-    console.log(data);
 
     return res.status(200).json({ success: true });
 
