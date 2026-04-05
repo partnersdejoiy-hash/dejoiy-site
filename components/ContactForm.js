@@ -39,10 +39,17 @@ export default function ContactForm() {
         body: JSON.stringify(formData)
       });
 
-      const result = await response.json();
+      let result = null;
+
+      // Safely attempt to parse JSON
+      try {
+        result = await response.json();
+      } catch (jsonError) {
+        throw new Error("Server returned an unexpected response.");
+      }
 
       if (!response.ok) {
-        throw new Error(result.error || "Something went wrong");
+        throw new Error(result?.error || "Something went wrong");
       }
 
       setStatus({
@@ -51,6 +58,7 @@ export default function ContactForm() {
       });
 
       setFormData(initialForm);
+
     } catch (error) {
       setStatus({
         type: "error",
@@ -62,7 +70,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-5 rounded-[2rem] glass p-6 md:grid-cols-2">
+    <form
+      onSubmit={handleSubmit}
+      className="grid gap-5 rounded-[2rem] glass p-6 md:grid-cols-2"
+    >
       <div>
         <label className="mb-2 block text-sm text-white/70">Name</label>
         <input
@@ -116,7 +127,9 @@ export default function ContactForm() {
       </div>
 
       <div className="md:col-span-2">
-        <label className="mb-2 block text-sm text-white/70">Service interested</label>
+        <label className="mb-2 block text-sm text-white/70">
+          Service interested
+        </label>
         <select
           name="service"
           value={formData.service}
