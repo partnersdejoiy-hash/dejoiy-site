@@ -24,10 +24,10 @@ export default function ContactPage() {
                 Business Email
               </p>
               <a
-                href="mailto:business@corp.dejoiy.com"
+                href="mailto:hello@corp.dejoiy.com"
                 className="mt-2 inline-block text-lg font-semibold text-white hover:text-highlight transition-colors"
               >
-                business@corp.dejoiy.com
+                hello@corp.dejoiy.com
               </a>
             </div>
           </div>
