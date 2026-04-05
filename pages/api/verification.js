@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.re_QhGnWW4G_CPx4fP4xPA34LCjCMtrXtFc6);
 
 export default async function handler(req, res) {
 
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     }
 
     const response = await resend.emails.send({
-      from: `DEJOIY <"no-reply.notifications@corp.dejoiy.com"}>`,
+      from: `DEJOIY <no-reply.notifications@corp.dejoiy.com}>`,
       to: ["employment.verification@corp.dejoiy.com"],
       reply_to: email,
       subject: `New Background Verification Request - ${employeeName}`,
