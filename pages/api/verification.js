@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     const response = await resend.emails.send({
       from: `DEJOIY <${process.env.CONTACT_FROM_EMAIL}>`,
-      to: ["employement.verificarion@corp.dejoiy.com"],
+      to: ["employment.verification@corp.dejoiy.com"],
       reply_to: email,
       subject: `New Background Verification Request - ${employeeName}`,
       html: `
