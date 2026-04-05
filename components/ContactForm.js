@@ -9,7 +9,7 @@ const initialForm = {
   message: ""
 };
 
-export default function ContactForm() {
+export default function ContactForm({ endpoint = "/api/contact", buttonText = "Speak with expert" }) {
   const [formData, setFormData] = useState(initialForm);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({
@@ -31,7 +31,7 @@ export default function ContactForm() {
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -41,10 +41,9 @@ export default function ContactForm() {
 
       let result = null;
 
-      // Safely attempt to parse JSON
       try {
         result = await response.json();
-      } catch (jsonError) {
+      } catch {
         throw new Error("Server returned an unexpected response.");
       }
 
@@ -184,7 +183,7 @@ export default function ContactForm() {
             loading ? "cursor-not-allowed opacity-60" : ""
           }`}
         >
-          {loading ? "Sending..." : "Speak with expert"}
+          {loading ? "Sending..." : buttonText}
         </button>
       </div>
     </form>
