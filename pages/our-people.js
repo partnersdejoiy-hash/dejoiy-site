@@ -138,7 +138,7 @@ export default function OurPeoplePage() {
             Growing Team
           </p>
           <h2 className="mt-4 text-3xl md:text-5xl font-bold">
-            We are thrileed to have more people on this wall of us!
+            We are thrilled to have more people on this wall of us!
           </h2>
           <p className="mt-4 max-w-3xl text-white/70 text-lg">
             “The people you see here are shaping DEJOIY today — and we’re thrilled to welcome many more innovators, builders, and dreamers to this wall.”
