@@ -27,9 +27,9 @@ const navConfig = [
       {
         title: "Our People",
         description: "Talent, innovation and service excellence at scale.",
-        href: "/careers",
+        href: "/our-people",
         icon: <Sparkles size={20} />
-      },
+      }
       {
         title: "Brand Profile",
         description: "Explore the DEJOIY brand website.",
