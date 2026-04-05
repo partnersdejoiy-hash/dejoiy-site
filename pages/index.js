@@ -182,16 +182,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="section-wrap">
-          <SectionHeading
-            eyebrow="Our people"
-            title="The experts behind every outcome"
-            subtitle="A high-performance team blending operations rigor, empathy, data discipline and security-first thinking."
-          />
-          <EmployeeGrid />
-        </div>
-      </section>
+      <section id="our-people" className="py-24">
+  <div className="section-wrap">
+    <SectionHeading
+      eyebrow="Our people"
+      title="The experts behind every outcome"
+      subtitle="A high-performance team blending operations rigor, empathy, data discipline and security-first thinking."
+    />
+    <EmployeeGrid />
+  </div>
+</section>
 
       <section className="py-24">
         <div className="section-wrap">
