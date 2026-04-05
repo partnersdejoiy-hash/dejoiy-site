@@ -67,7 +67,7 @@ export default async function handler(req, res) {
       data: response
     });
   } catch (error) {
-    console.error("Verification form error:", error);
+    console.log("VERIFICATION_TO_EMAIL:", process.env.VERIFICATION_TO_EMAIL);
 
     return res.status(500).json({
       error: error?.message || "Failed to send verification request"
