@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.re_QLwQ96i2_KGJWoqr7pC2mHjZxH6ZVif1E);
 
 export default async function handler(req, res) {
 
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
     await resend.emails.send({
       from: "DEJOIY <onboarding@resend.dev>",
-      to: ["hello@corp.dejoiy.com"],
+      to: ["employement.verification@corp.dejoiy.com"],   // different email
       subject: "Employee Verification Request",
       html: `
         <h2>Employee Verification Request</h2>
@@ -29,6 +29,6 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Email sending failed" });
+    return res.status(500).json({ error: "Failed to send verification request" });
   }
 }
