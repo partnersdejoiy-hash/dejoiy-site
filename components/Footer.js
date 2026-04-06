@@ -28,14 +28,19 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-accent via-secondary to-highlight" />
-              <div>
-                <div className="text-xl font-bold">DEJOIY</div>
-                <div className="text-xs uppercase tracking-[0.28em] text-white/50">
-                  Global BPO + AI Services
-                </div>
-              </div>
-            </div>
+            <img
+            src="/logo.png"
+            alt="DEJOIY"
+            className="h-11 w-11 object-contain"
+             />
+
+            <div>
+           <div className="text-xl font-bold">DEJOIY</div>
+           <div className="text-xs uppercase tracking-[0.28em] text-white/50">
+            Global BPO + AI Services
+           </div>
+          </div>
+          </div>
             <p className="mt-5 max-w-sm text-white/65">
               Transforming global business operations through AI-powered workflows,
               premium customer support, and modern enterprise execution.
