@@ -198,14 +198,19 @@ export default function Header() {
       <div className="section-wrap">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-accent via-secondary to-highlight shadow-glow" />
-            <div>
-              <div className="text-xl font-bold tracking-wide">DEJOIY</div>
-              <div className="text-[10px] uppercase tracking-[0.3em] text-white/50">
-                AI Services + BPO
-              </div>
-            </div>
-          </Link>
+          <img
+          src="/logo.png"
+          alt="DEJOIY"
+          className="h-10 w-10 object-contain"
+          />
+
+        <div>
+        <div className="text-xl font-bold tracking-wide">DEJOIY</div>
+        <div className="text-[10px] uppercase tracking-[0.3em] text-white/50">
+        AI Services + BPO
+        </div>
+        </div>
+       </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
             {navConfig.map((item) => (
