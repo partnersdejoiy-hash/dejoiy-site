@@ -17,6 +17,7 @@ function ParticleDot({ x, y, delay }) {
       className="absolute rounded-full"
       style={{ left: `${x}%`, top: `${y}%`, width: "2px", height: "2px",
         background: "rgba(148,163,184,0.5)" }}
+      initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: [0, 0.8, 0], scale: [0, 1.5, 0] }}
       transition={{ duration: 3.5, delay, repeat: Infinity, repeatDelay: 4, ease: "easeInOut" }}
     />
@@ -37,11 +38,18 @@ export default function BackgroundFX() {
       ))}
 
       <motion.div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none"
+        className="absolute rounded-full pointer-events-none"
         style={{
+          top: "33%",
+          left: "50%",
+          width: "700px",
+          height: "700px",
+          marginLeft: "-350px",
+          marginTop: "-350px",
           background: "radial-gradient(circle, rgba(37,99,235,0.07) 0%, rgba(124,58,237,0.04) 50%, transparent 70%)",
           filter: "blur(60px)"
         }}
+        initial={{ scale: 1 }}
         animate={{ scale: [1, 1.12, 1] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />

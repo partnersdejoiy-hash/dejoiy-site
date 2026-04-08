@@ -3,9 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/our-people": "pages/our-people.js",
-  "/services": "pages/services.js",
-  "/contact": "pages/contact.js",
-  "/careers": "pages/careers.js",
-  "/industries": "pages/industries.js"
+  "/404": "pages/404.js",
+  "/our-people": "pages/our-people.js"
 }

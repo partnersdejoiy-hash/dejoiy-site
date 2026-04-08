@@ -17,14 +17,23 @@ export default function SmoothCursor() {
     const onLeave = () => setVisible(false);
 
     const checkHover = (e) => {
-      const target = e.target;
-      setHovered(
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        target.dataset.cursor === "hover"
-      );
+      try {
+        const target = e.target;
+        if (!target || typeof target.closest !== "function") {
+          setHovered(false);
+          return;
+        }
+        const isHovered = Boolean(
+          target.tagName === "A" ||
+          target.tagName === "BUTTON" ||
+          target.closest("a") ||
+          target.closest("button") ||
+          (target.dataset && target.dataset.cursor === "hover")
+        );
+        setHovered(isHovered);
+      } catch {
+        setHovered(false);
+      }
     };
 
     window.addEventListener("mousemove", onMove);
@@ -77,8 +86,8 @@ export default function SmoothCursor() {
             width: hovered ? "52px" : "40px",
             height: hovered ? "52px" : "40px",
             borderRadius: "50%",
-            border: `1.5px solid ${hovered ? "rgba(107,92,255,0.9)" : "rgba(255,255,255,0.3)"}`,
-            background: hovered ? "rgba(107,92,255,0.1)" : "transparent",
+            border: `1.5px solid ${hovered ? "rgba(124,58,237,0.9)" : "rgba(255,255,255,0.3)"}`,
+            background: hovered ? "rgba(124,58,237,0.1)" : "transparent",
             transition: "width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease",
             marginLeft: hovered ? "-6px" : "0",
             marginTop: hovered ? "-6px" : "0",
