@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
 
-export default function ServiceCard({
-  title,
-  description,
-  icon,
-  gradient = "bg-card-gradient-1"
-}) {
+export default function ServiceCard({ title, description, icon, index = 0 }) {
   return (
     <motion.div
-      whileHover={{ y: -10, scale: 1.02 }}
-      transition={{ duration: 0.25 }}
-      className={`group relative overflow-hidden rounded-[2rem] ${gradient} glass p-6 glow-border`}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="glass-card rounded-3xl p-6 group"
     >
-      <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/10 blur-2xl group-hover:scale-125 transition-transform duration-500" />
-      <div className="relative z-10">
-        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-white">
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold">{title}</h3>
-        <p className="mt-3 text-white/65">{description}</p>
+      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.07] text-white/70 group-hover:text-white group-hover:bg-white/[0.1] transition-all duration-300">
+        {icon}
+      </div>
+      <h3 className="text-[15px] font-semibold text-white leading-snug">{title}</h3>
+      <p className="mt-2.5 text-[13.5px] text-white/50 leading-relaxed">{description}</p>
+      <div className="mt-5 h-px w-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+      <div className="mt-4 flex items-center gap-1.5 text-[12px] font-medium text-white/35 group-hover:text-white/70 transition-colors duration-200">
+        Learn more
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="transition-transform duration-200 group-hover:translate-x-0.5">
+          <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
     </motion.div>
   );

@@ -1,79 +1,84 @@
+import { motion } from "framer-motion";
+import Link from "next/link";
 import SectionHeading from "../components/SectionHeading";
+import { ArrowRight } from "lucide-react";
 
 const industries = [
-  {
-    title: "Retail & eCommerce",
-    image: "/industries/retail.jpg",
-    description: "Customer support, returns, fraud review and digital commerce operations."
-  },
-  {
-    title: "Technology",
-    image: "/industries/technology.jpg",
-    description: "Platform support, AI operations, QA workflows and enterprise assistance."
-  },
-  {
-    title: "Healthcare",
-    image: "/industries/healthcare.jpg",
-    description: "Sensitive support workflows built with precision, trust and structure."
-  },
-  {
-    title: "Financial Services",
-    image: "/industries/financial.jpg",
-    description: "Compliance-aware operations, verification workflows and support services."
-  },
-  {
-    title: "Travel & Logistics",
-    image: "/industries/travel.jpg",
-    description: "Booking support, issue resolution and logistics coordination workflows."
-  },
-  {
-    title: "Social Media",
-    image: "/industries/social-media.jpg",
-    description: "Content operations, moderation and creator ecosystem support."
-  },
-  {
-    title: "Gaming",
-    image: "/industries/gaming.jpg",
-    description: "Player support, moderation and always-on live operations workflows."
-  },
-  {
-    title: "Education",
-    image: "/industries/education.jpg",
-    description: "Enrollment support, learner assistance and education operations."
-  }
+  { title: "Retail & eCommerce", image: "/industries/retail.jpg", description: "Customer support, returns, fraud review and digital commerce operations at scale." },
+  { title: "Technology", image: "/industries/technology.jpg", description: "Platform support, AI operations, QA workflows and enterprise assistance." },
+  { title: "Healthcare", image: "/industries/healthcare.jpg", description: "Sensitive support workflows built with precision, trust and strict structure." },
+  { title: "Financial Services", image: "/industries/financial.jpg", description: "Compliance-aware operations, verification workflows and support services." },
+  { title: "Travel & Logistics", image: "/industries/travel.jpg", description: "Booking support, issue resolution and logistics coordination workflows." },
+  { title: "Social Media", image: "/industries/social-media.jpg", description: "Content operations, moderation and creator ecosystem support." },
+  { title: "Gaming", image: "/industries/gaming.jpg", description: "Player support, moderation and always-on live operations workflows." },
+  { title: "Education", image: "/industries/education.jpg", description: "Enrollment support, learner assistance and digital education operations." }
 ];
 
 export default function IndustriesPage() {
   return (
-    <div className="section-wrap py-20">
-      <SectionHeading
-        eyebrow="Industries"
-        title="Sector expertise built for modern operations"
-        subtitle="DEJOIY supports diverse industries with tailored workflows, trained talent and premium execution quality."
-      />
-
-      <div className="grid gap-6 lg:grid-cols-2">
-        {industries.map((industry, index) => (
-          <div
-            key={industry.title}
-            className="group relative overflow-hidden rounded-[2rem] border border-white/10 min-h-[360px]"
+    <div className="min-h-screen">
+      <div className="relative py-28 overflow-hidden">
+        <div className="section-wrap relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <img
-              src={industry.image}
-              alt={industry.title}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/65 to-primary/20" />
+            <span className="badge mb-5 inline-flex">Industries</span>
+            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight max-w-4xl">
+              Sector expertise built for<br />modern operations
+            </h1>
+            <p className="mt-5 text-base md:text-lg text-white/50 max-w-xl leading-relaxed">
+              DEJOIY supports diverse industries with tailored workflows, trained talent and premium execution quality.
+            </p>
+          </motion.div>
+        </div>
+      </div>
 
-            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-              <div className="mb-4 w-fit rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em] backdrop-blur-md">
-                Industry {index + 1}
+      <div className="section-wrap pb-24">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {industries.map((industry, index) => (
+            <motion.div
+              key={industry.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative overflow-hidden rounded-3xl border border-white/[0.07] min-h-[300px] cursor-pointer"
+            >
+              <img
+                src={industry.image}
+                alt={industry.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/70 to-[#05071a]/20 group-hover:from-[#05071a]/95 transition-colors duration-500" />
+
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <h3 className="text-[16px] font-semibold text-white leading-tight">{industry.title}</h3>
+                <p className="mt-2 text-[12.5px] text-white/55 leading-relaxed">{industry.description}</p>
+                <div className="mt-4 flex items-center gap-1.5 text-[11.5px] font-medium text-white/30 group-hover:text-white/60 transition-colors duration-300">
+                  Explore
+                  <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                </div>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold">{industry.title}</h3>
-              <p className="mt-4 max-w-xl text-white/75">{industry.description}</p>
-            </div>
-          </div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-20">
+          <SectionHeading
+            eyebrow="Get started"
+            title="Your industry, our expertise"
+            subtitle="Whatever your sector, DEJOIY delivers tailored operational solutions with measurable results."
+          />
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200 shadow-sm"
+          >
+            Speak with an expert
+            <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+          </Link>
+        </div>
       </div>
     </div>
   );

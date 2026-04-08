@@ -29,29 +29,30 @@ const teams = [
 
 export default function EmployeeGrid() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {teams.map((team, index) => (
         <motion.div
           key={team.name}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: index * 0.08 }}
-          className="group relative overflow-hidden rounded-[2rem] glass min-h-[380px]"
+          transition={{ delay: index * 0.08, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="group relative overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.02] min-h-[360px]"
         >
           <img
             src={team.image}
             alt={team.name}
-            className="h-[380px] w-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/50 to-transparent" />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-primary/40 to-transparent opacity-80" />
-
-          <div className="absolute inset-0 flex flex-col justify-end p-6">
-            <div className="translate-y-6 opacity-100 transition-all duration-500 group-hover:translate-y-0">
-              <h3 className="text-xl font-semibold">{team.name}</h3>
-              <p className="text-highlight">{team.role}</p>
-              <p className="mt-3 text-sm text-white/75">{team.quote}</p>
+          <div className="absolute inset-0 flex flex-col justify-end p-5">
+            <div className="transition-all duration-500">
+              <p className="text-[11px] font-medium uppercase tracking-wider text-[#b8aaff] mb-1.5">{team.role}</p>
+              <h3 className="text-[15px] font-semibold text-white leading-snug">{team.name}</h3>
+              <p className="mt-2.5 text-[12.5px] text-white/55 leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500">
+                "{team.quote}"
+              </p>
             </div>
           </div>
         </motion.div>

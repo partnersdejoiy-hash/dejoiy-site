@@ -1,0 +1,288 @@
+You are a world-class Silicon Valley level product designer, frontend architect, and SaaS engineer.
+
+I have an existing Next.js corporate website codebase. Your task is to transform this website into a WORLD-CLASS ENTERPRISE WEBSITE comparable to companies like Apple, Stripe, McKinsey, Accenture, and Microsoft.
+
+IMPORTANT RULES
+• The website must NOT look AI-generated
+• Design must feel premium, modern, and human-crafted
+• Animations must be smooth and subtle
+• Everything must feel like a $10M+ product
+
+------------------------------------------------
+
+OBJECTIVES
+
+Upgrade this website into a premium enterprise platform with:
+
+1. WORLD CLASS WEBSITE DESIGN
+2. ADVANCED ANIMATIONS
+3. ENTERPRISE ADMIN DASHBOARD
+4. ERP / CRM INTEGRATION
+5. CMS TO MANAGE WEBSITE CONTENT
+6. MODERN UI / UX
+7. SCALABLE SAAS ARCHITECTURE
+
+------------------------------------------------
+
+DESIGN REQUIREMENTS
+
+Make the website visually comparable to:
+
+• Apple.com
+• Stripe.com
+• Linear.app
+• Vercel.com
+• McKinsey.com
+• Accenture.com
+
+Design style:
+
+• Glassmorphism
+• Premium gradients
+• Smooth hover effects
+• Micro interactions
+• Elegant typography
+• Large modern layouts
+• Professional enterprise feel
+
+Typography inspiration:
+
+• Inter
+• Geist
+• Satoshi
+• IBM Plex Sans
+
+Color system must be modern and consistent with brand identity.
+
+------------------------------------------------
+
+ANIMATIONS
+
+Implement modern animations using:
+
+• Framer Motion
+• GSAP
+• Smooth scrolling (Lenis or Locomotive)
+• Parallax effects
+• Scroll-triggered animations
+• Page transitions
+
+Add:
+
+• Animated hero section
+• Floating elements
+• Section reveal animations
+• Animated statistics counters
+• Interactive cards
+• Smooth cursor effects
+• Animated gradients
+• Page loading transitions
+
+Animations must be subtle, fast, and premium.
+
+------------------------------------------------
+
+WEBSITE STRUCTURE
+
+Upgrade the site structure to include:
+
+Home  
+Services  
+Industries  
+Insights / Blog  
+Careers  
+Our People  
+Contact  
+Employee Verification  
+Technology  
+About Company  
+
+Each page must have:
+
+• Hero section
+• Visual storytelling
+• Animated sections
+• Call to actions
+• Elegant layouts
+
+------------------------------------------------
+
+HOME PAGE IMPROVEMENTS
+
+Add:
+
+• Animated hero section
+• Interactive product/service showcase
+• Client trust indicators
+• Company statistics
+• Case studies preview
+• Industry expertise section
+• Leadership preview
+• Careers teaser
+• Blog insights section
+• Global presence section
+
+------------------------------------------------
+
+ADMIN DASHBOARD
+
+Create a FULL ADMIN DASHBOARD inside the same project.
+
+Route:
+
+/admin
+
+Dashboard must include authentication.
+
+Features:
+
+Admin login system
+
+Dashboard overview with:
+
+• website analytics
+• leads
+• contact requests
+• career applications
+• employee verification requests
+
+Content management system (CMS) to manage:
+
+• Services
+• Blog posts
+• Insights
+• Careers / Jobs
+• Team members
+• Case studies
+• Homepage sections
+• Client logos
+• Testimonials
+
+Admin should be able to:
+
+• Add content
+• Edit content
+• Delete content
+• Publish content
+
+------------------------------------------------
+
+ERP / CRM INTEGRATION
+
+Build backend structure that allows integration with ERP systems.
+
+Support:
+
+• ERPNext
+• Salesforce
+• HubSpot
+• Custom CRM
+
+Create API routes like:
+
+/api/leads
+/api/careers
+/api/contact
+/api/verification
+
+These APIs must allow syncing data with ERP CRM.
+
+Example:
+
+Contact form → send data to CRM
+
+Careers form → create applicant record
+
+Employee verification → check employee database
+
+------------------------------------------------
+
+DATABASE
+
+Implement database using:
+
+• PostgreSQL
+or
+• Supabase
+
+Tables:
+
+users  
+admin_accounts  
+blog_posts  
+services  
+industries  
+careers  
+job_applications  
+employees  
+contact_leads  
+case_studies  
+
+------------------------------------------------
+
+ADMIN UI DESIGN
+
+Admin dashboard must look like:
+
+• Vercel dashboard
+• Stripe dashboard
+• Linear dashboard
+
+Features:
+
+• sidebar navigation
+• charts and analytics
+• content editor
+• media uploads
+• role-based access
+
+------------------------------------------------
+
+PERFORMANCE
+
+The website must be optimized for:
+
+• SEO
+• fast loading
+• accessibility
+• mobile responsiveness
+• server-side rendering
+• image optimization
+
+------------------------------------------------
+
+TECH STACK
+
+Use:
+
+Next.js
+React
+Framer Motion
+GSAP
+Tailwind CSS
+PostgreSQL
+Prisma
+Supabase (optional)
+
+------------------------------------------------
+
+EXTRA FEATURES
+
+Add:
+
+• Global search
+• Newsletter system
+• Blog CMS
+• Dark / light mode
+• Accessibility improvements
+• Structured data SEO
+
+------------------------------------------------
+
+DELIVERABLE
+
+Transform the existing project into a polished enterprise website + dashboard.
+
+The final result should look like a billion-dollar company website with a powerful admin backend and CRM integration capability.
+
+Keep code clean, scalable, and production-ready.

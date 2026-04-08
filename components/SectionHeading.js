@@ -1,25 +1,24 @@
 import { motion } from "framer-motion";
-import { fadeInUp } from "../animations/fadeInUp";
 
 export default function SectionHeading({ eyebrow, title, subtitle, center = false }) {
   return (
     <motion.div
-      variants={fadeInUp}
-      initial="hidden"
-      whileInView="show"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      className={`${center ? "text-center mx-auto" : ""} max-w-3xl mb-12`}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`${center ? "text-center mx-auto" : ""} max-w-3xl mb-14`}
     >
       {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-highlight">
-          {eyebrow}
-        </p>
+        <div className={`mb-4 ${center ? "flex justify-center" : ""}`}>
+          <span className="badge">{eyebrow}</span>
+        </div>
       )}
-      <h2 className="text-3xl md:text-5xl font-bold leading-tight gradient-text">
+      <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight text-white">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base md:text-lg text-white/70">
+        <p className="mt-4 text-[15px] md:text-base text-white/50 leading-relaxed">
           {subtitle}
         </p>
       )}

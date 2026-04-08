@@ -1,92 +1,103 @@
 import Link from "next/link";
-import { Linkedin, Twitter, Instagram, Globe } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Globe, ArrowUpRight } from "lucide-react";
 
 const footerData = {
   Company: [
-    { label: "Who we are", href: "/" },
+    { label: "About", href: "/" },
+    { label: "Our People", href: "/our-people" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" }
   ],
   Services: [
-    { label: "Services", href: "/services" },
+    { label: "Customer Experience", href: "/services" },
+    { label: "AI Data Operations", href: "/services" },
+    { label: "Trust & Safety", href: "/services" },
     { label: "Employee Verification", href: "/employee-verification" }
   ],
-  Industries: [
-    { label: "Industries", href: "/industries" }
-  ],
-  Resources: [
+  Explore: [
+    { label: "Industries", href: "/industries" },
     { label: "Insights", href: "/insights" },
-    { label: "Brand", href: "https://www.dejoiy.co.in" },
+    { label: "Brand Site", href: "https://www.dejoiy.co.in" },
     { label: "Marketplace", href: "https://www.dejoiy.com" }
   ]
 };
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-white/10 bg-black/20">
-      <div className="section-wrap py-14">
-        <div className="grid gap-10 lg:grid-cols-6">
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3">
-            <img
-            src="/logo.png"
-            alt="DEJOIY"
-            className="h-11 w-11 object-contain"
-             />
+    <footer className="relative mt-24 border-t border-white/[0.06]">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030510] pointer-events-none" />
+      <div className="relative section-wrap pt-16 pb-10">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Link href="/" className="flex items-center gap-2.5">
+              <img src="/logo.png" alt="DEJOIY" className="h-9 w-9 object-contain" />
+              <div>
+                <div className="text-base font-bold">DEJOIY</div>
+                <div className="text-[9px] uppercase tracking-[0.35em] text-white/40">
+                  AI Services · BPO
+                </div>
+              </div>
+            </Link>
 
-            <div>
-           <div className="text-xl font-bold">DEJOIY</div>
-           <div className="text-xs uppercase tracking-[0.28em] text-white/50">
-            Global BPO + AI Services
-           </div>
-          </div>
-          </div>
-            <p className="mt-5 max-w-sm text-white/65">
+            <p className="mt-5 text-sm leading-relaxed text-white/50 max-w-[280px]">
               Transforming global business operations through AI-powered workflows,
-              premium customer support, and modern enterprise execution.
+              premium customer support, and enterprise execution.
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
-              <Link href="#" className="glass rounded-full p-3 hover:bg-white/10 transition">
-                <Linkedin size={18} />
-              </Link>
-              <Link href="#" className="glass rounded-full p-3 hover:bg-white/10 transition">
-                <Twitter size={18} />
-              </Link>
-              <Link href="#" className="glass rounded-full p-3 hover:bg-white/10 transition">
-                <Instagram size={18} />
-              </Link>
-              <Link
-                href="https://www.dejoiy.com"
-                className="glass rounded-full p-3 hover:bg-white/10 transition"
-              >
-                <Globe size={18} />
-              </Link>
+            <div className="mt-6 flex items-center gap-2">
+              {[
+                { href: "#", icon: <Linkedin size={15} />, label: "LinkedIn" },
+                { href: "#", icon: <Twitter size={15} />, label: "Twitter" },
+                { href: "#", icon: <Instagram size={15} />, label: "Instagram" },
+                { href: "https://www.dejoiy.com", icon: <Globe size={15} />, label: "Website" }
+              ].map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-white/50 hover:text-white hover:bg-white/[0.08] hover:border-white/[0.15] transition-all duration-200"
+                >
+                  {social.icon}
+                </Link>
+              ))}
             </div>
           </div>
 
-          {Object.entries(footerData).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="font-semibold text-white">{title}</h4>
-              <ul className="mt-4 space-y-3">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-white/60 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="lg:col-span-8 grid grid-cols-2 gap-8 sm:grid-cols-3">
+            {Object.entries(footerData).map(([title, links]) => (
+              <div key={title}>
+                <h4 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/35 mb-4">
+                  {title}
+                </h4>
+                <ul className="space-y-2.5">
+                  {links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="group flex items-center gap-1 text-sm text-white/55 hover:text-white transition-colors duration-200"
+                      >
+                        {link.label}
+                        {link.href.startsWith("http") && (
+                          <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} DEJOIY. All rights reserved.</p>
-          <p>Built for premium digital-first enterprise presence.</p>
+        <div className="divider mt-12" />
+
+        <div className="mt-6 flex flex-col gap-2 text-[12px] text-white/30 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} DEJOIY Corp. All rights reserved.</p>
+          <div className="flex gap-5">
+            <Link href="/contact" className="hover:text-white/60 transition-colors">Privacy</Link>
+            <Link href="/contact" className="hover:text-white/60 transition-colors">Terms</Link>
+            <Link href="/employee-verification" className="hover:text-white/60 transition-colors">Verification</Link>
+          </div>
         </div>
       </div>
     </footer>

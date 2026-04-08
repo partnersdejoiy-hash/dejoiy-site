@@ -12,24 +12,14 @@ const initialForm = {
 export default function VerificationForm() {
   const [formData, setFormData] = useState(initialForm);
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState({
-    type: "",
-    message: ""
-  });
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-
     if (name === "authorizationLetter") {
-      setFormData((prev) => ({
-        ...prev,
-        authorizationLetter: files?.[0] || null
-      }));
+      setFormData((prev) => ({ ...prev, authorizationLetter: files?.[0] || null }));
     } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value
-      }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
@@ -37,7 +27,6 @@ export default function VerificationForm() {
     e.preventDefault();
     setLoading(true);
     setStatus({ type: "", message: "" });
-
     try {
       const payload = {
         company: formData.company,
@@ -45,154 +34,104 @@ export default function VerificationForm() {
         employeeName: formData.employeeName,
         employeeId: formData.employeeId,
         purpose: formData.purpose,
-        authorizationLetterName: formData.authorizationLetter
-          ? formData.authorizationLetter.name
-          : "No file uploaded"
+        authorizationLetterName: formData.authorizationLetter ? formData.authorizationLetter.name : "No file uploaded"
       };
-
       const response = await fetch("/api/verification", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
-
       let result = null;
-
-      try {
-        result = await response.json();
-      } catch {
-        throw new Error("Server returned an unexpected response.");
-      }
-
-      if (!response.ok) {
-        throw new Error(result?.error || "Something went wrong");
-      }
-
-      setStatus({
-        type: "success",
-        message: "Verification request sent successfully."
-      });
-
+      try { result = await response.json(); } catch { throw new Error("Unexpected response."); }
+      if (!response.ok) throw new Error(result?.error || "Something went wrong");
+      setStatus({ type: "success", message: "Verification request sent successfully. Our team will review and respond." });
       setFormData(initialForm);
     } catch (error) {
-      setStatus({
-        type: "error",
-        message: error.message || "Failed to send verification request."
-      });
+      setStatus({ type: "error", message: error.message || "Failed to send verification request." });
     } finally {
       setLoading(false);
     }
   };
 
+  const fields = [
+    { label: "Company name", name: "company", type: "text", placeholder: "Requesting company name" },
+    { label: "Contact email", name: "email", type: "email", placeholder: "contact@company.com" },
+    { label: "Employee full name", name: "employeeName", type: "text", placeholder: "Full legal name" },
+    { label: "Employee ID (optional)", name: "employeeId", type: "text", placeholder: "Employee ID if known" }
+  ];
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="grid gap-5 rounded-[2rem] glass p-6 md:grid-cols-2"
-    >
-      <div>
-        <label className="mb-2 block text-sm text-white/70">Company name</label>
-        <input
-          type="text"
-          name="company"
-          value={formData.company}
-          onChange={handleChange}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-secondary"
-          placeholder="Company name"
-          required
-        />
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2">
+        {fields.map((field) => (
+          <div key={field.name}>
+            <label className="block mb-1.5 text-[12px] font-medium text-white/50 uppercase tracking-wider">
+              {field.label}
+            </label>
+            <input
+              type={field.type}
+              name={field.name}
+              value={formData[field.name]}
+              onChange={handleChange}
+              className="field"
+              placeholder={field.placeholder}
+              required={field.name !== "employeeId"}
+            />
+          </div>
+        ))}
       </div>
 
       <div>
-        <label className="mb-2 block text-sm text-white/70">Contact email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-secondary"
-          placeholder="contact@company.com"
-          required
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm text-white/70">Employee full name</label>
-        <input
-          type="text"
-          name="employeeName"
-          value={formData.employeeName}
-          onChange={handleChange}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-secondary"
-          placeholder="Employee full name"
-          required
-        />
-      </div>
-
-      <div>
-        <label className="mb-2 block text-sm text-white/70">Employee ID</label>
-        <input
-          type="text"
-          name="employeeId"
-          value={formData.employeeId}
-          onChange={handleChange}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-secondary"
-          placeholder="Employee ID"
-        />
-      </div>
-
-      <div className="md:col-span-2">
-        <label className="mb-2 block text-sm text-white/70">Purpose of verification</label>
+        <label className="block mb-1.5 text-[12px] font-medium text-white/50 uppercase tracking-wider">
+          Purpose of verification
+        </label>
         <textarea
           name="purpose"
           value={formData.purpose}
           onChange={handleChange}
           rows="4"
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-secondary"
-          placeholder="Reason for verification"
+          className="field resize-none"
+          placeholder="Please describe the reason for this verification request"
           required
         />
       </div>
 
-      <div className="md:col-span-2">
-        <label className="mb-2 block text-sm text-white/70">Upload authorization letter</label>
-        <input
-          type="file"
-          name="authorizationLetter"
-          onChange={handleChange}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white/70 outline-none"
-        />
-        <p className="mt-2 text-xs text-white/50">
-          Current upload support sends the file name only. Full file upload requires storage integration.
+      <div>
+        <label className="block mb-1.5 text-[12px] font-medium text-white/50 uppercase tracking-wider">
+          Authorization letter
+        </label>
+        <div className="relative">
+          <input
+            type="file"
+            name="authorizationLetter"
+            onChange={handleChange}
+            className="field cursor-pointer file:mr-3 file:rounded-lg file:border-0 file:bg-white/[0.08] file:px-3 file:py-1.5 file:text-xs file:font-medium file:text-white/70 hover:file:bg-white/[0.12]"
+          />
+        </div>
+        <p className="mt-1.5 text-[11px] text-white/30">
+          File name is transmitted. Full document upload requires storage integration.
         </p>
       </div>
 
       {status.message && (
-        <div className="md:col-span-2">
-          <div
-            className={`rounded-2xl px-4 py-3 text-sm ${
-              status.type === "success"
-                ? "border border-emerald-400/30 bg-emerald-500/10 text-emerald-300"
-                : "border border-red-400/30 bg-red-500/10 text-red-300"
-            }`}
-          >
-            {status.message}
-          </div>
+        <div className={`rounded-xl px-4 py-3 text-sm ${
+          status.type === "success"
+            ? "border border-emerald-500/20 bg-emerald-500/[0.08] text-emerald-400"
+            : "border border-red-500/20 bg-red-500/[0.08] text-red-400"
+        }`}>
+          {status.message}
         </div>
       )}
 
-      <div className="md:col-span-2">
-        <button
-          type="submit"
-          disabled={loading}
-          className={`rounded-full bg-gradient-to-r from-accent via-secondary to-highlight px-6 py-3 text-sm font-semibold shadow-glow transition-all hover:scale-[1.03] ${
-            loading ? "cursor-not-allowed opacity-60" : ""
-          }`}
-        >
-          {loading ? "Sending..." : "Send verification request"}
-        </button>
-      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className={`w-full rounded-xl bg-white py-3.5 text-sm font-semibold text-[#05071a] transition-all duration-200 hover:bg-white/90 ${
+          loading ? "cursor-not-allowed opacity-60" : ""
+        }`}
+      >
+        {loading ? "Submitting..." : "Submit verification request"}
+      </button>
     </form>
   );
 }

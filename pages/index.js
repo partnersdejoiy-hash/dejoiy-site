@@ -1,114 +1,39 @@
+import { motion } from "framer-motion";
+import Link from "next/link";
 import HeroSection from "../components/HeroSection";
 import SectionHeading from "../components/SectionHeading";
 import ServiceCard from "../components/ServiceCard";
 import IndustryGrid from "../components/IndustryGrid";
 import EmployeeGrid from "../components/EmployeeGrid";
 import AnimatedCounter from "../components/AnimatedCounter";
-import ButtonGlow from "../components/ButtonGlow";
 import {
-  Headphones,
-  Database,
-  ShieldCheck,
-  Eye,
-  TrendingUp,
-  Brain,
-  Briefcase,
-  Landmark,
-  Cpu,
-  Globe,
-  Lock,
-  Clock3,
-  Zap,
-  Rocket
+  Headphones, Database, ShieldCheck, Eye, TrendingUp,
+  Brain, Briefcase, Landmark, Cpu, Globe, Lock, Clock3, Zap, Rocket, ArrowRight, ArrowUpRight
 } from "lucide-react";
 
 const services = [
-  {
-    title: "Customer Experience",
-    description: "Premium omnichannel support systems built for enterprise-scale growth.",
-    icon: <Headphones size={24} />,
-    gradient: "bg-card-gradient-1"
-  },
-  {
-    title: "AI Data Operations",
-    description: "Annotation, validation, QA and structured data pipelines for AI teams.",
-    icon: <Database size={24} />,
-    gradient: "bg-card-gradient-2"
-  },
-  {
-    title: "Trust & Safety",
-    description: "Policy enforcement, fraud review and digital platform integrity workflows.",
-    icon: <ShieldCheck size={24} />,
-    gradient: "bg-card-gradient-3"
-  },
-  {
-    title: "Content Moderation",
-    description: "High-volume, quality-controlled moderation for modern platforms.",
-    icon: <Eye size={24} />,
-    gradient: "bg-card-gradient-1"
-  },
-  {
-    title: "Sales Support",
-    description: "Revenue-enabling operations and support for high-growth teams.",
-    icon: <TrendingUp size={24} />,
-    gradient: "bg-card-gradient-2"
-  },
-  {
-    title: "AI Model Training",
-    description: "Human-in-the-loop support for training, evaluation and optimization.",
-    icon: <Brain size={24} />,
-    gradient: "bg-card-gradient-3"
-  },
-  {
-    title: "Back Office Operations",
-    description: "Resilient, accurate workflows for admin-heavy business functions.",
-    icon: <Briefcase size={24} />,
-    gradient: "bg-card-gradient-1"
-  },
-  {
-    title: "Financial Compliance",
-    description: "Structured, secure support services for regulated operations.",
-    icon: <Landmark size={24} />,
-    gradient: "bg-card-gradient-2"
-  }
+  { title: "Customer Experience", description: "Premium omnichannel support systems built for enterprise-scale growth.", icon: <Headphones size={20} /> },
+  { title: "AI Data Operations", description: "Annotation, validation, QA and structured data pipelines for AI teams.", icon: <Database size={20} /> },
+  { title: "Trust & Safety", description: "Policy enforcement, fraud review and digital platform integrity workflows.", icon: <ShieldCheck size={20} /> },
+  { title: "Content Moderation", description: "High-volume, quality-controlled moderation for modern platforms.", icon: <Eye size={20} /> },
+  { title: "Sales Support", description: "Revenue-enabling operations and support for high-growth teams.", icon: <TrendingUp size={20} /> },
+  { title: "AI Model Training", description: "Human-in-the-loop support for training, evaluation and optimization.", icon: <Brain size={20} /> },
+  { title: "Back Office Operations", description: "Resilient, accurate workflows for admin-heavy business functions.", icon: <Briefcase size={20} /> },
+  { title: "Financial Compliance", description: "Structured, secure support services for regulated operations.", icon: <Landmark size={20} /> }
 ];
 
 const differentiators = [
-  {
-    title: "AI + Human Workforce",
-    description: "Technology-accelerated delivery with human precision.",
-    icon: <Cpu size={22} />
-  },
-  {
-    title: "Global Talent Network",
-    description: "Flexible resourcing across modern operational environments.",
-    icon: <Globe size={22} />
-  },
-  {
-    title: "Advanced Security",
-    description: "Governance-led execution built for enterprise trust.",
-    icon: <Lock size={22} />
-  },
-  {
-    title: "24/7 Operations",
-    description: "Always-on support for global business continuity.",
-    icon: <Clock3 size={22} />
-  },
-  {
-    title: "Automation First Approach",
-    description: "Intelligent workflows designed for speed and efficiency.",
-    icon: <Zap size={22} />
-  },
-  {
-    title: "Rapid Deployment and Web Designing",
-    description: "Fast transition from strategy to scalable execution.",
-    icon: <Rocket size={22} />
-  }
+  { title: "AI + Human Workforce", description: "Technology-accelerated delivery with human precision and judgment.", icon: <Cpu size={20} /> },
+  { title: "Global Talent Network", description: "Flexible resourcing across modern operational environments worldwide.", icon: <Globe size={20} /> },
+  { title: "Advanced Security", description: "Governance-led execution built for enterprise trust and compliance.", icon: <Lock size={20} /> },
+  { title: "24/7 Operations", description: "Always-on support infrastructure for global business continuity.", icon: <Clock3 size={20} /> },
+  { title: "Automation First", description: "Intelligent workflows designed for speed and operational efficiency.", icon: <Zap size={20} /> },
+  { title: "Rapid Deployment", description: "Fast transition from strategy to scalable, measurable execution.", icon: <Rocket size={20} /> }
 ];
 
 const industries = [
   { title: "Retail & eCommerce", description: "Customer support, returns, fraud review and scaled operations." },
-  { title: "Technology", description: "Platform support, QA workflows and AI operations." },
+  { title: "Technology", description: "Platform support, QA workflows and AI operations at scale." },
   { title: "Healthcare", description: "Sensitive process support with precision and compliance awareness." },
   { title: "Financial Services", description: "KYC, compliance-adjacent workflows and customer operations." },
   { title: "Travel & Logistics", description: "Reservation support, fulfillment tracking and issue resolution." },
@@ -122,78 +47,82 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      <section className="py-24">
+      <section className="py-28">
         <div className="section-wrap">
           <SectionHeading
             eyebrow="What we do"
             title="Integrated AI services and business operations"
             subtitle="DEJOIY builds scalable support systems for global businesses with premium process design and delivery."
           />
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {services.map((service, i) => (
+              <ServiceCard key={service.title} {...service} index={i} />
             ))}
+          </div>
+          <div className="mt-8 flex justify-start">
+            <Link
+              href="/services"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors duration-200"
+            >
+              View all services
+              <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="section-wrap">
-          <SectionHeading
-            eyebrow="Differentiation"
-            title="What Sets DEJOIY Apart"
-            subtitle="A future-ready delivery model combining human capability, AI augmentation and enterprise-grade execution."
-          />
-          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {differentiators.map((item, index) => (
-              <div
-                key={item.title}
-                className={`group relative overflow-hidden rounded-[2rem] glass p-6 hover:-translate-y-2 transition-transform duration-300 ${
-                  index % 3 === 0
-                    ? "bg-card-gradient-1"
-                    : index % 3 === 1
-                    ? "bg-card-gradient-2"
-                    : "bg-card-gradient-3"
-                }`}
+      <section className="py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0c22]/30 to-transparent pointer-events-none" />
+        <div className="section-wrap relative">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
+            <div>
+              <SectionHeading
+                eyebrow="Why DEJOIY"
+                title="What sets us apart"
+                subtitle="A future-ready delivery model combining human capability, AI augmentation and enterprise-grade execution."
+              />
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200 shadow-sm"
               >
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-white/10 blur-3xl group-hover:scale-125 transition-transform duration-500" />
-                <div className="relative z-10">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+                Speak with an expert
+                <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {differentiators.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="glass-card rounded-2xl p-5 group"
+                >
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] text-white/60 group-hover:text-white group-hover:bg-white/[0.1] transition-all duration-200">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-3 text-white/65">{item.description}</p>
-                  <div className="mt-5 h-1.5 w-20 rounded-full bg-gradient-to-r from-accent via-secondary to-highlight opacity-80" />
-                </div>
-              </div>
-            ))}
+                  <h3 className="text-[13.5px] font-semibold text-white leading-snug">{item.title}</h3>
+                  <p className="mt-1.5 text-[12px] text-white/45 leading-relaxed">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-28">
         <div className="section-wrap">
           <SectionHeading
             eyebrow="Industries"
-            title="Industries We Serve"
+            title="Industries we serve"
             subtitle="Built for the complexity of modern sectors with highly specialized support environments."
           />
           <IndustryGrid industries={industries} />
         </div>
       </section>
 
-      <section id="our-people" className="py-24">
-  <div className="section-wrap">
-    <SectionHeading
-      eyebrow="Our people"
-      title="The experts behind every outcome"
-      subtitle="A high-performance team blending operations rigor, empathy, data discipline and security-first thinking."
-    />
-    <EmployeeGrid />
-  </div>
-</section>
-
-      <section className="py-24">
+      <section className="py-28">
         <div className="section-wrap">
           <SectionHeading
             eyebrow="Global impact"
@@ -201,8 +130,8 @@ export default function HomePage() {
             subtitle="Operational excellence delivered across geographies, teams and AI systems."
             center
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <AnimatedCounter value={250} suffix="+" label="Clients served" />
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <AnimatedCounter value={250} suffix="+" label="Enterprise clients" />
             <AnimatedCounter value={38} suffix="+" label="Countries supported" />
             <AnimatedCounter value={4200} suffix="+" label="Agents onboarded" />
             <AnimatedCounter value={120} suffix="M+" label="AI models trained" />
@@ -210,64 +139,105 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-24">
+      <section id="our-people" className="py-28">
         <div className="section-wrap">
           <SectionHeading
-            eyebrow="Marketplace & Brand"
-            title="Explore the DEJOIY ecosystem"
+            eyebrow="Our people"
+            title="The experts behind every outcome"
+            subtitle="A high-performance team blending operations rigor, empathy, data discipline and security-first thinking."
+          />
+          <EmployeeGrid />
+          <div className="mt-8">
+            <Link
+              href="/our-people"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Meet the full team
+              <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28">
+        <div className="section-wrap">
+          <SectionHeading
+            eyebrow="Ecosystem"
+            title="Explore the DEJOIY network"
             subtitle="Discover our brand presence and marketplace experience."
           />
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <a
-              href="https://www.dejoiy.co.in"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative overflow-hidden rounded-[2rem] border border-white/10 min-h-[360px]"
-            >
-              <img
-                src="/brand/brand-site.jpg"
-                alt="DEJOIY brand website"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-primary/20" />
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="w-fit rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em] backdrop-blur-md text-highlight">
-                  Brand Website
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                label: "Brand Website",
+                domain: "dejoiy.co.in",
+                href: "https://www.dejoiy.co.in",
+                image: "/brand/brand-site.jpg",
+                description: "Explore the DEJOIY brand profile and the company's broader identity and global presence."
+              },
+              {
+                label: "Marketplace",
+                domain: "dejoiy.com",
+                href: "https://www.dejoiy.com",
+                image: "/brand/marketplace-site.jpg",
+                description: "Explore the DEJOIY marketplace and its connected digital commerce ecosystem."
+              }
+            ].map((site) => (
+              <a
+                key={site.domain}
+                href={site.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group relative overflow-hidden rounded-3xl border border-white/[0.07] min-h-[320px] block"
+              >
+                <img
+                  src={site.image}
+                  alt={site.domain}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/70 to-[#05071a]/20" />
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <span className="badge badge-blue self-start mb-4">{site.label}</span>
+                  <h3 className="text-2xl font-bold text-white">{site.domain}</h3>
+                  <p className="mt-2 text-sm text-white/55 max-w-sm">{site.description}</p>
+                  <div className="mt-4 flex items-center gap-1.5 text-[12px] font-medium text-white/35 group-hover:text-white/70 transition-colors">
+                    Visit site <ArrowUpRight size={12} />
+                  </div>
                 </div>
-                <h3 className="mt-4 text-3xl font-bold">dejoiy.co.in</h3>
-                <p className="mt-3 max-w-lg text-white/70">
-                  Visit the DEJOIY brand profile and explore the company’s broader identity and presence.
-                </p>
-              </div>
-            </a>
-
-            <a
-              href="https://www.dejoiy.com"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative overflow-hidden rounded-[2rem] border border-white/10 min-h-[360px]"
-            >
-              <img
-                src="/brand/marketplace-site.jpg"
-                alt="DEJOIY marketplace"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-primary/20" />
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className="w-fit rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em] backdrop-blur-md text-highlight">
-                  Marketplace
-                </div>
-                <h3 className="mt-4 text-3xl font-bold">dejoiy.com</h3>
-                <p className="mt-3 max-w-lg text-white/70">
-                  Explore the DEJOIY marketplace and its connected digital commerce ecosystem.
-                </p>
-              </div>
-            </a>
+              </a>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-10">
-            <ButtonGlow href="/contact">Speak with an expert</ButtonGlow>
+      <section className="py-20">
+        <div className="section-wrap">
+          <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-16 text-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2E7BFF]/10 via-transparent to-[#FF4FD8]/10 pointer-events-none" />
+            <div className="relative max-w-2xl mx-auto">
+              <span className="badge mb-6 inline-flex">Get in touch</span>
+              <h2 className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-white leading-tight tracking-tight">
+                Ready to build your next operating advantage?
+              </h2>
+              <p className="mt-4 text-base text-white/50 leading-relaxed">
+                Tell us about your goals and DEJOIY will design the right support, AI operations or back-office solution for your business.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200"
+                >
+                  Speak with an expert
+                  <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.05] px-7 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/[0.09] transition-all duration-200"
+                >
+                  View services
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
