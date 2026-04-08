@@ -1,8 +1,26 @@
 {
+  "components/HeroSection.js -> ./NeuralNetworkViz": {
+    "id": "components/HeroSection.js -> ./NeuralNetworkViz",
+    "files": [
+      "static/chunks/components_NeuralNetworkViz_js.js"
+    ]
+  },
   "pages/_app.js -> lenis": {
     "id": "pages/_app.js -> lenis",
     "files": [
       "static/chunks/node_modules_lenis_dist_lenis_mjs.js"
+    ]
+  },
+  "pages/index.js -> ../components/AIServicesViz": {
+    "id": "pages/index.js -> ../components/AIServicesViz",
+    "files": [
+      "static/chunks/components_AIServicesViz_js.js"
+    ]
+  },
+  "pages/index.js -> ../components/WorldPresence": {
+    "id": "pages/index.js -> ../components/WorldPresence",
+    "files": [
+      "static/chunks/components_WorldPresence_js.js"
     ]
   }
 }

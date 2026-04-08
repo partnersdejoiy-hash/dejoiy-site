@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BackgroundFX from "./BackgroundFX";
-import NeuralNetworkViz from "./NeuralNetworkViz";
+import dynamic from "next/dynamic";
+const NeuralNetworkViz = dynamic(() => import("./NeuralNetworkViz"), { ssr: false });
 import { ArrowRight, Sparkles, Brain, Headphones, ShieldCheck, Database, Globe, TrendingUp } from "lucide-react";
 
 const stagger = {

@@ -8,8 +8,9 @@ import IndustryGrid from "../components/IndustryGrid";
 import EmployeeGrid from "../components/EmployeeGrid";
 import AnimatedCounter from "../components/AnimatedCounter";
 import LogoMarquee from "../components/LogoMarquee";
-import AIServicesViz from "../components/AIServicesViz";
-import WorldPresence from "../components/WorldPresence";
+import dynamic from "next/dynamic";
+const AIServicesViz = dynamic(() => import("../components/AIServicesViz"), { ssr: false });
+const WorldPresence = dynamic(() => import("../components/WorldPresence"), { ssr: false });
 import {
   Headphones, Database, ShieldCheck, Eye, TrendingUp,
   Brain, Briefcase, Landmark, Cpu, Globe, Lock, Clock3,
