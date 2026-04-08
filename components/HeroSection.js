@@ -27,20 +27,20 @@ const floatingBadges = [
 
 function FloatingBadge({ icon, label, delay, ...pos }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: delay + 1.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute hidden xl:flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.06] backdrop-blur-md px-3 py-1.5 text-[11.5px] text-white/70"
-      style={{
-        ...pos,
-        animation: `float ${5 + delay * 2}s ease-in-out infinite`,
-        animationDelay: `${delay}s`
-      }}
-    >
-      <span className="text-[#b8aaff]">{icon}</span>
-      {label}
-    </motion.div>
+    <div className="absolute hidden xl:block" style={pos}>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: [10, 0, -8, 0, 10] }}
+        transition={{
+          opacity: { delay: delay + 1.2, duration: 0.6 },
+          y: { delay: delay + 1.2, duration: 5 + delay, repeat: Infinity, ease: "easeInOut" }
+        }}
+        className="flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.06] backdrop-blur-md px-3 py-1.5 text-[11.5px] text-white/70 whitespace-nowrap"
+      >
+        <span className="text-[#b8aaff]">{icon}</span>
+        {label}
+      </motion.div>
+    </div>
   );
 }
 

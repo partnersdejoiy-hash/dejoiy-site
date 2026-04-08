@@ -1,0 +1,217 @@
+You are a senior Silicon Valley level product designer, motion designer, and frontend engineer.
+
+Upgrade my existing Next.js corporate website into a premium interactive website comparable to Apple, Stripe, Nvidia, and OpenAI.
+
+The website must NOT look like a template or AI-generated. It must feel like a world-class technology company website with powerful animations and visual storytelling.
+
+--------------------------------------------------
+
+MAIN GOAL
+
+Transform the website into a premium AI services company platform using:
+
+• 3D animated hero
+• AI service visualizations
+• Interactive world map
+• smooth scrolling animations
+• modern UI design
+• high performance
+
+--------------------------------------------------
+
+TECH STACK
+
+Use these technologies:
+
+Next.js
+React
+Tailwind CSS
+Framer Motion
+GSAP
+Three.js / React Three Fiber
+Lenis smooth scrolling
+Lucide icons
+
+--------------------------------------------------
+
+FEATURE 1: 3D ANIMATED HERO SECTION
+
+Create a stunning hero section inspired by Apple and OpenAI websites.
+
+The hero must include a 3D scene built with React Three Fiber.
+
+Scene elements:
+
+• floating AI nodes
+• glowing neural network lines
+• rotating digital globe
+• particles flowing between nodes
+• subtle depth and camera movement
+
+Animation behavior:
+
+• slow rotation
+• parallax movement when scrolling
+• mouse interaction
+• glowing gradients
+
+Headline example structure:
+
+AI Services for the Intelligent Enterprise
+
+Subtext explaining DEJOIY capabilities.
+
+Add two CTAs:
+
+Explore Services
+Contact Us
+
+Buttons must have glowing hover effects.
+
+--------------------------------------------------
+
+FEATURE 2: AI SERVICE VISUALIZATION
+
+Create a section that visually explains services using animated diagrams.
+
+Services to show:
+
+AI Automation
+Business Process Outsourcing
+Data Intelligence
+Enterprise Support
+Digital Operations
+
+Each service should have a unique animated visualization.
+
+Examples:
+
+AI Automation
+
+Animated neural network nodes processing data.
+
+Data Intelligence
+
+Flowing data pipelines transforming into insights.
+
+Business Operations
+
+Animated workflow diagram showing tasks moving between systems.
+
+Animations should run using GSAP or Framer Motion.
+
+Each service card should include:
+
+• animated icon
+• hover interaction
+• short description
+• subtle glow animation
+
+--------------------------------------------------
+
+FEATURE 3: INTERACTIVE WORLD MAP
+
+Create an interactive world map showing global presence and clients.
+
+Use either:
+
+Mapbox
+or
+D3.js
+
+Features:
+
+• animated glowing client locations
+• pulsing dots
+• connection lines between cities
+• tooltips showing region details
+• hover interactions
+
+Example regions:
+
+North America
+Europe
+India
+Middle East
+Asia Pacific
+
+Include a counter showing:
+
+Clients served
+Countries covered
+Projects delivered
+
+--------------------------------------------------
+
+SMOOTH SCROLL EXPERIENCE
+
+Implement premium scrolling using Lenis.
+
+Add:
+
+• parallax sections
+• smooth reveal animations
+• floating UI elements
+• animated dividers
+
+Sections should appear with subtle motion when entering the viewport.
+
+--------------------------------------------------
+
+INTERACTIVE TEAM SECTION
+
+Upgrade team cards.
+
+Add:
+
+• hover zoom effect
+• animated borders
+• grayscale to color transition
+• LinkedIn icon
+• sliding overlay with details
+
+--------------------------------------------------
+
+ADD PREMIUM UI DETAILS
+
+Include:
+
+• animated gradients
+• glowing buttons
+• icon highlights
+• smooth page transitions
+• section dividers
+• interactive navigation hover effects
+
+--------------------------------------------------
+
+PERFORMANCE OPTIMIZATION
+
+Ensure the site loads extremely fast.
+
+Use:
+
+Next.js Image optimization
+Lazy loading for animations
+Dynamic imports for heavy components
+Reduce bundle size
+
+Ensure smooth 60fps animations.
+
+--------------------------------------------------
+
+FINAL RESULT
+
+The website must feel like a premium AI technology company platform.
+
+The experience should feel comparable to:
+
+Apple.com
+Stripe.com
+OpenAI.com
+Nvidia.com
+Vercel.com
+
+The design must feel minimal, elegant, and extremely interactive.
+
+Focus on visual storytelling, motion design, and premium UI.
