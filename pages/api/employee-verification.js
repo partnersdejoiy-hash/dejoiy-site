@@ -18,59 +18,43 @@ export default async function handler(req, res) {
     } = req.body;
 
     if (!company || !email || !employeeName || !purpose) {
-      return res.status(400).json({
-        error: "Required fields are missing"
-      });
+      return res.status(400).json({ error: "Required fields are missing" });
     }
 
     if (!process.env.RESEND_API_KEY) {
-      return res.status(500).json({
-        error: "Missing RESEND_API_KEY"
-      });
+      return res.status(500).json({ error: "Email service is not configured" });
     }
 
-    if (!process.env.VERIFICATION_TO_EMAIL) {
-      return res.status(500).json({
-        error: "Missing VERIFICATION_TO_EMAIL"
-      });
-    }
-
-    if (!process.env.FROM_EMAIL) {
-      return res.status(500).json({
-        error: "Missing FROM_EMAIL"
-      });
-    }
+    const toEmail = process.env.VERIFICATION_TO_EMAIL || process.env.CONTACT_EMAIL || "hello@corp.dejoiy.com";
+    const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
 
     const response = await resend.emails.send({
-      from: `DEJOIY <${process.env.FROM_EMAIL}>`,
-      to: [process.env.VERIFICATION_TO_EMAIL],
+      from: `DEJOIY Corp <${fromEmail}>`,
+      to: [toEmail],
       reply_to: email,
-      subject: `New Background Verification Request - ${employeeName}`,
+      subject: `Background Verification Request — ${employeeName}`,
       html: `
-        <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
-          <h2>New Background Verification Request</h2>
-          <p><strong>Company Name:</strong> ${company}</p>
-          <p><strong>Contact Email:</strong> ${email}</p>
-          <p><strong>Employee Name:</strong> ${employeeName}</p>
-          <p><strong>Employee ID:</strong> ${employeeId || "Not provided"}</p>
-          <p><strong>Purpose:</strong></p>
-          <div style="padding: 12px; background: #f4f4f4; border-radius: 8px;">
+        <div style="font-family: Arial, sans-serif; line-height: 1.7; color: #111; max-width: 600px;">
+          <h2 style="border-bottom: 2px solid #eee; padding-bottom: 12px;">New Background Verification Request</h2>
+          <table style="width:100%; border-collapse: collapse;">
+            <tr><td style="padding: 8px 0; font-weight: bold; width: 180px;">Company Name:</td><td>${company}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Contact Email:</td><td>${email}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Employee Name:</td><td>${employeeName}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Employee ID:</td><td>${employeeId || "Not provided"}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Authorization Letter:</td><td>${authorizationLetterName || "Not uploaded"}</td></tr>
+          </table>
+          <p style="font-weight: bold; margin-top: 16px;">Purpose of Verification:</p>
+          <div style="padding: 12px; background: #f6f6f6; border-radius: 8px; border-left: 3px solid #6B5CFF;">
             ${purpose}
           </div>
-          <p><strong>Authorization Letter:</strong> ${authorizationLetterName || "Not uploaded"}</p>
+          <p style="margin-top: 24px; color: #888; font-size: 13px;">This request was submitted via the DEJOIY Corp employee verification portal.</p>
         </div>
       `
     });
 
-    return res.status(200).json({
-      success: true,
-      data: response
-    });
+    return res.status(200).json({ success: true, data: response });
   } catch (error) {
-    console.log("VERIFICATION_TO_EMAIL:", process.env.VERIFICATION_TO_EMAIL);
-
-    return res.status(500).json({
-      error: error?.message || "Failed to send verification request"
-    });
+    console.error("Verification form error:", error);
+    return res.status(500).json({ error: error?.message || "Failed to send verification request" });
   }
 }

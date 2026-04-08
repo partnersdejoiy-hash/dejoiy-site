@@ -36,7 +36,7 @@ export default function VerificationForm() {
         purpose: formData.purpose,
         authorizationLetterName: formData.authorizationLetter ? formData.authorizationLetter.name : "No file uploaded"
       };
-      const response = await fetch("/api/verification", {
+      const response = await fetch("/api/employee-verification", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
