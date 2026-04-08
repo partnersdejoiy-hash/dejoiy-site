@@ -43,7 +43,7 @@ export default function EmployeeGrid() {
           <img
             src={team.image}
             alt={team.name}
-            className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+            className="absolute inset-0 h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/55 to-transparent transition-all duration-500 group-hover:from-[#05071a]/95" />

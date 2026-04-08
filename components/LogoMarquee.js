@@ -1,13 +1,26 @@
-const logos = [
-  "Google", "Microsoft", "Amazon", "Meta", "Shopify",
-  "Salesforce", "HubSpot", "Stripe", "Adobe", "Oracle",
-  "SAP", "IBM", "Accenture", "Deloitte", "McKinsey"
+const items = [
+  "Enterprise Tech",
+  "Retail & E-Commerce",
+  "Digital Platforms",
+  "FinTech",
+  "Healthcare",
+  "Trust & Safety",
+  "AI Services",
+  "Data Intelligence",
+  "Content Moderation",
+  "Global BPO",
+  "Customer Success",
+  "Social Media",
+  "Gaming & Live Ops",
+  "Travel & Logistics",
+  "Financial Services",
 ];
 
-function LogoItem({ name }) {
+function MarqueeItem({ name }) {
   return (
-    <div className="flex items-center justify-center mx-10 shrink-0">
-      <span className="text-[13px] font-semibold uppercase tracking-[0.15em] text-white/20 hover:text-white/50 transition-colors duration-300 whitespace-nowrap select-none">
+    <div className="flex items-center justify-center mx-10 shrink-0 gap-3">
+      <span className="h-px w-3 bg-white/15 shrink-0" />
+      <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/30 hover:text-white/60 transition-colors duration-300 whitespace-nowrap select-none">
         {name}
       </span>
     </div>
@@ -15,16 +28,15 @@ function LogoItem({ name }) {
 }
 
 export default function LogoMarquee() {
-  const duplicated = [...logos, ...logos];
+  const duplicated = [...items, ...items];
 
   return (
-    <div className="relative overflow-hidden py-10">
+    <div className="relative overflow-hidden py-9">
       <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#05071a] to-transparent pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#05071a] to-transparent pointer-events-none" />
-
       <div className="flex items-center animate-marquee hover:[animation-play-state:paused]" style={{ width: "max-content" }}>
         {duplicated.map((name, i) => (
-          <LogoItem key={`${name}-${i}`} name={name} />
+          <MarqueeItem key={`${name}-${i}`} name={name} />
         ))}
       </div>
     </div>
