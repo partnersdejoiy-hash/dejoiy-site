@@ -32,7 +32,8 @@ function Dot({ region, index, inView, hovered, onHover }) {
       >
         <motion.div
           className="absolute inset-0 rounded-full"
-          style={{ background: "rgba(107,92,255,0.4)" }}
+          style={{ background: "rgba(124,58,237,0.4)" }}
+          initial={{ scale: 1, opacity: 0.5 }}
           animate={{ scale: [1, 2.5, 1], opacity: [0.5, 0, 0.5] }}
           transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.4, ease: "easeOut" }}
         />
