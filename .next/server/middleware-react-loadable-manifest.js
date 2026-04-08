@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"pages/_app.js -> lenis\":{\"id\":\"pages/_app.js -> lenis\",\"files\":[\"static/chunks/node_modules_lenis_dist_lenis_mjs.js\"]}}"

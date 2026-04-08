@@ -6,9 +6,11 @@ import ServiceCard from "../components/ServiceCard";
 import IndustryGrid from "../components/IndustryGrid";
 import EmployeeGrid from "../components/EmployeeGrid";
 import AnimatedCounter from "../components/AnimatedCounter";
+import LogoMarquee from "../components/LogoMarquee";
 import {
   Headphones, Database, ShieldCheck, Eye, TrendingUp,
-  Brain, Briefcase, Landmark, Cpu, Globe, Lock, Clock3, Zap, Rocket, ArrowRight, ArrowUpRight
+  Brain, Briefcase, Landmark, Cpu, Globe, Lock, Clock3, Zap, Rocket, ArrowRight, ArrowUpRight,
+  Users, Target, Award, BarChart3
 } from "lucide-react";
 
 const services = [
@@ -46,6 +48,13 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+
+      <section className="py-4 border-y border-white/[0.04] relative overflow-hidden">
+        <div className="section-wrap mb-4">
+          <p className="text-[10.5px] uppercase tracking-[0.2em] text-white/20 text-center">Trusted by global enterprises</p>
+        </div>
+        <LogoMarquee />
+      </section>
 
       <section className="py-28">
         <div className="section-wrap">
@@ -131,10 +140,10 @@ export default function HomePage() {
             center
           />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <AnimatedCounter value={250} suffix="+" label="Enterprise clients" />
-            <AnimatedCounter value={38} suffix="+" label="Countries supported" />
-            <AnimatedCounter value={4200} suffix="+" label="Agents onboarded" />
-            <AnimatedCounter value={120} suffix="M+" label="AI models trained" />
+            <AnimatedCounter value={250} suffix="+" label="Enterprise clients" icon={<Users size={18} />} />
+            <AnimatedCounter value={38} suffix="+" label="Countries supported" icon={<Globe size={18} />} />
+            <AnimatedCounter value={4200} suffix="+" label="Agents onboarded" icon={<Target size={18} />} />
+            <AnimatedCounter value={120} suffix="M+" label="AI models trained" icon={<Brain size={18} />} />
           </div>
         </div>
       </section>

@@ -1,0 +1,201 @@
+The current website design is too static, dull, and not interactive. It does not feel like a premium enterprise website.
+
+You must redesign the entire UI and UX to make it look like a world-class tech company website comparable to Apple, Stripe, Vercel, and Linear.
+
+IMPORTANT:
+The design must NOT look like an AI template. It must feel human-designed, premium, and extremely interactive.
+
+-------------------------------------
+
+PROBLEMS THAT MUST BE FIXED
+
+1. Website feels flat and static
+2. No visual storytelling
+3. No meaningful animations
+4. Sections appear lifeless
+5. No icons to emphasize services
+6. Page feels slow
+7. Team section looks basic
+8. No brand identity for DEJOIY
+
+-------------------------------------
+
+ADD WORLD-CLASS ANIMATIONS
+
+Use modern animation libraries:
+
+Framer Motion
+GSAP
+Lenis smooth scroll
+
+Add:
+
+• smooth page transitions
+• parallax scrolling
+• section reveal animations
+• animated gradients
+• hover animations
+• interactive cards
+• animated statistics counters
+• floating UI elements
+• animated hero backgrounds
+• magnetic buttons
+• cursor interaction effects
+
+Animations must be subtle and premium, not excessive.
+
+-------------------------------------
+
+CREATE A STRONG HERO SECTION
+
+The hero section must feel powerful and interactive.
+
+Add:
+
+• animated gradient background
+• floating AI-themed elements
+• subtle particle animation
+• animated headline text
+• glowing CTA buttons
+• animated service badges
+
+Headline should feel bold and modern.
+
+-------------------------------------
+
+ADD VISUAL ICONS EVERYWHERE
+
+Add modern icons to emphasize content using:
+
+Lucide Icons
+Heroicons
+
+Examples:
+
+Operations Leaders → management icon
+AI Specialists → brain / AI icon
+Client Success → handshake icon
+Services → visual icons
+
+Icons must appear in:
+
+• services
+• industries
+• insights
+• company values
+• benefits
+• features
+
+-------------------------------------
+
+MAKE TEAM SECTION PREMIUM
+
+Current team cards look basic.
+
+Improve by adding:
+
+• hover effects
+• card elevation
+• animated borders
+• LinkedIn icons
+• role highlights
+• subtle glow effects
+• grayscale → color hover animation
+
+When hovering over team cards:
+
+• image zoom effect
+• overlay details appear
+• social icons slide in
+
+-------------------------------------
+
+ADD MODERN INTERACTIVE SECTIONS
+
+Add sections like:
+
+AI Innovation Section
+
+Animated illustration of AI + business services.
+
+Global Impact
+
+Animated statistics:
+
+500+ clients
+15 countries
+98% satisfaction
+
+Case Studies Preview
+
+Interactive cards with hover expansion.
+
+Client Logos
+
+Scrolling marquee of company logos.
+
+-------------------------------------
+
+PERFORMANCE OPTIMIZATION
+
+The website currently feels slow.
+
+Optimize by:
+
+• using Next.js Image component
+• lazy loading sections
+• optimizing animations
+• reducing bundle size
+• improving hydration
+
+Ensure the site loads extremely fast.
+
+-------------------------------------
+
+MAKE THE DESIGN FEEL LIKE A BILLION-DOLLAR COMPANY
+
+Design inspiration:
+
+Apple
+Stripe
+Linear
+Vercel
+Notion
+McKinsey
+
+The design should feel:
+
+• minimal but powerful
+• modern
+• elegant
+• interactive
+• premium
+
+-------------------------------------
+
+ADD SMALL BUT POWERFUL UX DETAILS
+
+Add:
+
+• animated buttons
+• animated page loader
+• hover effects on navigation
+• animated underline for menu items
+• section dividers with gradients
+• smooth scrolling navigation
+
+-------------------------------------
+
+RESULT
+
+The final website must feel:
+
+• modern
+• highly interactive
+• premium
+• smooth
+• enterprise-grade
+
+The experience should feel like a global AI services company website, not a template.
+
+Make the DEJOIY brand visually strong with consistent colors, icons, animations, and interactive components.
