@@ -13,7 +13,7 @@ export default function IndustryGrid({ industries }) {
           className="glass-card rounded-2xl p-5 group"
         >
           <div className="flex items-center gap-2 mb-3">
-            <div className="h-1.5 w-1.5 rounded-full bg-[#6B5CFF] shrink-0" />
+            <div className="h-1.5 w-1.5 rounded-full bg-[#7C3AED] shrink-0" />
             <h3 className="text-[14px] font-semibold text-white">{industry.title}</h3>
           </div>
           <p className="text-[12.5px] text-white/45 leading-relaxed">{industry.description}</p>

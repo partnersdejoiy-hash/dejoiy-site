@@ -53,7 +53,7 @@ export default function HeroSection() {
 
           <motion.div variants={stagger} initial="hidden" animate="show">
             <motion.div variants={fadeUp} className="mb-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#6B5CFF]/30 bg-[#6B5CFF]/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#b8aaff]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#b8aaff]">
                 <Sparkles size={11} className="animate-pulse" />
                 Premium Global AI + BPO Infrastructure
               </span>
@@ -77,7 +77,7 @@ export default function HeroSection() {
             <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-[#05071a] shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all duration-300"
+                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-[#020617] shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all duration-300"
               >
                 <span className="relative z-10">Speak with an expert</span>
                 <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
@@ -128,7 +128,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#05071a] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#020617] to-transparent pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0 }}

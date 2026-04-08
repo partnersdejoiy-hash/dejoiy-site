@@ -14,11 +14,17 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
           <span className="badge">{eyebrow}</span>
         </div>
       )}
-      <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight text-white">
+      <h2
+        className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight"
+        style={{ color: "#F8FAFC" }}
+      >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-[15px] md:text-base text-white/45 leading-relaxed">
+        <p
+          className="mt-4 text-[15px] md:text-base leading-relaxed"
+          style={{ color: "#94a3b8" }}
+        >
           {subtitle}
         </p>
       )}

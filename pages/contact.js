@@ -78,7 +78,7 @@ export default function ContactPage() {
                   "Clear implementation timeline"
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2.5 text-[13px] text-white/55">
-                    <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#6B5CFF] shrink-0" />
+                    <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#7C3AED] shrink-0" />
                     {item}
                   </div>
                 ))}

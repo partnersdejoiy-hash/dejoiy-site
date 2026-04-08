@@ -113,7 +113,7 @@ export default function ContactForm({ endpoint = "/api/contact", buttonText = "S
       <button
         type="submit"
         disabled={loading}
-        className={`w-full rounded-xl bg-white py-3.5 text-sm font-semibold text-[#05071a] transition-all duration-200 hover:bg-white/90 ${
+        className={`w-full rounded-xl bg-white py-3.5 text-sm font-semibold text-[#020617] transition-all duration-200 hover:bg-white/90 ${
           loading ? "cursor-not-allowed opacity-60" : ""
         }`}
       >

@@ -32,8 +32,8 @@ export default function LogoMarquee() {
 
   return (
     <div className="relative overflow-hidden py-9">
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#05071a] to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#05071a] to-transparent pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#020617] to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#020617] to-transparent pointer-events-none" />
       <div className="flex items-center animate-marquee hover:[animation-play-state:paused]" style={{ width: "max-content" }}>
         {duplicated.map((name, i) => (
           <MarqueeItem key={`${name}-${i}`} name={name} />

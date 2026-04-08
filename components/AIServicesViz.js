@@ -7,7 +7,7 @@ const services = [
     id: "ai",
     label: "AI Operations",
     icon: <Brain size={16} />,
-    color: "#6B5CFF",
+    color: "#7C3AED",
     description: "Human-in-the-loop AI workflows — annotation, validation and model evaluation at enterprise scale.",
     viz: "neural"
   },
@@ -15,7 +15,7 @@ const services = [
     id: "data",
     label: "Data Intelligence",
     icon: <Database size={16} />,
-    color: "#2E7BFF",
+    color: "#2563EB",
     description: "Structured data pipelines that transform raw inputs into actionable business intelligence.",
     viz: "pipeline"
   },
@@ -23,7 +23,7 @@ const services = [
     id: "cx",
     label: "Customer Experience",
     icon: <Headphones size={16} />,
-    color: "#FF4FD8",
+    color: "#06B6D4",
     description: "Omnichannel support operations with premium response quality at global scale.",
     viz: "flow"
   },

@@ -51,7 +51,7 @@ export default function CareersPage() {
             <div className="mt-10">
               <Link
                 href="#open-roles"
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200"
               >
                 View open roles
                 <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
@@ -123,7 +123,7 @@ export default function CareersPage() {
 
         <section>
           <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-14">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2E7BFF]/10 via-transparent to-[#FF4FD8]/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/10 via-transparent to-[#06B6D4]/10 pointer-events-none" />
             <div className="relative max-w-2xl">
               <span className="badge mb-5 inline-flex">Don't see your role?</span>
               <h2 className="text-2xl md:text-3xl font-bold text-white">We're always looking for great people</h2>
@@ -132,7 +132,7 @@ export default function CareersPage() {
               </p>
               <Link
                 href="/contact"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200"
               >
                 Get in touch
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />

@@ -29,7 +29,7 @@ export default function InsightCard({ category, title, excerpt, image, index = 0
           alt={title}
           className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 filter grayscale-[30%] group-hover:grayscale-0"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05071a]/90 via-[#05071a]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-[#020617]/30 to-transparent" />
         <div className="absolute top-4 left-4 flex items-center gap-2">
           <span className="badge badge-blue text-[10px]">{category}</span>
         </div>

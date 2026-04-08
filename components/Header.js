@@ -80,7 +80,7 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/[0.06] bg-[#05071a]/90 backdrop-blur-2xl shadow-[0_1px_0_rgba(255,255,255,0.05)]"
+          ? "border-b border-white/[0.06] bg-[#020617]/90 backdrop-blur-2xl shadow-[0_1px_0_rgba(255,255,255,0.05)]"
           : "border-b border-transparent bg-transparent backdrop-blur-sm"
       }`}
       onMouseLeave={() => setActiveMenu(null)}
@@ -126,7 +126,7 @@ export default function Header() {
             </Link>
             <Link
               href="/contact"
-              className="rounded-full bg-white px-5 py-2 text-[13px] font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200 shadow-sm"
+              className="rounded-full bg-white px-5 py-2 text-[13px] font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200 shadow-sm"
             >
               Get started
             </Link>
@@ -164,7 +164,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full rounded-xl bg-white py-3 text-center text-sm font-semibold text-[#05071a]"
+                  className="block w-full rounded-xl bg-white py-3 text-center text-sm font-semibold text-[#020617]"
                 >
                   Get started
                 </Link>

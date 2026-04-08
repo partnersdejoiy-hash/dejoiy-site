@@ -51,7 +51,7 @@ export default function IndustriesPage() {
                 alt={industry.title}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/70 to-[#05071a]/20 group-hover:from-[#05071a]/95 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/70 to-[#020617]/20 group-hover:from-[#020617]/95 transition-colors duration-500" />
 
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <h3 className="text-[16px] font-semibold text-white leading-tight">{industry.title}</h3>
@@ -73,7 +73,7 @@ export default function IndustriesPage() {
           />
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200 shadow-sm"
+            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200 shadow-sm"
           >
             Speak with an expert
             <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />

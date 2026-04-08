@@ -7,17 +7,7 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-(self["webpackChunk_N_E"] = self["webpackChunk_N_E"] || []).push([["components_AIServicesViz_js"],{
-
-/***/ "__barrel_optimize__?names=Brain,Briefcase,Database,Headphones,ShieldCheck!=!./node_modules/lucide-react/dist/esm/lucide-react.js":
-/*!****************************************************************************************************************************************!*\
-  !*** __barrel_optimize__?names=Brain,Briefcase,Database,Headphones,ShieldCheck!=!./node_modules/lucide-react/dist/esm/lucide-react.js ***!
-  \****************************************************************************************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Brain: function() { return /* reexport safe */ _icons_brain_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; },\n/* harmony export */   Briefcase: function() { return /* reexport safe */ _icons_briefcase_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; },\n/* harmony export */   Database: function() { return /* reexport safe */ _icons_database_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]; },\n/* harmony export */   Headphones: function() { return /* reexport safe */ _icons_headphones_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"]; },\n/* harmony export */   ShieldCheck: function() { return /* reexport safe */ _icons_shield_check_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"]; }\n/* harmony export */ });\n/* harmony import */ var _icons_brain_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./icons/brain.js */ \"./node_modules/lucide-react/dist/esm/icons/brain.js\");\n/* harmony import */ var _icons_briefcase_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./icons/briefcase.js */ \"./node_modules/lucide-react/dist/esm/icons/briefcase.js\");\n/* harmony import */ var _icons_database_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./icons/database.js */ \"./node_modules/lucide-react/dist/esm/icons/database.js\");\n/* harmony import */ var _icons_headphones_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/headphones.js */ \"./node_modules/lucide-react/dist/esm/icons/headphones.js\");\n/* harmony import */ var _icons_shield_check_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons/shield-check.js */ \"./node_modules/lucide-react/dist/esm/icons/shield-check.js\");\n\n\n\n\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiX19iYXJyZWxfb3B0aW1pemVfXz9uYW1lcz1CcmFpbixCcmllZmNhc2UsRGF0YWJhc2UsSGVhZHBob25lcyxTaGllbGRDaGVjayE9IS4vbm9kZV9tb2R1bGVzL2x1Y2lkZS1yZWFjdC9kaXN0L2VzbS9sdWNpZGUtcmVhY3QuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFDbUQ7QUFDUTtBQUNGO0FBQ0kiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9fTl9FLy4vbm9kZV9tb2R1bGVzL2x1Y2lkZS1yZWFjdC9kaXN0L2VzbS9sdWNpZGUtcmVhY3QuanM/ZTE3YiJdLCJzb3VyY2VzQ29udGVudCI6WyJcbmV4cG9ydCB7IGRlZmF1bHQgYXMgQnJhaW4gfSBmcm9tIFwiLi9pY29ucy9icmFpbi5qc1wiXG5leHBvcnQgeyBkZWZhdWx0IGFzIEJyaWVmY2FzZSB9IGZyb20gXCIuL2ljb25zL2JyaWVmY2FzZS5qc1wiXG5leHBvcnQgeyBkZWZhdWx0IGFzIERhdGFiYXNlIH0gZnJvbSBcIi4vaWNvbnMvZGF0YWJhc2UuanNcIlxuZXhwb3J0IHsgZGVmYXVsdCBhcyBIZWFkcGhvbmVzIH0gZnJvbSBcIi4vaWNvbnMvaGVhZHBob25lcy5qc1wiXG5leHBvcnQgeyBkZWZhdWx0IGFzIFNoaWVsZENoZWNrIH0gZnJvbSBcIi4vaWNvbnMvc2hpZWxkLWNoZWNrLmpzXCIiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///__barrel_optimize__?names=Brain,Briefcase,Database,Headphones,ShieldCheck!=!./node_modules/lucide-react/dist/esm/lucide-react.js\n"));
-
-/***/ }),
+self["webpackHotUpdate_N_E"]("components_AIServicesViz_js",{
 
 /***/ "./components/AIServicesViz.js":
 /*!*************************************!*\
@@ -29,4 +19,4 @@ eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* har
 
 /***/ })
 
-}]);
+});

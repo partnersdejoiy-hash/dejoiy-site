@@ -82,19 +82,19 @@ export default function ServicesPage() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   style={{ minHeight: "280px" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#05071a]/60 to-transparent" style={index % 2 !== 0 ? { background: "linear-gradient(to left, #05071a60, transparent)" } : {}} />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/60 to-transparent" style={index % 2 !== 0 ? { background: "linear-gradient(to left, #02061760, transparent)" } : {}} />
               </div>
             </motion.section>
           ))}
         </div>
 
         <div className="mt-16 relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-14 text-center">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#2E7BFF]/10 via-transparent to-[#FF4FD8]/10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/10 via-transparent to-[#06B6D4]/10 pointer-events-none" />
           <div className="relative max-w-xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-white">Ready to get started?</h2>
             <p className="mt-3 text-sm text-white/50">Tell us your operational challenge and we'll design the right solution.</p>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <Link href="/contact" className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200">
+              <Link href="/contact" className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200">
                 Speak with an expert <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

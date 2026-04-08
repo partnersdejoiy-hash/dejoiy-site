@@ -126,7 +126,7 @@ export default function HomePage() {
               />
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200 shadow-sm"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200 shadow-sm"
               >
                 Speak with an expert
                 <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -236,7 +236,7 @@ export default function HomePage() {
                 className="group relative overflow-hidden rounded-3xl border border-white/[0.07] min-h-[320px] block transition-shadow duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
               >
                 <img src={site.image} alt={site.domain} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/70 to-[#05071a]/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/70 to-[#020617]/20" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <span className="badge badge-blue self-start mb-4">{site.label}</span>
                   <h3 className="text-2xl font-bold text-white">{site.domain}</h3>
@@ -260,7 +260,7 @@ export default function HomePage() {
             transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
             className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-16 text-center"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2E7BFF]/10 via-transparent to-[#FF4FD8]/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/10 via-transparent to-[#06B6D4]/10 pointer-events-none" />
             <motion.div
               className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full pointer-events-none"
               style={{ background: "radial-gradient(circle, rgba(107,92,255,0.15), transparent 70%)", filter: "blur(40px)" }}
@@ -278,7 +278,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 shadow-[0_0_24px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 shadow-[0_0_24px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300"
                 >
                   Speak with an expert
                   <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />

@@ -71,7 +71,7 @@ export default function OurPeoplePage() {
                   alt={person.name}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05071a] via-[#05071a]/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/60 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
                   <div className="transition-all duration-500">
                     <h3 className="text-[15px] font-semibold text-white leading-snug">{person.name}</h3>
@@ -93,7 +93,7 @@ export default function OurPeoplePage() {
 
         <section className="mt-20">
           <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-14">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2E7BFF]/10 via-transparent to-[#FF4FD8]/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/10 via-transparent to-[#06B6D4]/10 pointer-events-none" />
             <div className="relative max-w-3xl">
               <span className="badge mb-5 inline-flex">Growing Team</span>
               <h2 className="text-2xl md:text-4xl font-bold text-white leading-tight">
@@ -104,7 +104,7 @@ export default function OurPeoplePage() {
               </p>
               <Link
                 href="/careers"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200"
               >
                 See open roles
                 <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />

@@ -58,7 +58,7 @@ export default function InsightsPage() {
                 key={topic}
                 className={`rounded-full px-4 py-2 text-[12px] font-medium transition-all duration-200 ${
                   i === 0
-                    ? "bg-white text-[#05071a]"
+                    ? "bg-white text-[#020617]"
                     : "border border-white/[0.1] bg-white/[0.04] text-white/55 hover:text-white hover:bg-white/[0.08]"
                 }`}
               >
@@ -85,7 +85,7 @@ export default function InsightsPage() {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 style={{ minHeight: "260px" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#05071a]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/60 to-transparent" />
             </div>
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <span className="badge badge-blue self-start mb-5">{insights[0].category}</span>

@@ -28,7 +28,7 @@ export default function Custom404() {
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               href="/"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#05071a] hover:bg-white/90 transition-all duration-200"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200"
             >
               <Home size={15} />
               Back to home

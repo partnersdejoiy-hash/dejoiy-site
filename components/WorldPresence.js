@@ -40,7 +40,7 @@ function Dot({ region, index, inView, hovered, onHover }) {
           className="relative h-3 w-3 rounded-full border border-white/30"
           animate={isHovered ? { scale: 1.5 } : { scale: 1 }}
           transition={{ duration: 0.2 }}
-          style={{ background: "linear-gradient(135deg, #2E7BFF, #6B5CFF)", boxShadow: "0 0 10px rgba(107,92,255,0.8)" }}
+          style={{ background: "linear-gradient(135deg, #2563EB, #7C3AED)", boxShadow: "0 0 10px rgba(107,92,255,0.8)" }}
         />
         {isHovered && (
           <motion.div
@@ -78,8 +78,8 @@ export default function WorldPresence() {
           backgroundSize: "28px 28px",
           opacity: 0.35
         }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#05071a] pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05071a]/60 via-transparent to-[#05071a]/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/60 via-transparent to-[#020617]/60 pointer-events-none" />
 
         <svg
           className="absolute inset-0 w-full h-full"
