@@ -80,7 +80,7 @@ function NodeCircle({ node, index, inView }) {
         strokeWidth="1"
         initial={{ scale: 1, opacity: 0 }}
         animate={inView ? { scale: [1, 1.8, 1], opacity: [0, 0.4, 0] } : {}}
-        transition={{ delay: delay + 0.4, duration: 2.5, repeat: Infinity, repeatDelay: Math.random() * 2, ease: "easeOut" }}
+        transition={{ delay: delay + 0.4, duration: 2.5, repeat: Infinity, repeatDelay: (index % 4) * 0.5, ease: "easeOut" }}
       />
       <motion.circle
         cx={node.x} cy={node.y} r={5}
