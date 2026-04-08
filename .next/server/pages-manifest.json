@@ -4,11 +4,5 @@
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
   "/404": "pages/404.js",
-  "/employee-verification": "pages/employee-verification.js",
-  "/services": "pages/services.js",
-  "/careers": "pages/careers.js",
-  "/our-people": "pages/our-people.js",
-  "/insights": "pages/insights.js",
-  "/industries": "pages/industries.js",
-  "/contact": "pages/contact.js"
+  "/employee-verification": "pages/employee-verification.js"
 }
