@@ -2,25 +2,25 @@
   "components/HeroSection.js -> ./NeuralNetworkViz": {
     "id": "components/HeroSection.js -> ./NeuralNetworkViz",
     "files": [
-      "static/chunks/components_NeuralNetworkViz_js.js"
+      "static/chunks/650.js"
     ]
   },
   "pages/_app.js -> lenis": {
     "id": "pages/_app.js -> lenis",
     "files": [
-      "static/chunks/node_modules_lenis_dist_lenis_mjs.js"
+      "static/chunks/126.js"
     ]
   },
   "pages/index.js -> ../components/AIServicesViz": {
     "id": "pages/index.js -> ../components/AIServicesViz",
     "files": [
-      "static/chunks/components_AIServicesViz_js.js"
+      "static/chunks/890.js"
     ]
   },
   "pages/index.js -> ../components/WorldPresence": {
     "id": "pages/index.js -> ../components/WorldPresence",
     "files": [
-      "static/chunks/components_WorldPresence_js.js"
+      "static/chunks/132.js"
     ]
   }
 }

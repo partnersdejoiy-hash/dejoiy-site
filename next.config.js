@@ -5,10 +5,18 @@ const nextConfig = {
     unoptimized: true
   },
   allowedDevOrigins: [
+    process.env.REPLIT_DEV_DOMAIN
+      ? `https://${process.env.REPLIT_DEV_DOMAIN}`
+      : "",
     process.env.REPLIT_DEV_DOMAIN || "",
-    "*.replit.dev",
-    "*.janeway.replit.dev"
-  ].filter(Boolean)
+  ].filter(Boolean),
+  webpack(config, { dev }) {
+    if (dev) {
+      config.optimization.moduleIds = "deterministic";
+      config.optimization.chunkIds = "deterministic";
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;

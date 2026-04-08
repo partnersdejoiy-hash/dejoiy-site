@@ -2,5 +2,14 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/": "pages/index.js",
+  "/contact": "pages/contact.js",
+  "/employee-verification": "pages/employee-verification.js",
+  "/services": "pages/services.js",
+  "/404": "pages/404.js",
+  "/our-people": "pages/our-people.js",
+  "/insights": "pages/insights.js",
+  "/api/employee-verification": "pages/api/employee-verification.js",
+  "/careers": "pages/careers.js",
+  "/industries": "pages/industries.js"
 }
