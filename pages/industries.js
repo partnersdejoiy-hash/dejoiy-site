@@ -18,17 +18,18 @@ export default function IndustriesPage() {
   return (
     <div className="min-h-screen">
       <div className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(6,182,212,0.16) 0%, transparent 60%)" }} />
         <div className="section-wrap relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="badge mb-5 inline-flex">Industries</span>
-            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight max-w-4xl">
+            <span className="badge badge-cyan mb-5 inline-flex">Industries</span>
+            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight max-w-4xl" style={{ color: "#F8FAFC" }}>
               Sector expertise built for<br />modern operations
             </h1>
-            <p className="mt-5 text-base md:text-lg text-white/50 max-w-xl leading-relaxed">
+            <p className="mt-5 text-base md:text-lg max-w-xl leading-relaxed" style={{ color: "#94a3b8" }}>
               DEJOIY supports diverse industries with tailored workflows, trained talent and premium execution quality.
             </p>
           </motion.div>
@@ -44,21 +45,43 @@ export default function IndustriesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative overflow-hidden rounded-3xl border border-white/[0.07] min-h-[300px] cursor-pointer"
+              whileHover={{ y: -8 }}
+              className="group relative overflow-hidden rounded-3xl min-h-[300px] cursor-pointer"
+              style={{
+                border: "1px solid rgba(255,255,255,0.1)",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                transition: "border-color 0.4s ease, box-shadow 0.4s ease"
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = "rgba(6,182,212,0.38)";
+                e.currentTarget.style.boxShadow = "0 24px 70px rgba(0,0,0,0.55), 0 0 50px rgba(6,182,212,0.1)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.4)";
+              }}
             >
               <img
                 src={industry.image}
                 alt={industry.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
+                style={{ transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1)" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.08)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/70 to-[#020617]/20 group-hover:from-[#020617]/95 transition-colors duration-500" />
+              <div className="absolute inset-0 transition-all duration-500" style={{ background: "linear-gradient(to top, #020617 0%, rgba(2,6,23,0.75) 45%, rgba(2,6,23,0.2) 80%, transparent 100%)" }} />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "linear-gradient(to top, rgba(2,6,23,0.97) 0%, rgba(2,6,23,0.6) 50%, rgba(2,6,23,0.1) 100%)" }} />
+
+              <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "linear-gradient(90deg, transparent, rgba(6,182,212,0.7), transparent)" }}
+              />
 
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <h3 className="text-[16px] font-semibold text-white leading-tight">{industry.title}</h3>
-                <p className="mt-2 text-[12.5px] text-white/55 leading-relaxed">{industry.description}</p>
-                <div className="mt-4 flex items-center gap-1.5 text-[11.5px] font-medium text-white/30 group-hover:text-white/60 transition-colors duration-300">
-                  Explore
-                  <ArrowRight size={12} className="transition-transform duration-200 group-hover:translate-x-0.5" />
+                <h3 className="text-[16px] font-semibold leading-tight" style={{ color: "#F8FAFC" }}>{industry.title}</h3>
+                <p className="mt-2 text-[12.5px] leading-relaxed" style={{ color: "#94a3b8" }}>{industry.description}</p>
+                <div className="mt-4 flex items-center gap-1.5 text-[11.5px] font-medium transition-colors duration-300" style={{ color: "#64748b" }}>
+                  <span className="group-hover:text-[#67e8f9] transition-colors duration-300">Explore</span>
+                  <ArrowRight size={12} className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-[#67e8f9]" />
                 </div>
               </div>
             </motion.div>

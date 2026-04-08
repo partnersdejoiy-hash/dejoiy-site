@@ -23,8 +23,8 @@ export default function CareersPage() {
     <div className="min-h-screen">
       <div className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="orb orb-1" style={{ top: "-200px", left: "-100px", opacity: 0.25 }} />
-          <div className="orb orb-2" style={{ top: "-100px", right: "-80px", opacity: 0.2 }} />
+          <div className="orb orb-1" style={{ top: "-200px", left: "-100px", opacity: 0.35 }} />
+          <div className="orb orb-2" style={{ top: "-100px", right: "-80px", opacity: 0.28 }} />
         </div>
         <div className="section-wrap relative">
           <motion.div
@@ -34,16 +34,20 @@ export default function CareersPage() {
             className="max-w-4xl"
           >
             <span className="badge mb-5 inline-flex">Careers</span>
-            <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-bold leading-[1.04] tracking-tight">
+            <h1 className="text-[clamp(2.8rem,7vw,5rem)] font-bold leading-[1.04] tracking-tight" style={{ color: "#F8FAFC" }}>
               Greatness<br />
               <span className="gradient-text">starts here</span>
             </h1>
-            <p className="mt-6 max-w-xl text-base md:text-lg text-white/50 leading-relaxed">
+            <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed" style={{ color: "#94a3b8" }}>
               Join a team building premium operations, AI services and world-class customer experiences for global businesses.
             </p>
             <div className="mt-8 flex flex-wrap gap-2.5">
               {["Global Talent", "AI-First Delivery", "Growth Culture"].map((tag) => (
-                <span key={tag} className="rounded-full border border-white/[0.1] bg-white/[0.05] px-4 py-2 text-[12.5px] font-medium text-white/60">
+                <span
+                  key={tag}
+                  className="rounded-full px-4 py-2 text-[12.5px] font-medium"
+                  style={{ border: "1px solid rgba(255,255,255,0.14)", background: "rgba(255,255,255,0.07)", color: "#CBD5E1" }}
+                >
                   {tag}
                 </span>
               ))}
@@ -78,9 +82,9 @@ export default function CareersPage() {
                 transition={{ delay: index * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="glass-card rounded-2xl p-7"
               >
-                <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/30 mb-4">0{index + 1}</div>
-                <h3 className="text-[16px] font-semibold text-white leading-snug">{value.title}</h3>
-                <p className="mt-2.5 text-[13.5px] text-white/50 leading-relaxed">{value.description}</p>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-4" style={{ color: "#7C3AED" }}>0{index + 1}</div>
+                <h3 className="text-[16px] font-semibold leading-snug" style={{ color: "#F8FAFC" }}>{value.title}</h3>
+                <p className="mt-2.5 text-[13.5px] leading-relaxed" style={{ color: "#94a3b8" }}>{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -102,11 +106,14 @@ export default function CareersPage() {
                 transition={{ delay: index * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="glass-card rounded-2xl p-6 group text-center"
               >
-                <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.06] text-white/60 group-hover:text-white group-hover:bg-white/[0.1] transition-all duration-200">
+                <div
+                  className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-xl transition-all duration-200"
+                  style={{ background: "rgba(37,99,235,0.14)", border: "1px solid rgba(37,99,235,0.28)", color: "#93c5fd" }}
+                >
                   {benefit.icon}
                 </div>
-                <h3 className="text-[14px] font-semibold text-white">{benefit.title}</h3>
-                <p className="mt-2 text-[12px] text-white/45 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-[14px] font-semibold" style={{ color: "#F8FAFC" }}>{benefit.title}</h3>
+                <p className="mt-2 text-[12px] leading-relaxed" style={{ color: "#94a3b8" }}>{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -122,12 +129,12 @@ export default function CareersPage() {
         </section>
 
         <section>
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-14">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/10 via-transparent to-[#06B6D4]/10 pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl p-10 md:p-14 cta-block">
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.14) 0%, transparent 50%, rgba(6,182,212,0.1) 100%)" }} />
             <div className="relative max-w-2xl">
               <span className="badge mb-5 inline-flex">Don't see your role?</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white">We're always looking for great people</h2>
-              <p className="mt-4 text-sm text-white/50 leading-relaxed">
+              <h2 className="text-2xl md:text-3xl font-bold" style={{ color: "#F8FAFC" }}>We're always looking for great people</h2>
+              <p className="mt-4 text-sm leading-relaxed" style={{ color: "#94a3b8" }}>
                 Send us your details and tell us how you'd like to contribute. We'll reach out when the right opportunity arises.
               </p>
               <Link

@@ -19,8 +19,13 @@ const items = [
 function MarqueeItem({ name }) {
   return (
     <div className="flex items-center justify-center mx-10 shrink-0 gap-3">
-      <span className="h-px w-3 bg-white/15 shrink-0" />
-      <span className="text-[12px] font-medium uppercase tracking-[0.18em] text-white/30 hover:text-white/60 transition-colors duration-300 whitespace-nowrap select-none">
+      <span className="h-px w-3 shrink-0" style={{ background: "rgba(124,58,237,0.4)" }} />
+      <span
+        className="text-[12px] font-medium uppercase tracking-[0.18em] whitespace-nowrap select-none transition-colors duration-300"
+        style={{ color: "#64748b" }}
+        onMouseEnter={e => e.currentTarget.style.color = "#94a3b8"}
+        onMouseLeave={e => e.currentTarget.style.color = "#64748b"}
+      >
         {name}
       </span>
     </div>

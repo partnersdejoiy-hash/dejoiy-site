@@ -69,9 +69,9 @@ export default function HomePage() {
     <>
       <HeroSection />
 
-      <section className="py-5 border-y border-white/[0.04] relative overflow-hidden">
+      <section className="py-5 relative overflow-hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <RevealSection delay={0}>
-          <p className="text-[10px] uppercase tracking-[0.22em] text-white/18 text-center mb-4">Trusted by global enterprises</p>
+          <p className="text-[10px] uppercase tracking-[0.22em] text-center mb-4" style={{ color: "#64748b" }}>Trusted by global enterprises</p>
         </RevealSection>
         <LogoMarquee />
       </section>
@@ -92,7 +92,10 @@ export default function HomePage() {
             <div className="mt-8 flex justify-start">
               <Link
                 href="/services"
-                className="group inline-flex items-center gap-2 text-sm font-medium text-white/45 hover:text-white transition-colors duration-200"
+                className="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
+                style={{ color: "#64748b" }}
+                onMouseEnter={e => e.currentTarget.style.color = "#F8FAFC"}
+                onMouseLeave={e => e.currentTarget.style.color = "#64748b"}
               >
                 View all services
                 <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -103,7 +106,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0c22]/25 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(11,18,38,0.35) 50%, transparent)" }} />
         <div className="section-wrap relative">
           <SectionHeading
             eyebrow="How we work"
@@ -115,7 +118,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0c22]/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(11,18,38,0.3) 50%, transparent)" }} />
         <div className="section-wrap relative">
           <div className="grid gap-14 lg:grid-cols-2 items-start">
             <div>
@@ -142,11 +145,18 @@ export default function HomePage() {
                   transition={{ delay: index * 0.07, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                   className="glass-card rounded-2xl p-5 group"
                 >
-                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-white/[0.06] text-white/55 group-hover:text-white group-hover:bg-white/[0.1] transition-all duration-200">
+                  <div
+                    className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl transition-all duration-200"
+                    style={{
+                      background: "rgba(37,99,235,0.14)",
+                      border: "1px solid rgba(37,99,235,0.28)",
+                      color: "#93c5fd"
+                    }}
+                  >
                     {item.icon}
                   </div>
-                  <h3 className="text-[13.5px] font-semibold text-white leading-snug">{item.title}</h3>
-                  <p className="mt-1.5 text-[12px] text-white/40 leading-relaxed">{item.description}</p>
+                  <h3 className="text-[13.5px] font-semibold leading-snug" style={{ color: "#F8FAFC" }}>{item.title}</h3>
+                  <p className="mt-1.5 text-[12px] leading-relaxed" style={{ color: "#94a3b8" }}>{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -166,7 +176,7 @@ export default function HomePage() {
       </section>
 
       <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0c22]/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, transparent, rgba(11,18,38,0.3) 50%, transparent)" }} />
         <div className="section-wrap relative">
           <div className="grid gap-14 lg:grid-cols-2 items-start">
             <div>
@@ -201,7 +211,10 @@ export default function HomePage() {
             <div className="mt-8">
               <Link
                 href="/our-people"
-                className="group inline-flex items-center gap-2 text-sm font-medium text-white/45 hover:text-white transition-colors duration-200"
+                className="group inline-flex items-center gap-2 text-sm font-medium transition-colors duration-200"
+                style={{ color: "#64748b" }}
+                onMouseEnter={e => e.currentTarget.style.color = "#F8FAFC"}
+                onMouseLeave={e => e.currentTarget.style.color = "#64748b"}
               >
                 Meet the full team
                 <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
@@ -233,16 +246,21 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16,1,0.3,1] }}
                 whileHover={{ y: -4 }}
-                className="group relative overflow-hidden rounded-3xl border border-white/[0.07] min-h-[320px] block transition-shadow duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+                className="group relative overflow-hidden rounded-3xl min-h-[320px] block transition-shadow duration-300"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.09)",
+                  boxShadow: "0 8px 40px rgba(0,0,0,0.4)"
+                }}
               >
                 <img src={site.image} alt={site.domain} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/70 to-[#020617]/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/75 to-[#020617]/25" />
                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                   <span className="badge badge-blue self-start mb-4">{site.label}</span>
-                  <h3 className="text-2xl font-bold text-white">{site.domain}</h3>
-                  <p className="mt-2 text-sm text-white/55 max-w-sm">{site.description}</p>
-                  <div className="mt-4 flex items-center gap-1.5 text-[12px] font-medium text-white/30 group-hover:text-white/70 transition-colors">
-                    Visit site <ArrowUpRight size={12} />
+                  <h3 className="text-2xl font-bold" style={{ color: "#F8FAFC" }}>{site.domain}</h3>
+                  <p className="mt-2 text-sm max-w-sm" style={{ color: "#94a3b8" }}>{site.description}</p>
+                  <div className="mt-4 flex items-center gap-1.5 text-[12px] font-medium transition-colors" style={{ color: "#64748b" }}>
+                    <span className="group-hover:text-white/70 transition-colors">Visit site</span>
+                    <ArrowUpRight size={12} className="group-hover:text-white/70 transition-colors" />
                   </div>
                 </div>
               </motion.a>
@@ -258,34 +276,39 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16,1,0.3,1] }}
-            className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#0d1040] to-[#080c25] p-10 md:p-16 text-center"
+            className="relative overflow-hidden rounded-3xl p-10 md:p-16 text-center cta-block"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#2563EB]/10 via-transparent to-[#06B6D4]/10 pointer-events-none" />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.15) 0%, transparent 50%, rgba(6,182,212,0.12) 100%)" }} />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,58,237,0.25) 0%, transparent 60%)" }}
+            />
             <motion.div
-              className="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 rounded-full pointer-events-none"
-              style={{ background: "radial-gradient(circle, rgba(107,92,255,0.15), transparent 70%)", filter: "blur(40px)" }}
+              className="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full pointer-events-none"
+              style={{ background: "radial-gradient(circle, rgba(124,58,237,0.2), transparent 70%)", filter: "blur(40px)" }}
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
             <div className="relative max-w-2xl mx-auto">
               <span className="badge mb-6 inline-flex">Get in touch</span>
-              <h2 className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-white leading-tight tracking-tight">
+              <h2 className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-tight tracking-tight" style={{ color: "#F8FAFC" }}>
                 Ready to build your next operating advantage?
               </h2>
-              <p className="mt-4 text-[15px] text-white/45 leading-relaxed">
+              <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#94a3b8" }}>
                 Tell us about your goals and DEJOIY will design the right support, AI operations or back-office solution.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 shadow-[0_0_24px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 shadow-[0_0_28px_rgba(255,255,255,0.18)] hover:shadow-[0_0_45px_rgba(255,255,255,0.32)] transition-all duration-300"
                 >
                   Speak with an expert
                   <ArrowRight size={15} className="transition-transform duration-200 group-hover:translate-x-0.5" />
                 </Link>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.05] px-7 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/[0.09] transition-all duration-200"
+                  className="inline-flex items-center gap-2 rounded-full px-7 py-3 text-sm font-medium transition-all duration-200"
+                  style={{ border: "1px solid rgba(255,255,255,0.18)", background: "rgba(255,255,255,0.07)", color: "#CBD5E1" }}
                 >
                   View services
                 </Link>

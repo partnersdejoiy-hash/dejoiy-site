@@ -10,42 +10,45 @@ export default function InsightCard({ category, title, excerpt, image, index = 0
       transition={{ delay: index * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="group relative rounded-3xl overflow-hidden cursor-pointer"
       style={{
-        background: "rgba(255,255,255,0.02)",
-        border: "1px solid rgba(255,255,255,0.07)",
+        background: "rgba(11,18,38,0.85)",
+        border: "1px solid rgba(255,255,255,0.1)",
         transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
       }}
     >
       <div
         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          border: "1px solid rgba(107,92,255,0.25)",
-          boxShadow: "0 0 80px rgba(107,92,255,0.06) inset"
+          border: "1px solid rgba(124,58,237,0.4)",
+          boxShadow: "0 0 80px rgba(124,58,237,0.1) inset, 0 20px 60px rgba(0,0,0,0.5)"
         }}
       />
 
-      <div className="relative h-48 overflow-hidden bg-white/[0.03]">
+      <div className="relative h-52 overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 filter grayscale-[30%] group-hover:grayscale-0"
+          className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-[#020617]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/95 via-[#020617]/35 to-transparent" />
         <div className="absolute top-4 left-4 flex items-center gap-2">
           <span className="badge badge-blue text-[10px]">{category}</span>
         </div>
-        <div className="absolute top-4 right-4 flex items-center gap-1 text-[10px] text-white/40">
+        <div className="absolute top-4 right-4 flex items-center gap-1 text-[10px]" style={{ color: "#94a3b8" }}>
           <Clock size={10} />
           {readTime}
         </div>
       </div>
 
       <div className="p-6">
-        <h3 className="text-[15px] font-semibold text-white leading-snug line-clamp-2 group-hover:text-white transition-colors">
+        <h3 className="text-[15px] font-semibold leading-snug line-clamp-2" style={{ color: "#F8FAFC" }}>
           {title}
         </h3>
-        <p className="mt-3 text-[13px] text-white/45 leading-relaxed line-clamp-3">{excerpt}</p>
+        <p className="mt-3 text-[13px] leading-relaxed line-clamp-3" style={{ color: "#94a3b8" }}>{excerpt}</p>
         <div className="mt-5 flex items-center justify-between">
-          <span className="flex items-center gap-1.5 text-[12px] font-medium text-white/30 group-hover:text-[#b8aaff] transition-colors duration-300">
+          <span
+            className="flex items-center gap-1.5 text-[12px] font-medium transition-colors duration-300 group-hover:text-[#c4b5fd]"
+            style={{ color: "#64748b" }}
+          >
             Read article
             <ArrowUpRight size={12} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </span>

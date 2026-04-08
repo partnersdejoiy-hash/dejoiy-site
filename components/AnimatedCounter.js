@@ -30,32 +30,32 @@ export default function AnimatedCounter({ value, suffix = "", label, icon }) {
       ref={containerRef}
       className="group relative overflow-hidden rounded-3xl p-8 text-center transition-all duration-500 cursor-default"
       style={{
-        background: "rgba(11,18,38,0.7)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: "1px solid rgba(255,255,255,0.08)",
-        boxShadow: "0 4px 24px rgba(0,0,0,0.35)"
+        background: "rgba(11,18,38,0.88)",
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+        border: "1px solid rgba(255,255,255,0.1)",
+        boxShadow: "0 4px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06)"
       }}
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          background: "radial-gradient(200px circle at 50% 100%, rgba(124,58,237,0.1), transparent)",
+          background: "radial-gradient(220px circle at 50% 100%, rgba(124,58,237,0.15), transparent)",
           borderRadius: "1.5rem"
         }}
       />
 
       <div
         className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"
-        style={{ border: "1px solid rgba(124,58,237,0.25)", boxShadow: "0 0 40px rgba(37,99,235,0.08)" }}
+        style={{ border: "1px solid rgba(124,58,237,0.35)", boxShadow: "0 0 50px rgba(37,99,235,0.1)" }}
       />
 
       {icon && (
         <div
           className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-2xl transition-all duration-300 group-hover:scale-110"
           style={{
-            background: "rgba(124,58,237,0.15)",
-            border: "1px solid rgba(124,58,237,0.25)",
+            background: "rgba(124,58,237,0.2)",
+            border: "1px solid rgba(124,58,237,0.38)",
             color: "#c4b5fd"
           }}
         >
@@ -75,11 +75,11 @@ export default function AnimatedCounter({ value, suffix = "", label, icon }) {
       >
         0{suffix}
       </div>
-      <p className="mt-3 text-[13.5px] font-medium" style={{ color: "#64748b" }}>{label}</p>
+      <p className="mt-3 text-[13.5px] font-medium" style={{ color: "#94a3b8" }}>{label}</p>
 
       <div
         className="absolute bottom-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.5), transparent)" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.6), transparent)" }}
       />
     </div>
   );

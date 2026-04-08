@@ -13,8 +13,8 @@ export default function ContactPage() {
     <div className="min-h-screen">
       <div className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="orb orb-1" style={{ top: "-200px", left: "-100px", opacity: 0.25 }} />
-          <div className="orb orb-2" style={{ top: "-100px", right: "-80px", opacity: 0.2 }} />
+          <div className="orb orb-1" style={{ top: "-200px", left: "-100px", opacity: 0.35 }} />
+          <div className="orb orb-2" style={{ top: "-100px", right: "-80px", opacity: 0.28 }} />
         </div>
         <div className="section-wrap relative">
           <motion.div
@@ -24,11 +24,11 @@ export default function ContactPage() {
             className="max-w-3xl"
           >
             <span className="badge mb-5 inline-flex">Contact</span>
-            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight">
+            <h1 className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight" style={{ color: "#F8FAFC" }}>
               Let's build your next<br />
               <span className="gradient-text">operating advantage</span>
             </h1>
-            <p className="mt-5 text-base text-white/50 leading-relaxed max-w-xl">
+            <p className="mt-5 text-base leading-relaxed max-w-xl" style={{ color: "#94a3b8" }}>
               Tell us about your goals and DEJOIY will design the right support, AI operations or back-office solution.
             </p>
           </motion.div>
@@ -47,19 +47,22 @@ export default function ContactPage() {
             <div className="glass-card rounded-3xl p-6 space-y-5">
               {contactDetails.map((detail) => (
                 <div key={detail.label} className="flex items-start gap-3.5">
-                  <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white/[0.06] text-white/50">
+                  <div
+                    className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: "rgba(37,99,235,0.15)", border: "1px solid rgba(37,99,235,0.28)", color: "#93c5fd" }}
+                  >
                     {detail.icon}
                   </div>
                   <div>
-                    <div className="text-[11px] font-medium uppercase tracking-wider text-white/30 mb-1">
+                    <div className="text-[11px] font-medium uppercase tracking-wider mb-1" style={{ color: "#64748b" }}>
                       {detail.label}
                     </div>
                     {detail.href ? (
-                      <a href={detail.href} className="text-sm font-medium text-white hover:text-white/80 transition-colors">
+                      <a href={detail.href} className="text-sm font-medium transition-colors" style={{ color: "#F8FAFC" }}>
                         {detail.value}
                       </a>
                     ) : (
-                      <div className="text-sm font-medium text-white">{detail.value}</div>
+                      <div className="text-sm font-medium" style={{ color: "#F8FAFC" }}>{detail.value}</div>
                     )}
                   </div>
                 </div>
@@ -67,7 +70,7 @@ export default function ContactPage() {
             </div>
 
             <div className="glass-card rounded-3xl p-6">
-              <div className="text-[11px] font-medium uppercase tracking-wider text-white/30 mb-4">
+              <div className="text-[11px] font-semibold uppercase tracking-wider mb-4" style={{ color: "#64748b" }}>
                 What to expect
               </div>
               <div className="space-y-3">
@@ -77,8 +80,8 @@ export default function ContactPage() {
                   "Tailored solution recommendation",
                   "Clear implementation timeline"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-[13px] text-white/55">
-                    <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#7C3AED] shrink-0" />
+                  <div key={i} className="flex items-start gap-2.5 text-[13px]" style={{ color: "#94a3b8" }}>
+                    <div className="mt-1.5 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #7C3AED, #2563EB)" }} />
                     {item}
                   </div>
                 ))}
@@ -94,7 +97,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="glass-card rounded-3xl p-8">
-              <h2 className="text-[17px] font-semibold text-white mb-6">Send us a message</h2>
+              <h2 className="text-[17px] font-semibold mb-6" style={{ color: "#F8FAFC" }}>Send us a message</h2>
               <ContactForm buttonText="Send message" />
             </div>
           </motion.div>

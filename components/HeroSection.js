@@ -34,9 +34,14 @@ function FloatingBadge({ icon, label, delay, ...pos }) {
           opacity: { delay: delay + 1.4, duration: 0.6 },
           y: { delay: delay + 1.4, duration: 5 + delay, repeat: Infinity, ease: "easeInOut" }
         }}
-        className="flex items-center gap-2 rounded-full border border-white/[0.1] bg-white/[0.05] backdrop-blur-md px-2.5 py-1.5 text-[11px] text-white/65 whitespace-nowrap"
+        className="flex items-center gap-2 rounded-full backdrop-blur-md px-2.5 py-1.5 text-[11px] whitespace-nowrap"
+        style={{
+          background: "rgba(11,18,38,0.82)",
+          border: "1px solid rgba(255,255,255,0.14)",
+          color: "#CBD5E1"
+        }}
       >
-        <span className="text-[#b8aaff]">{icon}</span>
+        <span style={{ color: "#c4b5fd" }}>{icon}</span>
         {label}
       </motion.div>
     </div>
@@ -53,7 +58,7 @@ export default function HeroSection() {
 
           <motion.div variants={stagger} initial="hidden" animate="show">
             <motion.div variants={fadeUp} className="mb-7">
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/30 bg-[#7C3AED]/10 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#b8aaff]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#7C3AED]/40 bg-[#7C3AED]/15 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: "#c4b5fd" }}>
                 <Sparkles size={11} className="animate-pulse" />
                 Premium Global AI + BPO Infrastructure
               </span>
@@ -69,7 +74,8 @@ export default function HeroSection() {
 
             <motion.p
               variants={fadeUp}
-              className="mt-6 max-w-md text-[16px] text-white/50 leading-relaxed"
+              className="mt-6 max-w-md text-[16px] leading-relaxed"
+              style={{ color: "#94a3b8" }}
             >
               DEJOIY combines intelligent automation with human precision — delivering scalable support, AI operations and back-office excellence globally.
             </motion.p>
@@ -77,7 +83,7 @@ export default function HeroSection() {
             <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-[#020617] shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(255,255,255,0.3)] transition-all duration-300"
+                className="group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold text-[#020617] shadow-[0_0_30px_rgba(255,255,255,0.18)] hover:shadow-[0_0_55px_rgba(255,255,255,0.35)] transition-all duration-300"
               >
                 <span className="relative z-10">Speak with an expert</span>
                 <ArrowRight size={16} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
@@ -85,7 +91,12 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/services"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/[0.15] bg-white/[0.04] px-7 py-3.5 text-[14px] font-medium text-white/75 hover:text-white hover:bg-white/[0.08] hover:border-white/[0.25] transition-all duration-300"
+                className="group inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-[14px] font-medium transition-all duration-300"
+                style={{
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  background: "rgba(255,255,255,0.06)",
+                  color: "#CBD5E1"
+                }}
               >
                 Explore services
                 <ArrowRight size={15} className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
@@ -94,7 +105,8 @@ export default function HeroSection() {
 
             <motion.div
               variants={fadeUp}
-              className="mt-12 pt-8 border-t border-white/[0.06] flex flex-wrap gap-x-8 gap-y-5"
+              className="mt-12 pt-8 flex flex-wrap gap-x-8 gap-y-5"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
             >
               {[
                 { value: "250+", label: "Enterprise clients" },
@@ -106,7 +118,7 @@ export default function HeroSection() {
                   <span className="text-[1.75rem] font-bold gradient-text tracking-tight leading-none stat-number">
                     {stat.value}
                   </span>
-                  <span className="text-[11px] text-white/30 tracking-wide">{stat.label}</span>
+                  <span className="text-[11px] tracking-wide" style={{ color: "#64748b" }}>{stat.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -136,11 +148,11 @@ export default function HeroSection() {
         transition={{ delay: 2.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10"
       >
-        <span className="text-[9.5px] uppercase tracking-[0.22em] text-white/20">Scroll</span>
+        <span className="text-[9.5px] uppercase tracking-[0.22em]" style={{ color: "rgba(148,163,184,0.4)" }}>Scroll</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-white/25 to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"
         />
       </motion.div>
     </section>
