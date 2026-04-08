@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -6,6 +6,8 @@ import {
   Newspaper, Sparkles, Phone, ChevronDown, X, Menu,
   ArrowUpRight, MessageCircle
 } from "lucide-react";
+
+const DROPDOWN_W = 680;
 
 const navConfig = [
   {
@@ -64,28 +66,26 @@ const navConfig = [
   }
 ];
 
-/* ─── Shared Desktop Dropdown — always centered in the page ─── */
-function DesktopDropdown({ activeKey }) {
+/* ─── Desktop Dropdown — fixed-positioned, anchored below each button ─── */
+function DesktopDropdown({ activeKey, dropdownPos }) {
   const activeData = navConfig.find(n => n.key === activeKey);
 
   return (
     <AnimatePresence mode="wait">
-      {activeData && (
+      {activeData && dropdownPos && (
         <motion.div
           key={activeKey}
-          initial={{ opacity: 0, y: 10, scale: 0.97 }}
+          initial={{ opacity: 0, y: 8, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 5, scale: 0.97 }}
+          exit={{ opacity: 0, y: 4, scale: 0.97 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            position: "absolute",
-            top: "100%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: 680,
-            maxWidth: "calc(100vw - 32px)",
-            zIndex: 60,
-            paddingTop: 10
+            position: "fixed",
+            top: dropdownPos.top,
+            left: dropdownPos.left,
+            width: dropdownPos.width,
+            zIndex: 9999,
+            pointerEvents: "auto"
           }}
         >
           <div style={{
@@ -99,7 +99,7 @@ function DesktopDropdown({ activeKey }) {
             overflow: "hidden",
             position: "relative"
           }}>
-            {/* shimmer line at top */}
+            {/* shimmer line */}
             <div style={{
               position: "absolute", top: 0, left: 60, right: 60, height: 1,
               background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.55) 35%, rgba(124,58,237,0.55) 65%, transparent)"
@@ -111,11 +111,8 @@ function DesktopDropdown({ activeKey }) {
                   key={i}
                   href={item.href}
                   style={{
-                    display: "flex",
-                    alignItems: "center",       /* ← icons always vertically centred */
-                    gap: 11,
-                    borderRadius: 14,
-                    padding: "13px 13px",
+                    display: "flex", alignItems: "center", gap: 11,
+                    borderRadius: 14, padding: "13px",
                     background: "transparent",
                     transition: "background 0.15s ease",
                     textDecoration: "none"
@@ -123,7 +120,6 @@ function DesktopDropdown({ activeKey }) {
                   onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.055)"}
                   onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                 >
-                  {/* Icon chip — always centred inside itself */}
                   <div style={{
                     display: "flex", alignItems: "center", justifyContent: "center",
                     flexShrink: 0, width: 34, height: 34, borderRadius: 10,
@@ -133,8 +129,6 @@ function DesktopDropdown({ activeKey }) {
                   }}>
                     {item.icon}
                   </div>
-
-                  {/* Text */}
                   <div style={{ minWidth: 0 }}>
                     <div style={{
                       display: "flex", alignItems: "center", gap: 3,
@@ -222,7 +216,6 @@ function MobileNavItem({ item, onClose }) {
                   onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.05)"}
                   onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                 >
-                  {/* Icon — centred */}
                   <div style={{
                     display: "flex", alignItems: "center", justifyContent: "center",
                     flexShrink: 0, width: 36, height: 36, borderRadius: 10,
@@ -252,8 +245,42 @@ function MobileNavItem({ item, onClose }) {
 /* ─── Header ─── */
 export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
+  const [dropdownPos, setDropdownPos] = useState(null);
+  const [mobileOpen, setMobileOpen]  = useState(false);
+  const [scrolled, setScrolled]      = useState(false);
+  const btnRefs = useRef({});
+
+  /* Compute dropdown position anchored below the hovered button, viewport-clamped */
+  const computePos = useCallback((key) => {
+    const btn = btnRefs.current[key];
+    if (!btn) return null;
+    const r = btn.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const PAD = 16;
+    const w = Math.min(DROPDOWN_W, vw - PAD * 2);
+    /* ideal: centred under button */
+    let left = r.left + r.width / 2 - w / 2;
+    /* clamp so it never overflows either edge */
+    left = Math.max(PAD, Math.min(left, vw - w - PAD));
+    return { top: r.bottom + 8, left, width: w };
+  }, []);
+
+  const handleEnter = useCallback((key) => {
+    setActiveMenu(key);
+    setDropdownPos(computePos(key));
+  }, [computePos]);
+
+  /* Re-compute on scroll/resize so the panel stays aligned */
+  useEffect(() => {
+    if (!activeMenu) return;
+    const update = () => setDropdownPos(computePos(activeMenu));
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [activeMenu, computePos]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -265,6 +292,11 @@ export default function Header() {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  const close = useCallback(() => {
+    setActiveMenu(null);
+    setDropdownPos(null);
+  }, []);
 
   return (
     <>
@@ -278,14 +310,13 @@ export default function Header() {
           boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.04)" : "none",
           transition: "background 0.4s ease, border-color 0.4s ease, box-shadow 0.45s ease"
         }}
-        onMouseLeave={() => setActiveMenu(null)}
+        onMouseLeave={close}
       >
-        {/* section-wrap is the dropdown offset parent */}
-        <div className="section-wrap" style={{ position: "relative" }}>
+        <div className="section-wrap">
           <div style={{ display: "flex", height: 64, alignItems: "center", justifyContent: "space-between", gap: 12 }}>
 
             {/* Logo */}
-            <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0, textDecoration: "none" }}>
+            <Link href="/" onClick={close} style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0, textDecoration: "none" }}>
               <img src="/logo.png" alt="DEJOIY" style={{ height: 32, width: 32, objectFit: "contain" }} />
               <div>
                 <div style={{ fontSize: 16, fontWeight: 700, letterSpacing: "-0.025em", lineHeight: 1, color: "#F8FAFC" }}>
@@ -305,8 +336,9 @@ export default function Header() {
                   return (
                     <button
                       key={item.key}
-                      onMouseEnter={() => setActiveMenu(item.key)}
-                      onClick={() => setActiveMenu(active ? null : item.key)}
+                      ref={el => btnRefs.current[item.key] = el}
+                      onMouseEnter={() => handleEnter(item.key)}
+                      onClick={() => active ? close() : handleEnter(item.key)}
                       style={{
                         display: "flex", alignItems: "center", gap: 5,
                         borderRadius: 10, padding: "7px 12px",
@@ -317,7 +349,6 @@ export default function Header() {
                         transition: "background 0.22s ease, border-color 0.22s ease, color 0.22s ease",
                         whiteSpace: "nowrap"
                       }}
-                      onMouseLeave={() => {}}
                     >
                       {item.label}
                       <ChevronDown
@@ -348,20 +379,11 @@ export default function Header() {
                     background: "rgba(255,255,255,0.065)",
                     color: "#B8CADE",
                     backdropFilter: "blur(12px)",
-                    textDecoration: "none",
-                    whiteSpace: "nowrap",
+                    textDecoration: "none", whiteSpace: "nowrap",
                     transition: "background 0.2s ease, color 0.2s ease, border-color 0.2s ease"
                   }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.11)";
-                    e.currentTarget.style.color = "#F8FAFC";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.065)";
-                    e.currentTarget.style.color = "#B8CADE";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.13)";
-                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.11)"; e.currentTarget.style.color = "#F8FAFC"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.065)"; e.currentTarget.style.color = "#B8CADE"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.13)"; }}
                 >
                   <MessageCircle size={13} style={{ flexShrink: 0 }} />
                   Talk to us
@@ -376,14 +398,8 @@ export default function Header() {
                     boxShadow: "0 2px 12px rgba(255,255,255,0.1)",
                     transition: "background 0.2s ease, box-shadow 0.2s ease"
                   }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.background = "rgba(248,250,252,0.9)";
-                    e.currentTarget.style.boxShadow = "0 4px 20px rgba(255,255,255,0.18)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.background = "#F8FAFC";
-                    e.currentTarget.style.boxShadow = "0 2px 12px rgba(255,255,255,0.1)";
-                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(248,250,252,0.9)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(255,255,255,0.18)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "#F8FAFC"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(255,255,255,0.1)"; }}
                 >
                   Get started
                 </Link>
@@ -438,19 +454,18 @@ export default function Header() {
               </AnimatePresence>
             </button>
           </div>
-
-          {/* Shared centered dropdown (desktop only) */}
-          <div className="lg-nav-show" style={{ display: "none" }}>
-            <DesktopDropdown activeKey={activeMenu} />
-          </div>
         </div>
       </header>
+
+      {/* ── Desktop dropdown rendered at fixed position (outside header flow) ── */}
+      <div className="lg-nav-show" style={{ display: "none" }}>
+        <DesktopDropdown activeKey={activeMenu} dropdownPos={dropdownPos} />
+      </div>
 
       {/* ── Mobile overlay ── */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               key="backdrop"
               initial={{ opacity: 0 }}
@@ -467,7 +482,6 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             />
 
-            {/* Glass panel */}
             <motion.div
               key="panel"
               initial={{ opacity: 0, y: -14, scale: 0.98 }}
@@ -475,10 +489,7 @@ export default function Header() {
               exit={{ opacity: 0, y: -8, scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="lg-hide"
-              style={{
-                position: "fixed", top: 64, left: 12, right: 12,
-                zIndex: 45, marginTop: 8
-              }}
+              style={{ position: "fixed", top: 64, left: 12, right: 12, zIndex: 45, marginTop: 8 }}
             >
               <div style={{
                 borderRadius: 24, overflow: "hidden",
@@ -487,10 +498,8 @@ export default function Header() {
                 WebkitBackdropFilter: "blur(36px) saturate(170%)",
                 border: "1px solid rgba(255,255,255,0.1)",
                 boxShadow: "0 36px 90px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.09)",
-                maxHeight: "calc(100dvh - 90px)",
-                overflowY: "auto"
+                maxHeight: "calc(100dvh - 90px)", overflowY: "auto"
               }}>
-                {/* shimmer line */}
                 <div style={{
                   height: 1, width: "100%",
                   background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.55) 30%, rgba(124,58,237,0.55) 70%, transparent)"
@@ -502,7 +511,6 @@ export default function Header() {
                   ))}
                 </div>
 
-                {/* CTA strip */}
                 <div style={{ padding: "8px 12px 14px", borderTop: "1px solid rgba(255,255,255,0.07)", display: "flex", flexDirection: "column", gap: 8 }}>
                   <Link
                     href="/contact"
@@ -513,8 +521,7 @@ export default function Header() {
                       fontSize: 14, fontWeight: 600,
                       background: "linear-gradient(135deg, #2563EB, #7C3AED)",
                       color: "#F8FAFC", textDecoration: "none",
-                      boxShadow: "0 6px 28px rgba(37,99,235,0.32)",
-                      transition: "opacity 0.18s ease"
+                      boxShadow: "0 6px 28px rgba(37,99,235,0.32)"
                     }}
                   >
                     Get started
@@ -541,17 +548,16 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* Responsive helpers */}
       <style>{`
         @media (min-width: 1024px) {
           .lg-nav-show { display: block !important; }
           .lg-cta-show { display: block !important; }
-          .lg-hide     { display: none   !important; }
+          .lg-hide     { display: none  !important; }
         }
         @media (max-width: 1023px) {
-          .lg-nav-show { display: none   !important; }
-          .lg-cta-show { display: none   !important; }
-          .lg-hide     { display: flex   !important; }
+          .lg-nav-show { display: none  !important; }
+          .lg-cta-show { display: none  !important; }
+          .lg-hide     { display: flex  !important; }
         }
       `}</style>
     </>
