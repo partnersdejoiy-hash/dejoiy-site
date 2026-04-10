@@ -249,6 +249,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen]  = useState(false);
   const [scrolled, setScrolled]      = useState(false);
   const btnRefs = useRef({});
+  const closeTimerRef = useRef(null);
 
   /* Compute dropdown position anchored below the hovered button, viewport-clamped */
   const computePos = useCallback((key) => {
@@ -265,10 +266,26 @@ export default function Header() {
     return { top: r.bottom + 8, left, width: w };
   }, []);
 
+  const cancelClose = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }, []);
+
+  const scheduleClose = useCallback(() => {
+    cancelClose();
+    closeTimerRef.current = setTimeout(() => {
+      setActiveMenu(null);
+      setDropdownPos(null);
+    }, 180);
+  }, [cancelClose]);
+
   const handleEnter = useCallback((key) => {
+    cancelClose();
     setActiveMenu(key);
     setDropdownPos(computePos(key));
-  }, [computePos]);
+  }, [computePos, cancelClose]);
 
   /* Re-compute on scroll/resize so the panel stays aligned */
   useEffect(() => {
@@ -294,9 +311,10 @@ export default function Header() {
   }, [mobileOpen]);
 
   const close = useCallback(() => {
+    cancelClose();
     setActiveMenu(null);
     setDropdownPos(null);
-  }, []);
+  }, [cancelClose]);
 
   return (
     <>
@@ -310,7 +328,7 @@ export default function Header() {
           boxShadow: scrolled ? "0 2px 24px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.04)" : "none",
           transition: "background 0.4s ease, border-color 0.4s ease, box-shadow 0.45s ease"
         }}
-        onMouseLeave={close}
+        onMouseLeave={scheduleClose}
       >
         <div className="section-wrap">
           <div style={{ display: "flex", height: 64, alignItems: "center", justifyContent: "space-between", gap: 12 }}>
@@ -458,7 +476,12 @@ export default function Header() {
       </header>
 
       {/* ── Desktop dropdown rendered at fixed position (outside header flow) ── */}
-      <div className="lg-nav-show" style={{ display: "none" }}>
+      <div
+        className="lg-nav-show"
+        style={{ display: "none" }}
+        onMouseEnter={cancelClose}
+        onMouseLeave={scheduleClose}
+      >
         <DesktopDropdown activeKey={activeMenu} dropdownPos={dropdownPos} />
       </div>
 
