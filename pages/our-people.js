@@ -97,6 +97,7 @@ export default function OurPeoplePage() {
                   src={person.image}
                   alt={person.name}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={index >= 2 ? { filter: "brightness(1.35) contrast(1.1) saturate(1.1)" } : {}}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/30 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
