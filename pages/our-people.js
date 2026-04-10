@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import SectionHeading from "../components/SectionHeading";
 import { Linkedin, ArrowRight } from "lucide-react";
 
 const people = [
@@ -55,19 +54,29 @@ export default function OurPeoplePage() {
 
       <div className="section-wrap pb-24">
         <section>
-          <SectionHeading
-            eyebrow="Leadership & Team"
-            title="Meet the people behind DEJOIY"
-            subtitle="A modern workforce built around empathy, precision, security and execution quality."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 24, filter: "blur(3px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl mb-14"
+          >
+            <div className="mb-4">
+              <span className="badge">Leadership & Team</span>
+            </div>
+            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight" style={{ color: "#F8FAFC" }}>
+              Meet the people behind DEJOIY
+            </h2>
+            <p className="mt-4 text-[15px] md:text-base leading-relaxed" style={{ color: "#94a3b8" }}>
+              A modern workforce built around empathy, precision, security and execution quality.
+            </p>
+          </motion.div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {people.map((person, index) => (
               <motion.div
                 key={`${person.name}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + index * 0.06, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -8 }}
                 className="group relative overflow-hidden rounded-3xl min-h-[380px] cursor-pointer"
                 style={{
