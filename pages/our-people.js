@@ -6,7 +6,7 @@ import { Linkedin, ArrowRight } from "lucide-react";
 const people = [
   { name: "Jyoti Sharma", role: "Founder, Director", quote: "Execution excellence is our unfair advantage.", image: "/employees/emp1.jpg" },
   { name: "Anil Sharma", role: "Managing Director, Co-founder", quote: "Human intelligence powers every successful AI workflow.", image: "/employees/emp2.jpg" },
-  { name: "Deepak Sharmar", role: "Chief Technology & Operations Lead", quote: "We design support systems customers actually remember.", image: "/employees/emp3.jpg" },
+  { name: "Deepak Sharma", role: "Chief Technology & Operations Lead", quote: "We design support systems customers actually remember.", image: "/employees/emp3.jpg" },
   { name: "Komal Sharma", role: "Brand & Communications Coordinator", quote: "Trust is built into every process we deliver.", image: "/employees/emp4.jpg" },
   { name: "Dharmendra Sharma", role: "Strategic Advisor", quote: "Scalable systems begin with disciplined execution.", image: "/employees/emp5.jpg" },
   { name: "Deepanshu Chander Yaduvanshi", role: "Web Developer & Digital Infrastructure Engineer", quote: "People strategy is business strategy.", image: "/employees/emp6.jpg" },
@@ -89,7 +89,7 @@ export default function OurPeoplePage() {
                   alt={person.name}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/65 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/30 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
                   <div>
                     <h3 className="text-[15px] font-semibold leading-snug" style={{ color: "#F8FAFC" }}>{person.name}</h3>
