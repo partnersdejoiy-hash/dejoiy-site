@@ -19,6 +19,11 @@ export default function RequestForm({
   intro,
 }) {
   const [values, setValues] = useState(initialValues);
+  const supportEmail = kind === "employee-verification"
+    ? values.verificationType === "background-verification"
+      ? "bgv@dejoiy.com"
+      : "employment-verification@dejoiy.com"
+    : "hello@corp.dejoiy.com";
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
@@ -227,8 +232,8 @@ export default function RequestForm({
             aria-describedby={`${kind}-file-help`}
           />
           <p id={`${kind}-file-help`} className="text-xs text-slate-400 mt-2">
-            PDF only, up to 2 MB. Sent as a private email attachment to the
-            DEJOIY team. Do not include government IDs or unrelated sensitive
+            PDF only, up to 2 MB. Shared privately with the DEJOIY team
+            for this request. Do not include government IDs or unrelated sensitive
             information.
           </p>
           {errors.attachment && (
@@ -267,9 +272,9 @@ export default function RequestForm({
               You can also contact{" "}
               <a
                 className="text-blue-200 underline"
-                href="mailto:hello@corp.dejoiy.com"
+                href={`mailto:${supportEmail}`}
               >
-                hello@corp.dejoiy.com
+                {supportEmail}
               </a>
               .
             </p>
