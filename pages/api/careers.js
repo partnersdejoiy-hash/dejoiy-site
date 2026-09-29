@@ -1,3 +1,3 @@
 import { createHandler } from "../../lib/form-handler.mjs";
 export const config = { api: { bodyParser: { sizeLimit: "3mb" } } };
-export default createHandler("employee-verification");
+export default createHandler("careers");

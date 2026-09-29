@@ -1,64 +1,53 @@
+import "@fontsource/inter/latin-400.css";
+import "@fontsource/inter/latin-600.css";
+import "@fontsource/inter/latin-700.css";
 import "../styles/globals.css";
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
+import { MotionConfig, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SmoothCursor from "../components/SmoothCursor";
-import PageTransition from "../components/PageTransition";
-import PageLoader from "../components/PageLoader";
+import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
-
 export default function App({ Component, pageProps }) {
-  const router = useRouter();
-
+  const reduced = useReducedMotion();
   useEffect(() => {
-    let lenis;
-    let rafId;
-    const initLenis = async () => {
-      try {
-        const Lenis = (await import("lenis")).default;
-        lenis = new Lenis({
-          duration: 1.2,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          orientation: "vertical",
-          gestureOrientation: "vertical",
-          smoothWheel: true,
-          wheelMultiplier: 1,
-          touchMultiplier: 2,
-        });
-
-        function raf(time) {
-          lenis.raf(time);
+    if (
+      reduced ||
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    )
+      return;
+    let lenis,
+      rafId,
+      disposed = false;
+    import("lenis")
+      .then(({ default: Lenis }) => {
+        if (disposed) return;
+        lenis = new Lenis({ duration: 0.85, smoothWheel: true, anchors: true });
+        function raf(t) {
+          lenis.raf(t);
           rafId = requestAnimationFrame(raf);
         }
         rafId = requestAnimationFrame(raf);
-      } catch (e) {
-        console.warn("[Lenis] Failed to initialize smooth scroll:", e.message);
-      }
-    };
-
-    initLenis();
-
+      })
+      .catch(() => {});
     return () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      if (lenis) lenis.destroy();
+      disposed = true;
+      cancelAnimationFrame(rafId);
+      lenis?.destroy();
     };
-  }, []);
-
+  }, [reduced]);
   return (
     <ErrorBoundary>
-      <PageLoader />
-      <SmoothCursor />
-      <Header />
-      <AnimatePresence mode="wait">
-        <PageTransition key={router.pathname}>
-          <ErrorBoundary>
-            <Component {...pageProps} />
-          </ErrorBoundary>
-        </PageTransition>
-      </AnimatePresence>
-      <Footer />
+      <MotionConfig reducedMotion="user">
+        <SEO />
+        <SmoothCursor />
+        <Header />
+        <main id="main-content" tabIndex={-1}>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+      </MotionConfig>
     </ErrorBoundary>
   );
 }

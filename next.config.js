@@ -1,22 +1,22 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: false,
-  images: {
-    unoptimized: true
+module.exports = {
+  reactStrictMode: true,
+  images: { formats: ["image/avif", "image/webp"] },
+  async redirects() {
+    return [
+      { source: "/favicon.ico", destination: "/favicon.png", permanent: true },
+    ];
   },
-  allowedDevOrigins: [
-    process.env.REPLIT_DEV_DOMAIN
-      ? `https://${process.env.REPLIT_DEV_DOMAIN}`
-      : "",
-    process.env.REPLIT_DEV_DOMAIN || "",
-  ].filter(Boolean),
-  webpack(config, { dev }) {
-    if (dev) {
-      config.optimization.moduleIds = "deterministic";
-      config.optimization.chunkIds = "deterministic";
-    }
-    return config;
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "DENY" },
+        ],
+      },
+    ];
   },
 };
-
-module.exports = nextConfig;

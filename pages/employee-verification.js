@@ -4,10 +4,30 @@ import VerificationForm from "../components/VerificationForm";
 import { ShieldCheck, Clock, Lock, FileText } from "lucide-react";
 
 const steps = [
-  { icon: <FileText size={16} />, title: "Submit request", description: "Complete the verification form with the employee's details and your contact information." },
-  { icon: <ShieldCheck size={16} />, title: "DEJOIY reviews", description: "Our HR team verifies the information against our employment records." },
-  { icon: <Clock size={16} />, title: "Response within 3 days", description: "You'll receive a formal verification response within 3 business days." },
-  { icon: <Lock size={16} />, title: "Secure & confidential", description: "All requests are handled securely and in compliance with data privacy standards." }
+  {
+    icon: <FileText size={16} />,
+    title: "Submit request",
+    description:
+      "Complete the verification form with the employee's details and your contact information.",
+  },
+  {
+    icon: <ShieldCheck size={16} />,
+    title: "DEJOIY reviews",
+    description:
+      "Our HR team verifies the information against our employment records.",
+  },
+  {
+    icon: <Clock size={16} />,
+    title: "Review and response",
+    description:
+      "Our team reviews the authorisation and responds to the requesting organisation.",
+  },
+  {
+    icon: <Lock size={16} />,
+    title: "Secure & confidential",
+    description:
+      "Documents are delivered privately to the DEJOIY team, not published on the website.",
+  },
 ];
 
 export default function EmployeeVerificationPage() {
@@ -21,12 +41,17 @@ export default function EmployeeVerificationPage() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl"
           >
-            <span className="badge mb-5 inline-flex">Employee Verification</span>
+            <span className="badge mb-5 inline-flex">
+              Employee Verification
+            </span>
             <h1 className="text-[clamp(2.2rem,5vw,4rem)] font-bold leading-[1.05] tracking-tight">
-              Verify past DEJOIY<br />employees professionally
+              Verify past DEJOIY
+              <br />
+              employees professionally
             </h1>
             <p className="mt-5 text-base text-white/50 leading-relaxed max-w-xl">
-              Submit a formal background verification request. Our HR team will review and respond within 3 business days.
+              Submit a formal background verification request. Our team will
+              review your authorisation and the scope of the request.
             </p>
           </motion.div>
         </div>
@@ -42,7 +67,9 @@ export default function EmployeeVerificationPage() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="glass-card rounded-3xl p-6">
-              <div className="text-[11px] font-medium uppercase tracking-wider text-white/30 mb-5">How it works</div>
+              <div className="text-[11px] font-medium uppercase tracking-wider text-white/30 mb-5">
+                How it works
+              </div>
               <div className="space-y-4">
                 {steps.map((step, i) => (
                   <div key={i} className="flex items-start gap-3.5">
@@ -50,8 +77,12 @@ export default function EmployeeVerificationPage() {
                       {step.icon}
                     </div>
                     <div>
-                      <div className="text-[13.5px] font-semibold text-white">{step.title}</div>
-                      <div className="mt-1 text-[12px] text-white/45 leading-relaxed">{step.description}</div>
+                      <div className="text-[13.5px] font-semibold text-white">
+                        {step.title}
+                      </div>
+                      <div className="mt-1 text-[12px] text-white/45 leading-relaxed">
+                        {step.description}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -59,10 +90,15 @@ export default function EmployeeVerificationPage() {
             </div>
 
             <div className="glass-card rounded-3xl p-6">
-              <div className="text-[11px] font-medium uppercase tracking-wider text-white/30 mb-3">Contact</div>
+              <div className="text-[11px] font-medium uppercase tracking-wider text-white/30 mb-3">
+                Contact
+              </div>
               <div className="text-[13px] text-white/50 leading-relaxed">
                 For urgent verification requests, contact us directly at{" "}
-                <a href="mailto:employment.verification@corp.dejoiy.com" className="text-white/80 hover:text-white transition-colors">
+                <a
+                  href="mailto:employment.verification@corp.dejoiy.com"
+                  className="text-white/80 hover:text-white transition-colors"
+                >
                   employment.verification@corp.dejoiy.com
                 </a>
               </div>
@@ -77,7 +113,9 @@ export default function EmployeeVerificationPage() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="glass-card rounded-3xl p-8">
-              <h2 className="text-[17px] font-semibold text-white mb-6">Verification request form</h2>
+              <h2 className="text-[17px] font-semibold text-white mb-6">
+                Verification request form
+              </h2>
               <VerificationForm />
             </div>
           </motion.div>

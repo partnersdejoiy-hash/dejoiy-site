@@ -10,6 +10,10 @@ export default function SmoothCursor() {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
+    const media = window.matchMedia(
+      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+    );
+    if (!media.matches) return;
     const onMove = (e) => {
       pos.current = { x: e.clientX, y: e.clientY };
       setVisible(true);
@@ -28,7 +32,7 @@ export default function SmoothCursor() {
           target.tagName === "BUTTON" ||
           target.closest("a") ||
           target.closest("button") ||
-          (target.dataset && target.dataset.cursor === "hover")
+          (target.dataset && target.dataset.cursor === "hover"),
         );
         setHovered(isHovered);
       } catch {
@@ -72,7 +76,10 @@ export default function SmoothCursor() {
       >
         <div
           className="h-2 w-2 rounded-full bg-white"
-          style={{ transform: hovered ? "scale(0)" : "scale(1)", transition: "transform 0.2s ease" }}
+          style={{
+            transform: hovered ? "scale(0)" : "scale(1)",
+            transition: "transform 0.2s ease",
+          }}
         />
       </div>
 
@@ -88,7 +95,8 @@ export default function SmoothCursor() {
             borderRadius: "50%",
             border: `1.5px solid ${hovered ? "rgba(124,58,237,0.9)" : "rgba(255,255,255,0.3)"}`,
             background: hovered ? "rgba(124,58,237,0.1)" : "transparent",
-            transition: "width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease",
+            transition:
+              "width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background 0.3s ease",
             marginLeft: hovered ? "-6px" : "0",
             marginTop: hovered ? "-6px" : "0",
           }}
