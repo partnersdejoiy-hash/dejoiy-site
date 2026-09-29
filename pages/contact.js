@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link";
 import ContactForm from "../components/ContactForm";
 import { Mail, MapPin, Clock } from "lucide-react";
 
@@ -65,6 +66,12 @@ export default function ContactPage() {
       </div>
 
       <div className="section-wrap pb-24">
+        <div className="mb-8 p-5 border border-white/10 rounded-2xl text-sm text-slate-300">
+          Looking for careers or employee documents?{" "}
+          <Link href="/help" className="text-blue-200 underline">
+            Find the right support team ↗
+          </Link>
+        </div>
         <div className="grid gap-10 lg:grid-cols-12">
           <motion.div
             className="lg:col-span-4 space-y-5"

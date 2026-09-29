@@ -6,7 +6,10 @@
     "dev": "next dev -p 5000 -H 0.0.0.0",
     "build": "next build",
     "start": "next start -p 5000 -H 0.0.0.0",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "documents:migrate": "node --env-file=.env.local scripts/documents-db.mjs",
+    "documents:cleanup": "node --env-file=.env.local scripts/documents-db.mjs --cleanup",
+    "test:browser": "node tests/documents.browser.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.3.0",
@@ -15,6 +18,7 @@
     "lenis": "^1.3.21",
     "lucide-react": "^0.408.0",
     "next": "^14.2.5",
+    "pg": "^8.23.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "resend": "^3.2.0",
@@ -22,7 +26,10 @@
     "three": "^0.167.1"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@electric-sql/pglite-socket": "^0.2.11",
     "autoprefixer": "^10.4.19",
+    "playwright": "^1.63.0",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.7"
   }

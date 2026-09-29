@@ -14,8 +14,10 @@ export default function Privacy() {
             Business enquiries include your name, work email, company, country,
             selected service and message. Applications include your contact
             details, role of interest, experience and any CV you attach.
-            Verification requests include the requesting organisation, employee
-            details, purpose and an authorisation letter.
+            Employee-document requests include your name, email, location,
+            employee ID if supplied, request type and message. Verification
+            requests include the requesting organisation, employee details,
+            purpose and an authorisation letter.
           </p>
           <h2>How submissions are used</h2>
           <p>
@@ -32,13 +34,42 @@ export default function Privacy() {
             Hosting, email providers and receiving mail systems may retain
             service records according to their own settings and policies.
           </p>
+          <h2>Private document requests, when available</h2>
+          <p>
+            When the private request centre is active, request details, PDF
+            documents, review updates and access records are stored in our
+            configured private PostgreSQL database. Only the verified requester
+            and approved DEJOIY reviewers can access a request through the
+            application. Documents are served as authenticated downloads, not
+            public links. Email notifications contain access instructions rather
+            than document attachments.
+          </p>
+          <p>
+            Access links expire after 15 minutes and can be used once. A
+            necessary, secure session cookie keeps private access available for
+            up to eight hours for requesters and one hour for reviewers. The
+            server stores hashes of access tokens. Portal records expire after
+            90 days; expired records are unavailable through the portal and are
+            removed through scheduled retention maintenance. Provider backups
+            may follow their own retention settings. Email-only submissions
+            remain subject to the receiving mailbox’s retention settings.
+          </p>
+          <p>
+            Verifying an email confirms access to that inbox. It does not
+            establish an entitlement to employment information. The people team
+            must review authority and the underlying records before releasing a
+            document. PDF checks validate file format and size; they are not a
+            malware scan.
+          </p>
           <h2>Technical information</h2>
           <p>
             Hosting services may process connection information to deliver and
             protect the website. The form service temporarily uses a hashed
             network address to limit repeated submissions within a running
-            server instance. The application does not require a visitor account
-            or add advertising cookies.
+            server instance. When private tracking is active, shared database
+            limits help protect access-link requests and submissions. The public
+            website does not require a visitor account or add advertising
+            cookies.
           </p>
           <h2>Questions and requests</h2>
           <p>

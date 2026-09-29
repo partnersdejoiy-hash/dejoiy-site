@@ -1,0 +1,26 @@
+DEJOIY | Your first BPO conversation, prepared.
+Updated: 29 September 2026
+
+A practical checklist for scoping support channels, workload, ownership and launch expectations.
+
+DEFINE THE CUSTOMER JOURNEY
+- List the contact reasons you want help with: order updates, product questions, returns or other needs.
+- Identify channels: voice, email, chat or social support.
+- Describe the locations, languages and working hours that matter.
+
+PREPARE A REALISTIC OPERATING PICTURE
+- Bring approximate daily and peak contact volumes, if known. Use ranges when data is incomplete.
+- List the tools your team currently uses and who owns access approvals.
+- Describe escalation owners, response expectations and any seasonal changes.
+
+AGREE WHAT A PILOT SHOULD PROVE
+- Choose a manageable starting scope and a review date.
+- Define quality, resolution and customer experience measures before launch.
+- Agree what information can be shared and how access and retention will be handled.
+
+START THE DISCUSSION
+- You do not need every answer before contacting us. A clear description of your goals is enough to begin.
+- Do not include customer records, passwords or confidential production data in an initial website enquiry.
+
+General planning guidance. Scope and response commitments are agreed with the DEJOIY team.
+https://business.dejoiy.com/help

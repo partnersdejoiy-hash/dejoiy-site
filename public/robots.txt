@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /staff/
+Disallow: /help/access
+Disallow: /help/track
 Sitemap: https://business.dejoiy.com/sitemap.xml

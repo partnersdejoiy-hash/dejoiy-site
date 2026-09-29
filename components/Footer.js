@@ -33,6 +33,7 @@ export default function Footer() {
               links: [
                 ["Services", "/services"],
                 ["Industries", "/industries"],
+                ["Resource library", "/resources"],
                 ["Insights", "/insights"],
                 ["Delivery examples", "/case-studies"],
               ],
@@ -42,7 +43,10 @@ export default function Footer() {
               links: [
                 ["Brand website", "https://www.dejoiy.co.in"],
                 ["Marketplace", "https://www.dejoiy.com"],
+                ["Help & Documents", "/help"],
+                ["Employee documents", "/employee-documents"],
                 ["Employee verification", "/employee-verification"],
+                ["Track a request", "/help/track"],
               ],
             },
           ].map((g) => (

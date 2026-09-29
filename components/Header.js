@@ -7,9 +7,9 @@ const links = [
   ["Services", "/services"],
   ["Industries", "/industries"],
   ["About", "/about"],
-  ["Our people", "/our-people"],
-  ["Insights", "/insights"],
+  ["Resources", "/resources"],
   ["Careers", "/careers"],
+  ["Help & Docs", "/help"],
 ];
 export default function Header() {
   const [open, setOpen] = useState(false);

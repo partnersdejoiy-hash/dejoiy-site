@@ -1,6 +1,6 @@
 import EmployeeDocumentPage from "../components/EmployeeDocumentPage";
-export default function Verification(props) {
-  return <EmployeeDocumentPage {...props} verification />;
+export default function Documents(props) {
+  return <EmployeeDocumentPage {...props} />;
 }
 export async function getServerSideProps({ res }) {
   res.setHeader("Cache-Control", "private, no-store");

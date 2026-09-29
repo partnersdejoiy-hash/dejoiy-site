@@ -1,0 +1,27 @@
+DEJOIY | Make every handoff easier to own.
+Updated: 29 September 2026
+
+A working checklist for clear escalation, useful knowledge and accountable follow-through.
+
+CAPTURE THE PROBLEM ONCE
+- Record the customer issue, the actions already taken and the outcome needed.
+- Use the approved case system so the next owner can find the history.
+- Keep unnecessary personal details out of escalation summaries.
+
+NAME THE NEXT OWNER
+- Identify the team responsible for the next action.
+- Define when frontline support can resolve a case and when approval is required.
+- Agree the communication channel and response expectations with the receiving team.
+
+KEEP THE CUSTOMER INFORMED
+- Explain what will happen next in plain language.
+- Use realistic updates based on the team’s actual response commitments.
+- Avoid marking a case resolved until the required action and confirmation are complete.
+
+IMPROVE THE SOURCE OF TRUTH
+- Give each knowledge article an owner and last-reviewed date.
+- Include examples, exception paths and the approval boundary.
+- Use repeat contacts and reviewer feedback to identify unclear instructions.
+
+General planning guidance. Scope and response commitments are agreed with the DEJOIY team.
+https://business.dejoiy.com/help

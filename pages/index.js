@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HelpRoutes from "../components/HelpRoutes";
 import HeroSection from "../components/HeroSection";
 import ServiceCard from "../components/ServiceCard";
 import AIServicesViz from "../components/AIServicesViz";
@@ -120,6 +121,18 @@ export default function Home() {
             <InsightCard key={a.slug} {...a} index={i} />
           ))}
         </div>
+      </section>
+      <section className="section-wrap section-space">
+        <div className="section-heading-row">
+          <div>
+            <span className="badge mb-5">Here to help</span>
+            <h2 className="section-title">The right place to start.</h2>
+          </div>
+          <Link href="/help" className="button-secondary">
+            Help & Documents ↗
+          </Link>
+        </div>
+        <HelpRoutes compact />
       </section>
       <CallToAction />
     </>
