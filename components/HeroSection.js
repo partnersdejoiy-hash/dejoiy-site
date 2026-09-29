@@ -1,77 +1,58 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  ArrowRight,
-  Headphones,
-  ShieldCheck,
-  Workflow,
-} from "lucide-react";
-import BackgroundFX from "./BackgroundFX";
-import NeuralNetworkViz from "./NeuralNetworkViz";
+import { ArrowUpRight, ArrowDown, ArrowRight } from "lucide-react";
+import PremiumScene from "./PremiumScene";
 export default function HeroSection() {
+  const reduced = useReducedMotion();
   return (
-    <section className="bpo-hero">
-      <BackgroundFX />
-      <div className="section-wrap relative z-10">
+    <section className="bpo-hero premium-hero">
+      <div className="hero-atmosphere" aria-hidden="true" />
+      <div className="section-wrap relative z-10 w-full">
         <div className="hero-layout">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65 }}
-          >
-            <span className="badge mb-7">
-              Human connection. Operational intelligence.
-            </span>
-            <h1>
-              Exceptional customer
-              <br className="hidden xl:block" /> experiences.
-              <br />
-              <span className="gradient-text">
-                Smarter business
-                <br className="hidden xl:block" /> operations.
-              </span>
+          <div className="hero-editorial">
+            <div className="hero-kicker">
+              <span className="status-dot" /> PEOPLE. PURPOSE. POSSIBILITY.
+            </div>
+            <h1 aria-label="Human at heart. Exceptional by design.">
+              {["Human at", "heart.", "Exceptional", "by design."].map(
+                (line, i) => (
+                  <span className="hero-line" aria-hidden="true" key={line}>
+                    <motion.span
+                      className={i > 1 ? "hero-ink" : undefined}
+                      initial={reduced ? false : { y: "105%" }}
+                      animate={{ y: 0 }}
+                      transition={{
+                        duration: 0.9,
+                        delay: 0.12 + i * 0.1,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                    >
+                      {line}
+                    </motion.span>
+                  </span>
+                ),
+              )}
             </h1>
             <p className="hero-description">
-              Your customers deserve care. Your teams deserve clarity. Bring
-              both together with DEJOIY’s customer support, back-office
-              operations and AI-assisted workflows.
+              Customer experience. Business operations. AI-assisted delivery.
+              Connected by people who care about getting it right.
             </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Link href="/contact" className="button-primary">
-                Build your support team <ArrowUpRight size={18} />
+                Build with DEJOIY <ArrowUpRight size={18} />
               </Link>
               <Link href="/services" className="button-secondary">
-                Explore services <ArrowRight size={16} />
+                Explore our expertise <ArrowRight size={16} />
               </Link>
             </div>
-            <div className="hero-pillars">
-              <span>
-                <Headphones size={16} />
-                Customer experience
-              </span>
-              <span>
-                <Workflow size={16} />
-                Business operations
-              </span>
-              <span>
-                <ShieldCheck size={16} />
-                Quality by design
-              </span>
-            </div>
-          </motion.div>
-          <div className="hero-network">
-            <div className="network-label">
-              <span className="status-dot" />
-              CONNECTED BY PEOPLE
-            </div>
-            <NeuralNetworkViz />
-            <div className="network-caption">
-              <span>Human judgment</span>
-              <span className="text-purple-300">×</span>
-              <span>Intelligent workflows</span>
+            <div className="hero-footnote">
+              <span>BPO & CUSTOMER EXPERIENCE</span>
+              <a href="#our-approach">
+                Discover the difference <ArrowDown size={14} />
+              </a>
             </div>
           </div>
+          <PremiumScene />
         </div>
       </div>
     </section>

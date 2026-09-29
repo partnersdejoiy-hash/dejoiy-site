@@ -178,3 +178,20 @@ Next servers (portal enabled and email fallback) and a fake Resend endpoint.
 `PORTAL_ONLY=1` limits a rerun to the private journey. Local ports 5000, 5002,
 5051 and 5434 must be available. Test evidence is written to ignored
 `test-results/documents/`. The test contains only synthetic example.com data.
+
+## Visual and motion system
+
+The homepage uses ThreeUI Community's MIT-licensed `LiquidFormBackground`
+(`@designcodeio/threeui` 1.2.0; see `THREEUI-LICENSE.txt`) inside the DEJOIY
+capability explorer. The original renderer is dynamically loaded, without
+copying Pro components or changing the DEJOIY logo. Only capable fine-pointer
+desktops mount WebGL; mobile, data-saving, reduced-motion and unsupported
+browsers receive the CSS sculpture. Offscreen, hidden-tab and paused scenes
+unmount the renderer. The hero includes a pause control. No site content or
+forms depend on the shader loading successfully.
+The renderer starts after the headline entrance and falls back if the initial
+frame sample is below 22 fps or the WebGL context is lost.
+
+Scroll text, section reveals, reading progress and tactile controls share the
+navy/blue/lilac design system. The capability controls are real buttons and
+link to the relevant services; decorative visuals do not represent live data.

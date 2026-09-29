@@ -1,6 +1,7 @@
 import Link from "next/link";
 import HelpRoutes from "../components/HelpRoutes";
 import HeroSection from "../components/HeroSection";
+import ExperienceStatement from "../components/ExperienceStatement";
 import ServiceCard from "../components/ServiceCard";
 import AIServicesViz from "../components/AIServicesViz";
 import WorkflowStory from "../components/WorkflowStory";
@@ -23,6 +24,7 @@ export default function Home() {
           <span>Quality review</span>
         </div>
       </div>
+      <ExperienceStatement />
       <section className="section-wrap section-space">
         <div className="section-heading-row">
           <div>

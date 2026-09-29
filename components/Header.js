@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Brand from "./Brand";
+import ScrollProgress from "./ScrollProgress";
 const links = [
   ["Services", "/services"],
   ["Industries", "/industries"],
@@ -34,6 +35,7 @@ export default function Header() {
         Skip to content
       </a>
       <header className="site-header">
+        <ScrollProgress />
         <div className="section-wrap header-row">
           <Brand />
           <nav aria-label="Main navigation" className="desktop-nav">

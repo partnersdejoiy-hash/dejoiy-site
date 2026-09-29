@@ -151,6 +151,49 @@ try {
       console.log("API failure", response.status(), await response.text());
   });
   if (!process.env.PORTAL_ONLY) {
+    await page.goto("http://127.0.0.1:5002/");
+    await page.locator("h1").waitFor();
+    check(
+      "reduced motion keeps the hero readable without WebGL",
+      (await page.locator(".dejoiy-liquid canvas").count()) === 0 &&
+        (await page
+          .getByRole("heading", {
+            name: "Human at heart. Exceptional by design.",
+          })
+          .isVisible()),
+    );
+    await page.screenshot({
+      path: path.join(output, "enterprise-home-desktop.png"),
+    });
+    await page.getByRole("button", { name: /02.*Operations/ }).click();
+    check(
+      "hero capability control updates its service destination",
+      (await page
+        .getByRole("link", { name: "Explore operations", exact: false })
+        .getAttribute("href")) === "/services/back-office",
+    );
+    const motionContext = await browser.newContext({
+      viewport: { width: 1440, height: 1000 },
+      reducedMotion: "no-preference",
+    });
+    const motionPage = await motionContext.newPage();
+    motionPage.on("pageerror", (e) => errors.push(e.message));
+    await motionPage.goto("http://127.0.0.1:5002/");
+    await motionPage
+      .getByRole("button", { name: "Pause hero animation", exact: true })
+      .click();
+    check(
+      "hero pause stops ambient animation",
+      (await motionPage.locator(".premium-scene.scene-still").count()) === 1 &&
+        (await motionPage.locator(".dejoiy-liquid canvas").count()) === 0,
+    );
+    await motionPage
+      .getByRole("button", { name: "Play hero animation", exact: true })
+      .click();
+    await motionPage
+      .getByRole("button", { name: "Pause hero animation", exact: true })
+      .waitFor();
+    await motionContext.close();
     const routes = [
       "/",
       "/help",
@@ -166,6 +209,13 @@ try {
       "/contact",
       "/insights",
       "/privacy",
+      "/services",
+      "/services/customer-experience",
+      "/industries",
+      "/about",
+      "/careers",
+      "/our-people",
+      "/case-studies",
     ];
     for (const route of routes) {
       const response = await page.goto("http://127.0.0.1:5002" + route);
@@ -261,20 +311,44 @@ try {
         sent.at(-1).text.includes("requestType: final-pay"),
     );
     await page.goto("http://127.0.0.1:5002/employee-verification");
-    await page.getByRole("button", { name: /Background verification \(BGV\)/ }).click();
-    await page.getByRole("heading", { name: "Background verification (BGV)", exact: true }).waitFor();
+    await page
+      .getByRole("button", { name: /Background verification \(BGV\)/ })
+      .click();
+    await page
+      .getByRole("heading", {
+        name: "Background verification (BGV)",
+        exact: true,
+      })
+      .waitFor();
     for (const [label, value] of [
       ["Requesting company", "Example Checks"],
       ["Business email", "checks@example.com"],
       ["Employee full name", "Sample Employee"],
-      ["Purpose and scope of verification", "Authorised background check of employment dates."],
-    ]) await page.getByLabel(label, { exact: false }).fill(value);
-    await page.locator("input[type=file]").setInputFiles({ name: "permission.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n1 0 obj <<>> endobj\n%%EOF") });
+      [
+        "Purpose and scope of verification",
+        "Authorised background check of employment dates.",
+      ],
+    ])
+      await page.getByLabel(label, { exact: false }).fill(value);
+    await page
+      .locator("input[type=file]")
+      .setInputFiles({
+        name: "permission.pdf",
+        mimeType: "application/pdf",
+        buffer: Buffer.from("%PDF-1.4\n1 0 obj <<>> endobj\n%%EOF"),
+      });
     await page.locator("[name=consent]").check();
     await wait(1600);
-    await page.getByRole("button", { name: "Submit verification request" }).click();
+    await page
+      .getByRole("button", { name: "Submit verification request" })
+      .click();
     await page.getByRole("status").waitFor();
-    check("BGV form delivers only to its separate inbox", sent.at(-1).to[0] === "bgv@example.com" && sent.at(-1).subject.startsWith("Background verification") && sent.at(-1).attachments.length === 1);
+    check(
+      "BGV form delivers only to its separate inbox",
+      sent.at(-1).to[0] === "bgv@example.com" &&
+        sent.at(-1).subject.startsWith("Background verification") &&
+        sent.at(-1).attachments.length === 1,
+    );
     await page.goto("http://127.0.0.1:5002/help/track");
     check(
       "offline tracking is honest",
@@ -290,6 +364,12 @@ try {
     });
     const mp = await mobile.newPage();
     mp.on("pageerror", (e) => errors.push(e.message));
+    await mp.goto("http://127.0.0.1:5002/");
+    await mp.locator("h1").waitFor();
+    await mp.screenshot({
+      path: path.join(output, "enterprise-home-mobile.png"),
+      fullPage: true,
+    });
     for (const route of routes) {
       await mp.goto("http://127.0.0.1:5002" + route);
       await mp.locator("h1").waitFor();
@@ -370,13 +450,11 @@ try {
   ])
     await page.getByLabel(label, { exact: false }).fill(value);
   const pdf = Buffer.from("%PDF-1.4\n1 0 obj <<>> endobj\n%%EOF");
-  await page
-    .locator("input[type=file]")
-    .setInputFiles({
-      name: "permission.pdf",
-      mimeType: "application/pdf",
-      buffer: pdf,
-    });
+  await page.locator("input[type=file]").setInputFiles({
+    name: "permission.pdf",
+    mimeType: "application/pdf",
+    buffer: pdf,
+  });
   await page.locator("[name=consent]").check();
   await page
     .getByRole("button", { name: "Submit document request", exact: true })
@@ -436,13 +514,11 @@ try {
   await sp
     .getByLabel("Update visible to the requester")
     .fill("The authorised test document is ready.");
-  await sp
-    .locator("input[type=file]")
-    .setInputFiles({
-      name: "approved.pdf",
-      mimeType: "application/pdf",
-      buffer: pdf,
-    });
+  await sp.locator("input[type=file]").setInputFiles({
+    name: "approved.pdf",
+    mimeType: "application/pdf",
+    buffer: pdf,
+  });
   await sp.locator("[name=releaseConfirmed]").check();
   await sp.getByRole("button", { name: "Save review update" }).click();
   await sp.getByRole("status").filter({ hasText: "Update saved." }).waitFor();
