@@ -42,7 +42,8 @@ Server-only environment variables (never prefix these with `NEXT_PUBLIC_`):
 | `RESEND_API_KEY`        | Resend sending credential, required for form delivery                                   |
 | `FROM_EMAIL`            | Sender address on a Resend-verified domain; existing fallback is the Resend test sender |
 | `CONTACT_EMAIL`         | Business enquiry recipient; fallback `hello@corp.dejoiy.com`                            |
-| `VERIFICATION_TO_EMAIL` | Verification recipient; falls back to `CONTACT_EMAIL`                                   |
+| `VERIFICATION_TO_EMAIL` | Employment verification recipient; required for this route                              |
+| `BGV_TO_EMAIL`          | Background verification recipient; required for BGV                                     |
 | `CAREERS_EMAIL`         | Application recipient; falls back to `CONTACT_EMAIL`                                    |
 
 Forms call `/api/contact`, `/api/careers` and `/api/employee-verification`.

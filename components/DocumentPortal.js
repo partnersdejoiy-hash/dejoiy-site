@@ -299,7 +299,7 @@ export function RequestComposer({
             ["name", "Employee full name", true],
             ["employeeId", "Employee ID", false],
             ["location", "Employment location", true],
-            ...(type === "employment-verification"
+            ...(requestType.attachmentRequired
               ? [["company", "Requesting organisation", true]]
               : []),
           ].map(([name, label, required]) => (

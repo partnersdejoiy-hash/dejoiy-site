@@ -1,8 +1,9 @@
 import RequestForm from "./RequestForm";
-export default function VerificationForm() {
+export default function VerificationForm({ requestType = "employment-verification" }) {
   return (
     <RequestForm
       kind="employee-verification"
+      initialValues={{ verificationType: requestType }}
       submitLabel="Submit verification request"
       attachment={{ label: "Authorisation letter", required: true }}
       fields={[

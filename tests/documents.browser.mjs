@@ -62,6 +62,8 @@ const env = {
   FROM_EMAIL: "test@example.com",
   CONTACT_EMAIL: "test@example.com",
   DOCUMENTS_NOTIFY_EMAIL: "hr@example.com",
+  VERIFICATION_TO_EMAIL: "verification@example.com",
+  BGV_TO_EMAIL: "bgv@example.com",
   DOCUMENTS_STAFF_EMAILS: "hr@example.com",
   DOCUMENTS_SITE_URL: "http://127.0.0.1:5000",
 };
@@ -258,6 +260,21 @@ try {
         sent.at(-1).to[0] === "hr@example.com" &&
         sent.at(-1).text.includes("requestType: final-pay"),
     );
+    await page.goto("http://127.0.0.1:5002/employee-verification");
+    await page.getByRole("button", { name: /Background verification \(BGV\)/ }).click();
+    await page.getByRole("heading", { name: "Background verification (BGV)", exact: true }).waitFor();
+    for (const [label, value] of [
+      ["Requesting company", "Example Checks"],
+      ["Business email", "checks@example.com"],
+      ["Employee full name", "Sample Employee"],
+      ["Purpose and scope of verification", "Authorised background check of employment dates."],
+    ]) await page.getByLabel(label, { exact: false }).fill(value);
+    await page.locator("input[type=file]").setInputFiles({ name: "permission.pdf", mimeType: "application/pdf", buffer: Buffer.from("%PDF-1.4\n1 0 obj <<>> endobj\n%%EOF") });
+    await page.locator("[name=consent]").check();
+    await wait(1600);
+    await page.getByRole("button", { name: "Submit verification request" }).click();
+    await page.getByRole("status").waitFor();
+    check("BGV form delivers only to its separate inbox", sent.at(-1).to[0] === "bgv@example.com" && sent.at(-1).subject.startsWith("Background verification") && sent.at(-1).attachments.length === 1);
     await page.goto("http://127.0.0.1:5002/help/track");
     check(
       "offline tracking is honest",

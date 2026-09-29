@@ -230,3 +230,22 @@ test("careers validates role and routes CV attachment", async () => {
     validate("careers", { ...payload, role: "Unknown role" }).fields.role,
   );
 });
+test("BGV routes only to its configured inbox and refuses unknown or missing routes", async () => {
+  let sent;
+  const payload = { ...verification, verificationType: "background-verification", to: "attacker@example.com" };
+  const send = async (mail) => { sent = mail; return { data: { id: "mock-bgv" } }; };
+  const routingEnv = { ...env, VERIFICATION_TO_EMAIL: "verification@example.com", BGV_TO_EMAIL: "bgv@example.com" };
+  const res = await call("employee-verification", request({ body: payload }), send, { env: routingEnv });
+  assert.equal(res.code, 200);
+  assert.deepEqual(sent.to, ["bgv@example.com"]);
+  assert.match(sent.subject, /Background verification/);
+  assert.equal(sent.attachments[0].content, pdf);
+  for (const [body, configured, expected] of [
+    [payload, { ...env, VERIFICATION_TO_EMAIL: "verification@example.com" }, 503],
+    [{ ...payload, verificationType: "invented" }, routingEnv, 400],
+    [{ ...payload, attachment: null }, routingEnv, 400],
+  ]) {
+    const result = await call("employee-verification", request({ body }), async () => { throw Error("Must not send"); }, { env: configured });
+    assert.equal(result.code, expected);
+  }
+});

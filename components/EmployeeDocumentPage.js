@@ -56,10 +56,10 @@ export default function EmployeeDocumentPage({
             <div className="document-type-list">
               {(verification
                 ? documentTypes.filter(
-                    (t) => t.id === "employment-verification",
+                    (t) => t.attachmentRequired,
                   )
                 : documentTypes.filter(
-                    (t) => t.id !== "employment-verification",
+                    (t) => !t.attachmentRequired,
                   )
               ).map((t) => (
                 <button
@@ -136,7 +136,7 @@ export default function EmployeeDocumentPage({
                   for follow-up; online status tracking is not available yet.
                 </p>
                 {verification ? (
-                  <VerificationForm />
+                  <VerificationForm key={type} requestType={type} />
                 ) : (
                   <RequestForm
                     key={type}

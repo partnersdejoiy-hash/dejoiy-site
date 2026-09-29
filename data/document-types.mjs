@@ -53,6 +53,21 @@ export const documentTypes = [
     attachmentRequired: true,
   },
   {
+    id: "background-verification",
+    title: "Background verification (BGV)",
+    audience: "Authorised organisations",
+    description:
+      "Send an authorised background-check request to the BGV team.",
+    checklist: [
+      "Your organisation and work email",
+      "Employee name and ID, if available",
+      "Scope of the background check and relevant employment dates",
+      "Employee authorisation letter — PDF, up to 2 MB",
+    ],
+    note: "The BGV team reviews authorisation and the requested scope before responding. Do not include government IDs, bank details or unrelated personal records.",
+    attachmentRequired: true,
+  },
+  {
     id: "other",
     title: "Another employee request",
     audience: "Employees & former employees",
