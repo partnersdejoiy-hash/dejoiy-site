@@ -5,5 +5,5 @@ export default function Verification(props) {
 export async function getServerSideProps({ res }) {
   res.setHeader("Cache-Control", "private, no-store");
   const { portalAvailable } = await import("../lib/documents/store.mjs");
-  return { props: { enabled: await portalAvailable() } };
+  return { props: { ticketing: process.env.ORBITDESK_ENABLED === "true", enabled: process.env.ORBITDESK_ENABLED === "true" ? false : await portalAvailable() } };
 }
