@@ -195,3 +195,12 @@ frame sample is below 22 fps or the WebGL context is lost.
 Scroll text, section reveals, reading progress and tactile controls share the
 navy/blue/lilac design system. The capability controls are real buttons and
 link to the relevant services; decorative visuals do not represent live data.
+
+
+## Verification tickets in OrbitDesk
+
+BGV and employment forms can create private tickets in `partnersdejoiy-hash/Enterprise-Ticketing`. Set `ORBITDESK_URL` to its HTTPS origin and `ORBITDESK_INTAKE_SECRET` to the same server-only key as its `BUSINESS_SITE_INTAKE_SECRET`. Then set `ORBITDESK_ENABLED=true`. Never use a `NEXT_PUBLIC_` prefix. Complete the receiver's migration and approved department routing before enabling it.
+
+The API validates and signs submissions, waits for committed ticket/file storage, then displays the ticket number. Retries reuse the request UUID. If storage fails the form reports an error; email-only success is never substituted while ticketing is enabled. Notification failure after storage is reported separately. The two existing inboxes receive reference-only notifications. With the flag off, the existing email workflow continues. The separate private document portal is not used for these two form types when ticketing is enabled.
+
+The intake creates requests, not verification decisions. Staff must independently verify the requester and authorisation before releasing employee information.

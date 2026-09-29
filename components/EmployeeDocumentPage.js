@@ -14,6 +14,7 @@ import {
 import { documentTypes, findDocumentType } from "../data/document-types.mjs";
 export default function EmployeeDocumentPage({
   enabled,
+  ticketing = false,
   verification = false,
 }) {
   const [type, setType] = useState(
@@ -132,8 +133,7 @@ export default function EmployeeDocumentPage({
                   {selected.title}
                 </h2>
                 <p className="text-sm text-slate-400 leading-relaxed mb-6">
-                  Your request is sent to our team by email. Keep the reference
-                  for follow-up; online status tracking is not available yet.
+                  {ticketing ? "Your request and authorisation are saved as a private ticket for our team. Keep the ticket number for follow-up. Online requester tracking is not available yet." : "Your request is sent to our team by email. Keep the reference for follow-up; online status tracking is not available yet."}
                 </p>
                 {verification ? (
                   <VerificationForm key={type} requestType={type} />

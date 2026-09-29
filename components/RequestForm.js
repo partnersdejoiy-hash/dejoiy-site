@@ -89,7 +89,7 @@ export default function RequestForm({
       }
       setStatus({
         ok: true,
-        message: `Your request has been accepted for email delivery to our team. Reference: ${result.reference}.`,
+        message: result.ticketNumber ? `Your request has been saved. Ticket: ${result.ticketNumber}. Our team will review your authorisation and contact you.${result.notificationAccepted === false ? " The email notification is delayed; your ticket is safely recorded." : ""}` : `Your request has been accepted for email delivery to our team. Reference: ${result.reference}.`,
       });
       setValues(initialValues);
       setFile(null);
