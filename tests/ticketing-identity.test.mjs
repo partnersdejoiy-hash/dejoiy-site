@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { createVerificationTicket } from "../lib/ticketing.mjs";
 
 test("production uses server workload identity without a shared secret", async () => {
-  const env = { VERCEL: "1", VERCEL_ENV: "production", ORBITDESK_URL: "https://orbitdesk-dejoiy.vercel.app" };
+  const env = { VERCEL: "1", VERCEL_ENV: "production", ORBITDESK_URL: "https://orbitdesk.dejoiy.com" };
   let calls = 0;
   const fetcher = async (url, options) => {
     calls++;
