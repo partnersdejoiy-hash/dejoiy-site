@@ -2,7 +2,7 @@ import Link from "next/link";
 import HelpRoutes from "../components/HelpRoutes";
 import HeroSection from "../components/HeroSection";
 import ExperienceStatement from "../components/ExperienceStatement";
-import ServiceCard from "../components/ServiceCard";
+import ServiceIndex from "../components/ServiceIndex";
 import AIServicesViz from "../components/AIServicesViz";
 import WorkflowStory from "../components/WorkflowStory";
 import WorldPresence from "../components/WorldPresence";
@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <div className="capability-strip">
+      <div className="capability-strip" id="capabilities">
         <div className="section-wrap flex flex-wrap justify-between gap-5">
-          <span>BUILT AROUND YOUR BUSINESS</span>
+          <span>Built around your business</span>
           <span>Customer care</span>
           <span>Back-office support</span>
           <span>Human-in-the-loop AI</span>
@@ -26,48 +26,49 @@ export default function Home() {
       </div>
       <ExperienceStatement />
       <section className="section-wrap section-space">
-        <div className="section-heading-row">
+        <div className="section-heading-row" data-reveal>
           <div>
             <span className="badge mb-5">What we do</span>
             <h2 className="section-title">
               Your operations.
               <br />
-              Our shared focus.
+              <em className="u-serif">Our shared focus.</em>
             </h2>
           </div>
           <p className="section-copy max-w-md">
             Bring your customer journeys, everyday processes and specialist
-            workflows into a delivery model that works together.
+            workflows into a delivery model that works together. Eight
+            capabilities, one connected index — choose where to begin.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
-          {services.map((s, i) => (
-            <ServiceCard key={s.slug} {...s} index={i} />
-          ))}
-        </div>
+        <ServiceIndex services={services} />
       </section>
       <WorkflowStory />
       <section className="section-wrap section-space">
-        <span className="badge mb-5">Explore the workflow</span>
-        <h2 className="section-title">
-          Human expertise.
-          <br />
-          <span className="gradient-text">Intelligent connections.</span>
-        </h2>
-        <p className="section-copy mb-10">
-          Choose a capability to explore its workflow. These diagrams illustrate
-          the approach, rather than live operational data.
-        </p>
-        <AIServicesViz />
+        <div data-reveal>
+          <span className="badge mb-5">Explore the workflow</span>
+          <h2 className="section-title">
+            Human expertise.
+            <br />
+            <span className="gradient-text">Intelligent connections.</span>
+          </h2>
+          <p className="section-copy mb-10">
+            Choose a capability to explore its workflow. These diagrams
+            illustrate the approach, rather than live operational data.
+          </p>
+        </div>
+        <div data-reveal>
+          <AIServicesViz />
+        </div>
       </section>
       <section className="section-wrap section-space">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <div data-reveal>
             <span className="badge mb-5">Designed for your market</span>
             <h2 className="section-title">
               Connected teams.
               <br />
-              Considered coverage.
+              <em className="u-serif">Considered coverage.</em>
             </h2>
             <p className="section-copy">
               Build support around your customers’ location, language and
@@ -89,17 +90,19 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <WorldPresence />
+          <div data-reveal>
+            <WorldPresence />
+          </div>
         </div>
       </section>
       <section className="section-wrap section-space">
-        <div className="section-heading-row">
+        <div className="section-heading-row" data-reveal>
           <div>
             <span className="badge mb-5">People make the difference</span>
             <h2 className="section-title">
               Built by people.
               <br />
-              For people.
+              <em className="u-serif">For people.</em>
             </h2>
           </div>
           <Link href="/our-people" className="button-secondary">
@@ -109,7 +112,7 @@ export default function Home() {
         <EmployeeGrid />
       </section>
       <section className="section-wrap section-space">
-        <div className="section-heading-row">
+        <div className="section-heading-row" data-reveal>
           <div>
             <span className="badge mb-5">Ideas for better operations</span>
             <h2 className="section-title">A closer look at the work.</h2>
@@ -125,7 +128,7 @@ export default function Home() {
         </div>
       </section>
       <section className="section-wrap section-space">
-        <div className="section-heading-row">
+        <div className="section-heading-row" data-reveal>
           <div>
             <span className="badge mb-5">Here to help</span>
             <h2 className="section-title">The right place to start.</h2>
