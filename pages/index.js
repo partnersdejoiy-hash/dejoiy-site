@@ -2,57 +2,54 @@ import Link from "next/link";
 import HelpRoutes from "../components/HelpRoutes";
 import HeroSection from "../components/HeroSection";
 import ExperienceStatement from "../components/ExperienceStatement";
-import ServiceCard from "../components/ServiceCard";
+import ServiceOrbit from "../components/ServiceOrbit";
 import AIServicesViz from "../components/AIServicesViz";
 import WorkflowStory from "../components/WorkflowStory";
 import WorldPresence from "../components/WorldPresence";
 import EmployeeGrid from "../components/EmployeeGrid";
 import CallToAction from "../components/CallToAction";
 import InsightCard from "../components/InsightCard";
-import { services } from "../data/services";
 import { insights } from "../data/insights";
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <div className="capability-strip">
-        <div className="section-wrap flex flex-wrap justify-between gap-5">
-          <span>BUILT AROUND YOUR BUSINESS</span>
-          <span>Customer care</span>
-          <span>Back-office support</span>
-          <span>Human-in-the-loop AI</span>
-          <span>Quality review</span>
+      <div className="signal-strip" aria-label="What DEJOIY delivers">
+        <div className="signal-track">
+          {[0, 1].map((copy) => (
+            <ul key={copy} aria-hidden={copy === 1 ? "true" : undefined}>
+              {[
+                "Customer support",
+                "Voice · Chat · Email",
+                "Back-office support",
+                "Data entry",
+                "Technical support",
+                "Human-in-the-loop AI",
+                "Quality review",
+              ].map((item) => (
+                <li key={item}>
+                  <span aria-hidden="true">✦</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </div>
       <ExperienceStatement />
-      <section className="section-wrap section-space">
-        <div className="section-heading-row">
-          <div>
-            <span className="badge mb-5">What we do</span>
-            <h2 className="section-title">
-              Your operations.
-              <br />
-              Our shared focus.
-            </h2>
-          </div>
-          <p className="section-copy max-w-md">
-            Bring your customer journeys, everyday processes and specialist
-            workflows into a delivery model that works together.
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
-          {services.map((s, i) => (
-            <ServiceCard key={s.slug} {...s} index={i} />
-          ))}
-        </div>
-      </section>
+      <ServiceOrbit />
+      <div className="section-wrap orbit-more">
+        <Link href="/services" className="button-ghost">
+          See all eight service lines ↗
+        </Link>
+      </div>
       <WorkflowStory />
       <section className="section-wrap section-space">
         <span className="badge mb-5">Explore the workflow</span>
         <h2 className="section-title">
           Human expertise.
           <br />
-          <span className="gradient-text">Intelligent connections.</span>
+          <em className="serif-accent">Intelligent connections.</em>
         </h2>
         <p className="section-copy mb-10">
           Choose a capability to explore its workflow. These diagrams illustrate

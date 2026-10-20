@@ -1,16 +1,23 @@
-import "@fontsource/inter/latin-400.css";
-import "@fontsource/inter/latin-600.css";
-import "@fontsource/inter/latin-700.css";
 import "../styles/globals.css";
+import "../styles/universe.css";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import { MotionConfig, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SmoothCursor from "../components/SmoothCursor";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
+import useUniverseMotion from "../components/useUniverseMotion";
+const CosmosCanvas = dynamic(() => import("../components/CosmosCanvas"), {
+  ssr: false,
+  loading: () => <div className="cosmos" aria-hidden="true"><div className="cosmos-fallback" /></div>,
+});
 export default function App({ Component, pageProps }) {
   const reduced = useReducedMotion();
+  const router = useRouter();
+  useUniverseMotion(router.asPath);
   useEffect(() => {
     if (
       reduced ||
@@ -41,6 +48,8 @@ export default function App({ Component, pageProps }) {
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">
         <SEO />
+        <CosmosCanvas variant={router.pathname === "/" ? "home" : "page"} />
+        <div className="grain" aria-hidden="true" />
         <SmoothCursor />
         <Header />
         <main id="main-content" tabIndex={-1}>

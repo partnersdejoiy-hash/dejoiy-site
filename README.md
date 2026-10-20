@@ -69,6 +69,12 @@ on email delivery. `RESEND_BASE_URL` must not be set to a test server in product
 
 ## Motion and images
 
+- Universe theme: `components/CosmosCanvas.js` renders one fixed Three.js scene
+  (nebula, starfield, orbital core) behind every page; `styles/universe.css`
+  holds the visual layer and `components/useUniverseMotion.js` the GSAP
+  ScrollTrigger reveals. Without WebGL, with Save-Data or on shader failure the
+  static CSS sky is shown; reduced motion renders a single still frame.
+
 - MotionConfig respects reduced motion; looping visualisations use static
   alternatives and stop when outside the viewport.
 - Lenis and the custom cursor are limited to fine-pointer devices without a

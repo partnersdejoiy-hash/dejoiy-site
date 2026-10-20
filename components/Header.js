@@ -50,7 +50,10 @@ export default function Header() {
             ))}
           </nav>
           <Link href="/contact" className="button-primary header-cta">
-            Let’s talk <ArrowUpRight size={16} />
+            Let’s talk
+            <span className="btn-orb" aria-hidden="true">
+              <ArrowUpRight size={15} />
+            </span>
           </Link>
           <button
             ref={toggle}

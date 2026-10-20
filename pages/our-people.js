@@ -6,13 +6,13 @@ import { Linkedin, ArrowRight } from "lucide-react";
 const people = [
   {
     name: "Jyoti Sharma",
-    role: "Founder, Director",
+    role: "Founder & CEO",
     quote: "Execution excellence is our unfair advantage.",
     image: "/employees/emp1.jpg",
   },
   {
     name: "Anil Sharma",
-    role: "Managing Director, Co-founder",
+    role: "Managing Director",
     quote: "Human intelligence powers every successful AI workflow.",
     image: "/employees/emp2.jpg",
   },

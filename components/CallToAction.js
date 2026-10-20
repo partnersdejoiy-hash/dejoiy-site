@@ -10,7 +10,7 @@ export default function CallToAction() {
           <h2 className="font-semibold tracking-tight max-w-xl">
             Great things start
             <br />
-            with a conversation.
+            with a <em className="serif-accent">conversation.</em>
           </h2>
           <p className="mt-4 text-slate-400 max-w-lg">
             Tell us what your customers and operations need. We’ll work through
@@ -18,7 +18,10 @@ export default function CallToAction() {
           </p>
         </div>
         <Link href="/contact" className="button-primary shrink-0">
-          Discuss your requirements <ArrowUpRight size={18} />
+          Discuss your requirements
+          <span className="btn-orb" aria-hidden="true">
+            <ArrowUpRight size={16} />
+          </span>
         </Link>
       </div>
     </section>
