@@ -10,8 +10,8 @@
   --void-2: #050816;
   --ink: #f2f5ff;
   --ink-dim: #cbd5e1;
-  --ink-mute: #8b98b8;
-  --ink-faint: #5b6685;
+  --ink-mute: #a6b3da;
+  --ink-faint: #828fb6;
   --hair: rgba(255, 255, 255, 0.1);
   --hair-soft: rgba(255, 255, 255, 0.06);
   --magenta: #e879f9;
@@ -153,7 +153,7 @@ body::after {
   letter-spacing: -0.03em;
   text-align: center;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
   user-select: none;
   margin: 4.5rem 0 -0.12em;
 }
@@ -246,8 +246,19 @@ body::after {
   padding: 8.5rem 0 2.75rem;
   overflow: clip;
 }
+.u-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 78% 62% at 28% 74%, rgba(1, 2, 10, 0.82) 0%, rgba(1, 2, 10, 0.45) 55%, transparent 78%),
+    linear-gradient(0deg, rgba(1, 2, 10, 0.5) 0%, transparent 34%);
+  pointer-events: none;
+}
 .u-hero-frame {
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 .u-kicker {
   display: inline-flex;
