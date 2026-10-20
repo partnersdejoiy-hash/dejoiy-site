@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 
 /*
-  GSAP ScrollTrigger choreography shared by every page:
-  - [data-reveal] blocks and section titles rise out of a soft blur as they enter.
-  - The home hero copy drifts up and fades as the visitor leaves it.
-  Content is fully visible without JavaScript or with reduced motion.
+  Entrances, driven by GSAP ScrollTrigger: the parts of each section rise in
+  order (heading, text, picture) once as they enter. Content stays visible
+  without JavaScript and with reduced motion.
 */
 export default function useUniverseMotion(routeKey) {
   useEffect(() => {
@@ -16,46 +15,28 @@ export default function useUniverseMotion(routeKey) {
         if (disposed) return;
         gsap.registerPlugin(ScrollTrigger);
         ctx = gsap.context(() => {
-          const targets = gsap.utils
-            .toArray("[data-reveal], main .section-title")
-            .filter((el) => !el.closest("[data-hero-copy]"));
-          const unique = targets.filter(
-            (el) => !targets.some((other) => other !== el && other.contains(el)),
-          );
-          gsap.set(unique, { autoAlpha: 0, y: 48, filter: "blur(10px)" });
-          ScrollTrigger.batch(unique, {
-            start: "top 88%",
+          const intro = gsap.utils.toArray("[data-intro]");
+          if (intro.length) {
+            gsap.from(intro, { y: 28, autoAlpha: 0, duration: 1.1, ease: "expo.out", stagger: 0.08, delay: 0.1 });
+          }
+          const items = gsap.utils.toArray("main [data-reveal]");
+          if (!items.length) return;
+          gsap.set(items, { y: 28, autoAlpha: 0 });
+          ScrollTrigger.batch(items, {
+            start: "top 90%",
             once: true,
             onEnter: (batch) =>
               gsap.to(batch, {
-                autoAlpha: 1,
                 y: 0,
-                filter: "blur(0px)",
-                duration: 1.1,
+                autoAlpha: 1,
+                duration: 1,
                 ease: "expo.out",
-                stagger: 0.09,
-                clearProps: "filter,transform",
+                stagger: 0.075,
+                clearProps: "transform",
               }),
           });
-
-          const heroCopy = document.querySelector("[data-hero-copy]");
-          if (heroCopy) {
-            gsap.to(heroCopy, {
-              yPercent: -14,
-              autoAlpha: 0.15,
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".universe-hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: 0.6,
-              },
-            });
-          }
         });
-        const refresh = () => ScrollTrigger.refresh();
-        window.addEventListener("load", refresh, { once: true });
-        setTimeout(refresh, 400);
+        setTimeout(() => ScrollTrigger.refresh(), 400);
       })
       .catch(() => {});
     return () => {

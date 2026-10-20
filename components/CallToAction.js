@@ -1,29 +1,17 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+
+/* One word is the button: the whole band is a single link. */
 export default function CallToAction() {
   return (
-    <section className="section-wrap py-16">
-      <div className="cta-block premium-cta rounded-3xl p-8 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-        <div className="cta-orbit" aria-hidden="true" />
-        <div>
-          <span className="badge mb-5">Let’s build together</span>
-          <h2 className="font-semibold tracking-tight max-w-xl">
-            Great things start
-            <br />
-            with a <em className="serif-accent">conversation.</em>
-          </h2>
-          <p className="mt-4 text-slate-400 max-w-lg">
-            Tell us what your customers and operations need. We’ll work through
-            the right approach with you.
-          </p>
-        </div>
-        <Link href="/contact" className="button-primary shrink-0">
-          Discuss your requirements
-          <span className="btn-orb" aria-hidden="true">
-            <ArrowUpRight size={16} />
-          </span>
-        </Link>
-      </div>
-    </section>
+    <Link href="/contact" className="talk-band" data-station="drift">
+      <span className="talk-note">
+        Tell us about your customers and your queues. We&rsquo;ll come back with
+        an honest plan.
+      </span>
+      <svg className="talk-arrow" viewBox="0 0 48 48" aria-hidden="true">
+        <path d="M12 36 36 12M16 12h20v20" fill="none" stroke="currentColor" strokeWidth="3" />
+      </svg>
+      <span className="talk-word">Talk</span>
+    </Link>
   );
 }

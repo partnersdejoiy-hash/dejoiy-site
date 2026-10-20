@@ -1,61 +1,35 @@
 import Link from "next/link";
-import Brand from "./Brand";
+
+const places = [
+  ["hello@corp.dejoiy.com", "mailto:hello@corp.dejoiy.com"],
+  ["dejoiy.co.in", "https://www.dejoiy.co.in"],
+  ["dejoiy.com", "https://www.dejoiy.com"],
+];
+
+const columns = [
+  ["Company", [["About", "/about"], ["Our people", "/our-people"], ["Careers", "/careers"], ["Contact", "/contact"]]],
+  ["Explore", [["Services", "/services"], ["Industries", "/industries"], ["Resources", "/resources"], ["Insights", "/insights"], ["Delivery examples", "/case-studies"]]],
+  ["Help", [["Help & documents", "/help"], ["Employee documents", "/employee-documents"], ["Employee verification", "/employee-verification"], ["Track a request", "/help/track"]]],
+];
+
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="section-wrap">
-        <div className="footer-grid">
-          <div>
-            <Brand />
-            <p className="mt-5 max-w-sm text-slate-400 text-sm leading-relaxed">
-              People-led service. Technology-enabled operations. Built around
-              your customers.
-            </p>
-            <a
-              className="inline-block mt-4 text-sm text-slate-200"
-              href="mailto:hello@corp.dejoiy.com"
-            >
-              hello@corp.dejoiy.com
-            </a>
-          </div>
-          {[
-            {
-              title: "Company",
-              links: [
-                ["About DEJOIY", "/about"],
-                ["Our people", "/our-people"],
-                ["Careers", "/careers"],
-                ["Contact", "/contact"],
-              ],
-            },
-            {
-              title: "Explore",
-              links: [
-                ["Services", "/services"],
-                ["Industries", "/industries"],
-                ["Resource library", "/resources"],
-                ["Insights", "/insights"],
-                ["Delivery examples", "/case-studies"],
-              ],
-            },
-            {
-              title: "DEJOIY network",
-              links: [
-                ["Brand website", "https://www.dejoiy.co.in"],
-                ["Marketplace", "https://www.dejoiy.com"],
-                ["Help & Documents", "/help"],
-                ["Employee documents", "/employee-documents"],
-                ["Employee verification", "/employee-verification"],
-                ["Track a request", "/help/track"],
-              ],
-            },
-          ].map((g) => (
-            <div key={g.title}>
-              <h2 className="text-xs uppercase tracking-widest text-slate-400 mb-5">
-                {g.title}
-              </h2>
-              <ul className="space-y-3 text-sm">
-                {g.links.map(([label, href]) => (
+      <p className="footer-name" aria-hidden="true">DEJOIY</p>
+      <div className="footer-row">
+        <ul className="footer-places">
+          {places.map(([label, href]) => (
+            <li key={href}>
+              <a href={href}>{label}</a>
+            </li>
+          ))}
+        </ul>
+        <div className="footer-cols">
+          {columns.map(([title, links]) => (
+            <div key={title}>
+              <h2>{title}</h2>
+              <ul>
+                {links.map(([label, href]) => (
                   <li key={href}>
                     <Link href={href}>{label}</Link>
                   </li>
@@ -64,13 +38,16 @@ export default function Footer() {
             </div>
           ))}
         </div>
-        <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} DEJOIY. All rights reserved.</span>
-          <div className="flex gap-6">
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-          </div>
-        </div>
+      </div>
+      <div className="footer-legal">
+        <span>
+          © {new Date().getFullYear()} DEJOIY · YOU + JOY · Founder &amp; CEO Jyoti Sharma
+        </span>
+        <span className="footer-legal-links">
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <a href="#main-content">Back to top</a>
+        </span>
       </div>
     </footer>
   );

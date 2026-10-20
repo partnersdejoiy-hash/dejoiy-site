@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { MotionConfig, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import SmoothCursor from "../components/SmoothCursor";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 import useUniverseMotion from "../components/useUniverseMotion";
@@ -48,9 +47,7 @@ export default function App({ Component, pageProps }) {
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">
         <SEO />
-        <CosmosCanvas variant={router.pathname === "/" ? "home" : "page"} />
-        <div className="grain" aria-hidden="true" />
-        <SmoothCursor />
+        <CosmosCanvas />
         <Header />
         <main id="main-content" tabIndex={-1}>
           <Component {...pageProps} />

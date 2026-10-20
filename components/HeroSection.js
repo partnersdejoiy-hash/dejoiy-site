@@ -1,85 +1,66 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown } from "lucide-react";
-import PremiumScene from "./PremiumScene";
+import Image from "next/image";
 
-const lines = [
-  { text: "Human at heart.", accent: false },
-  { text: "Exceptional", accent: true },
-  { text: "by design.", accent: false },
-];
-
+/*
+  The name as a monument. The upper part of the first screen is an open
+  window onto the live cosmos (camera station "core"); the name sits on a
+  flat band beneath it, with a person's voice — a headset photograph — in
+  place of the O. As the hero leaves, the name settles by a few percent.
+*/
 export default function HeroSection() {
-  const reduced = useReducedMotion();
+  const nameRef = useRef(null);
+
+  useEffect(() => {
+    const el = nameRef.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const p = Math.min(Math.max(window.scrollY / window.innerHeight, 0), 1);
+      el.style.transform = `scale(${1 - p * 0.06})`;
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <section className="universe-hero" aria-labelledby="hero-title">
-      <div className="section-wrap universe-hero-inner">
-        <div className="hero-copy" data-hero-copy>
-          <motion.p
-            className="hero-kicker"
-            initial={reduced ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="status-dot" aria-hidden="true" />
-            People. Purpose. Possibility.
-          </motion.p>
-          <h1 id="hero-title" aria-label="Human at heart. Exceptional by design.">
-            {lines.map((line, i) => (
-              <span className="hero-line" aria-hidden="true" key={line.text}>
-                <motion.span
-                  className={line.accent ? "hero-serif" : undefined}
-                  initial={reduced ? false : { y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{
-                    duration: 1.1,
-                    delay: 0.18 + i * 0.12,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  {line.text}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
-          <motion.div
-            initial={reduced ? false : { opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <p className="hero-description">
-              Customer support, back-office work and human-in-the-loop AI,
-              delivered by people who care about getting it right. DEJOIY
-              brings your customer experience into orbit.
-            </p>
-            <div className="hero-actions">
-              <Link href="/contact" className="button-primary">
-                Build with DEJOIY
-                <span className="btn-orb" aria-hidden="true">
-                  <ArrowUpRight size={16} />
-                </span>
-              </Link>
-              <Link href="/services" className="button-ghost">
-                Explore our services
-              </Link>
-            </div>
-          </motion.div>
+    <section className="hero" aria-labelledby="hero-name">
+      <div className="hero-window" data-station="core">
+        <div className="hero-row">
+          <p className="hero-line">
+            People. Purpose. Possibility. Customer support, back-office work
+            and human-in-the-loop AI, run from India by people who care about
+            getting it right.
+          </p>
+          <Link href="/contact" className="button-primary hero-action">
+            Start a conversation
+          </Link>
         </div>
-        <motion.div
-          className="hero-panel-slot"
-          initial={reduced ? false : { opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <PremiumScene />
-        </motion.div>
       </div>
-      <div className="section-wrap hero-baseline">
-        <span>BPO &amp; customer experience</span>
-        <span className="hero-tagline">YOU + JOY</span>
-        <a href="#our-approach">
-          Begin the journey <ArrowDown size={14} aria-hidden="true" />
-        </a>
+      <div className="hero-band">
+        <h1 id="hero-name" className="hero-name" aria-label="DEJOIY — BPO and customer experience">
+          <span ref={nameRef} className="hero-name-inner" aria-hidden="true">
+            <span>DEJ</span>
+            <span className="hero-o">
+              <Image
+                src="/services/customer-experience.jpg"
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 820px) 30vw, 22vw"
+              />
+            </span>
+            <span>IY</span>
+          </span>
+        </h1>
       </div>
     </section>
   );

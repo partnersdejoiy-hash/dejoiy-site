@@ -20,7 +20,7 @@ module.exports = {
         "text-dim":       "#64748b"
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"]
+        sans: ["Work Sans", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"]
       },
       boxShadow: {
         glow:        "0 0 40px rgba(124,58,237,0.4)",

@@ -1,25 +1,30 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Menu, X, ArrowUpRight } from "lucide-react";
 import Brand from "./Brand";
 import ScrollProgress from "./ScrollProgress";
+
 const links = [
   ["Services", "/services"],
   ["Industries", "/industries"],
   ["About", "/about"],
-  ["Resources", "/resources"],
   ["Careers", "/careers"],
-  ["Help & Docs", "/help"],
+  ["Help", "/help"],
 ];
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const toggle = useRef(null);
+  const isCurrent = (href) =>
+    router.asPath === href || router.asPath.startsWith(`${href}/`);
+
   useEffect(() => {
     setOpen(false);
   }, [router.asPath]);
+
   useEffect(() => {
+    document.documentElement.classList.toggle("menu-open", open);
     const close = (e) => {
       if (e.key === "Escape" && open) {
         setOpen(false);
@@ -29,6 +34,7 @@ export default function Header() {
     document.addEventListener("keydown", close);
     return () => document.removeEventListener("keydown", close);
   }, [open]);
+
   return (
     <>
       <a href="#main-content" className="skip-link">
@@ -36,34 +42,31 @@ export default function Header() {
       </a>
       <header className="site-header">
         <ScrollProgress />
-        <div className="section-wrap header-row">
+        <div className="header-row">
           <Brand />
           <nav aria-label="Main navigation" className="desktop-nav">
             {links.map(([label, href]) => (
               <Link
                 key={href}
                 href={href}
-                aria-current={router.asPath === href ? "page" : undefined}
+                aria-current={isCurrent(href) ? "page" : undefined}
               >
                 {label}
               </Link>
             ))}
+            <Link href="/contact" className="nav-action">
+              Talk to us
+            </Link>
           </nav>
-          <Link href="/contact" className="button-primary header-cta">
-            Let’s talk
-            <span className="btn-orb" aria-hidden="true">
-              <ArrowUpRight size={15} />
-            </span>
-          </Link>
           <button
             ref={toggle}
+            type="button"
             className="menu-toggle"
             aria-expanded={open}
             aria-controls="mobile-navigation"
-            aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen(!open)}
           >
-            {open ? <X /> : <Menu />}
+            {open ? "Close" : "Menu"}
           </button>
         </div>
         <nav
@@ -72,16 +75,16 @@ export default function Header() {
           className="mobile-nav"
           hidden={!open}
         >
-          {links.map(([label, href]) => (
+          {[...links, ["Talk to us", "/contact"]].map(([label, href], i) => (
             <Link
               href={href}
               key={href}
-              aria-current={router.asPath === href ? "page" : undefined}
+              style={{ "--i": i }}
+              aria-current={isCurrent(href) ? "page" : undefined}
             >
               {label}
             </Link>
           ))}
-          <Link href="/contact">Talk to our team ↗</Link>
         </nav>
       </header>
     </>

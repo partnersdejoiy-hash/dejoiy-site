@@ -7,9 +7,9 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&display=swap"
         />
-        <meta name="theme-color" content="#05030d" />
+        <meta name="theme-color" content="#07050f" />
       </Head>
       <body>
         <Main />

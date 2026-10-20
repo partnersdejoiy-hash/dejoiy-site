@@ -69,11 +69,14 @@ on email delivery. `RESEND_BASE_URL` must not be set to a test server in product
 
 ## Motion and images
 
-- Universe theme: `components/CosmosCanvas.js` renders one fixed Three.js scene
-  (nebula, starfield, orbital core) behind every page; `styles/universe.css`
-  holds the visual layer and `components/useUniverseMotion.js` the GSAP
-  ScrollTrigger reveals. Without WebGL, with Save-Data or on shader failure the
-  static CSS sky is shown; reduced motion renders a single still frame.
+- Universe theme: `lib/cosmos/engine.js` renders one fixed Three.js scene
+  (nebula, deep starfield, the DEJOIY core with its disc and orbits) behind every
+  page. Sections steer the camera with `data-station="core|signal|wide|drift"`;
+  the camera follows on a critically damped spring. `dejoiy:signal` events
+  (sent by the home page's "Send a signal" form) launch a contact that spirals
+  into the core. `styles/universe.css` holds the visual system (Anton + Work
+  Sans, flat colour, square corners). Without WebGL, with Save-Data or on a
+  shader failure the static CSS sky is shown; reduced motion renders still frames.
 
 - MotionConfig respects reduced motion; looping visualisations use static
   alternatives and stop when outside the viewport.
