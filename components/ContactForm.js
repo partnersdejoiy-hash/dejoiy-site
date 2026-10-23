@@ -8,6 +8,10 @@ export default function ContactForm() {
     typeof router.query.region === "string"
       ? router.query.region.slice(0, 80)
       : "";
+  const industry =
+    typeof router.query.industry === "string"
+      ? router.query.industry.slice(0, 100)
+      : "";
   return (
     <RequestForm
       kind="contact"
@@ -16,7 +20,9 @@ export default function ContactForm() {
         service: selected?.slug || "",
         message: region
           ? `I would like to discuss coverage for ${region}.`
-          : "",
+          : industry
+            ? `I would like to discuss operations for ${industry}.`
+            : "",
       }}
       fields={[
         { name: "name", label: "Full name", autoComplete: "name" },

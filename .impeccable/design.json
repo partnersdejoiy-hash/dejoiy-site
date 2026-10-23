@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-23T19:03:13.211543+00:00",
+  "generatedAt": "2026-10-23T19:31:52.906547+00:00",
   "title": "Design System: The DEJOIY Connection",
   "extensions": {
     "colorMeta": {
@@ -153,6 +153,14 @@
       {
         "name": "compact-desktop-height",
         "value": "740px"
+      },
+      {
+        "name": "interior-compact",
+        "value": "1000px"
+      },
+      {
+        "name": "interior-phone",
+        "value": "700px"
       }
     ],
     "notes": [
@@ -162,7 +170,15 @@
       "Offscreen rendering is suspended; GPU resources are disposed on unmount, not whenever the scene leaves the viewport.",
       "Inactive manifesto text uses #7b8499 on #fafbff at its large text role.",
       "Height breakpoints apply to viewport height: 780px maximum with phone widths, 740px maximum with desktop widths.",
-      "Scene phase changes explicitly invalidate paused/reduced static frames."
+      "Scene phase changes explicitly invalidate paused/reduced static frames.",
+      "styles/interiors.css overrides the business theme on every non-home route; page-specific explorer and reading compositions are documented in DESIGN.md.",
+      "Final interior field keyboard focus is a cobalt 2px outline with 3px offset, alongside the translucent cobalt focus ring.",
+      "DeliveryPlan adds Discover/Prepare/Improve selection to all eight service detail routes; its measures are planning criteria, not guarantees.",
+      "Portal, help, checklist and request-status surfaces receive explicit light-theme contrast overrides; custom 404 uses shared brand colours.",
+      "Native CSS smooth anchors use root scroll-padding-top 110px; Lenis anchors are disabled, stopInertiaOnNavigate is enabled and bundled Lenis CSS is imported. Article section scroll margin is zero.",
+      "ReadingNav uses passive scroll and resize listeners, coalesced through a single pending animation frame, selecting the last section with top <=165px.",
+      "Interior color-scheme is light; article paragraphs and list items explicitly use muted ink.",
+      "Insight imagery reuses existing customer-experience, back-office and careers photographs; no new assets were created."
     ]
   },
   "components": [
@@ -204,11 +220,11 @@
       "css": ".ds-channels{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:inline-flex;gap:3px;padding:5px;background:#edf1fb;border-radius:35px;}.ds-channels button{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);padding:10px 13px;border:0;background:none;color:var(--dejoiy-muted);border-radius:26px;font-size:13px;cursor:pointer;transition:background .35s,color .35s;}.ds-channels button[aria-pressed=\"true\"]{background:white;color:var(--dejoiy-blue);}.ds-channels button:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}"
     },
     {
-      "name": "Shared form field",
+      "name": "Light interior field",
       "kind": "input",
-      "description": "Shared form field from the current V2 implementation.",
+      "description": "White interior field with ink text and cobalt border, ring and keyboard focus outline.",
       "html": "<label class=\"ds-label\">Work email<input class=\"ds-field\" type=\"email\" placeholder=\"you@company.com\"/></label>",
-      "css": ".ds-label{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:grid;gap:8px;padding:24px;background:var(--dejoiy-night);color:white;}.ds-field{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);padding:14px 18px;border:1px solid #60769e;border-radius:12px;background:#08132c;color:white;font-size:14px;}.ds-field::placeholder{color:#becde8;}.ds-field:focus{background:#08132c;border-color:#b3ceff;box-shadow:none;outline:2px solid #b3ceff;outline-offset:2px;}",
+      "css": ".ds-label{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:grid;gap:8px;padding:24px;background:var(--dejoiy-paper);color:var(--dejoiy-ink);}.ds-field{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);padding:14px 18px;border:1px solid #b6c1d7;border-radius:9px;background:white;color:var(--dejoiy-ink);font-size:14px;}.ds-field::placeholder{color:#647088;}.ds-field:focus{background:white;border-color:var(--dejoiy-blue);box-shadow:0 0 0 3px #2354ed20;outline:2px solid #b3ceff;outline-offset:2px;}.ds-field:focus-visible{outline:2px solid var(--dejoiy-blue);outline-offset:3px;}",
       "refersTo": "field"
     },
     {
@@ -218,11 +234,18 @@
       "html": "<a class=\"ds-card\" href=\"#service\"><h3>Customer experience <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></h3><p>Voice, chat and email support that brings clear ownership to every customer interaction.</p><span>Explore service</span></a>",
       "css": ".ds-card{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:flex;flex-direction:column;padding:28px;background:white;color:var(--dejoiy-ink);text-decoration:none;border-radius:20px;}.ds-card h3{display:flex;justify-content:space-between;gap:20px;margin:0;font-size:27px;line-height:1.1;letter-spacing:-.03em;font-weight:600;}.ds-card p{font-size:17px;line-height:1.5;color:var(--dejoiy-muted);margin:20px 0 24px;}.ds-card span{font-size:16px;color:var(--dejoiy-blue);margin-top:auto;}.ds-card:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}",
       "refersTo": "service-card"
+    },
+    {
+      "name": "Interior explorer selector",
+      "kind": "button",
+      "description": "Numbered pressed-state selector for service or industry exploration.",
+      "html": "<button class=\"ds-explorer\" aria-pressed=\"true\"><span>01</span>Customer experience<span aria-hidden=\"true\">\u2197</span></button>",
+      "css": ".ds-explorer{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:flex;align-items:center;gap:18px;width:100%;min-height:72px;padding:23px 12px;border:0;border-top:1px solid #cbd2e1;background:transparent;color:var(--dejoiy-ink);text-align:left;font-size:20px;transition:background .25s,padding .4s cubic-bezier(.22,1,.36,1);}.ds-explorer span:first-child{font-size:11px;}.ds-explorer span:last-child{margin-left:auto;}.ds-explorer[aria-pressed=true]{background:var(--dejoiy-blue);color:white;padding-left:22px;border-color:transparent;}.ds-explorer:hover:not([aria-pressed=true]){background:#e8edfa;padding-left:20px;}.ds-explorer:focus-visible{outline:3px solid var(--dejoiy-blue);outline-offset:5px;}"
     }
   ],
   "narrative": {
     "northStar": "The DEJOIY Connection",
-    "overview": "The DEJOIY Connection uses a white editorial foreground, deep navy operational chapters and cobalt, pink and cyan accents drawn from the brand direction. Bricolage Grotesque keeps the business voice warm and direct. A layered, reflective D connects the opening narrative to the identity, replacing the earlier mint/coral rings.\n\nMotion explains a customer request moving through Connect, Understand and Resolve. The homepage receives this authored composition; shared interiors retain their existing content and functional layouts with the updated navy/blue theme, shared navigation and image-led service cards. This code-led implementation has no approved image composition and makes no verified novelty claim. Workplace photography remains illustrative.",
+    "overview": "The DEJOIY Connection uses a white editorial foreground, deep navy operational chapters and cobalt, pink and cyan accents drawn from the brand direction. Bricolage Grotesque keeps the business voice warm and direct. A layered, reflective D connects the opening narrative to the identity, replacing the earlier mint/coral rings.\n\nMotion explains a customer request moving through Connect, Understand and Resolve. The homepage receives this authored composition; all non-home routes now receive a light interior wrapper, while services, industries, about, careers, people, contact and articles add page-specific exploration or reading layouts. Existing routes and functional flows remain the product constraints. This code-led implementation has no approved image composition and makes no verified novelty claim. Workplace photography remains illustrative.",
     "keyCharacteristics": [
       "White/navy editorial contrast with brand colour accents",
       "A reflective layered D and topology-changing particles",

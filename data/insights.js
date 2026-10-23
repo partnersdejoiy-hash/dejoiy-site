@@ -5,7 +5,7 @@ export const insights = [
     title: "Build a support operation customers can rely on",
     excerpt:
       "A practical guide to ownership, knowledge and quality across voice, chat and email.",
-    image: "/insights/article-2.jpg",
+    image: "/services/customer-experience.jpg",
     sections: [
       [
         "Start with the contact, not the channel",
@@ -31,7 +31,7 @@ export const insights = [
     title: "Where human judgment belongs in an AI workflow",
     excerpt:
       "Define review gates, escalation rules and meaningful evaluation before scaling automation.",
-    image: "/insights/article-1.jpg",
+    image: "/services/back-office.jpg",
     sections: [
       [
         "Define the decision boundary",
@@ -57,7 +57,7 @@ export const insights = [
     title: "Make policy review more consistent",
     excerpt:
       "A framework for clearer guidance, thoughtful escalation and reviewable decisions.",
-    image: "/insights/article-3.jpg",
+    image: "/brand/careers-hero.jpg",
     sections: [
       [
         "Turn policy into a decision guide",

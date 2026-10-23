@@ -6,14 +6,18 @@ import "@fontsource/bricolage-grotesque/latin-400.css";
 import "@fontsource/bricolage-grotesque/latin-500.css";
 import "@fontsource/bricolage-grotesque/latin-600.css";
 import "../styles/business.css";
+import "../styles/interiors.css";
+import "lenis/dist/lenis.css";
 import { useEffect } from "react";
-import { MotionConfig, useReducedMotion } from "framer-motion";
+import { motion, MotionConfig, useReducedMotion } from "framer-motion";
+import { useRouter } from "next/router";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 export default function App({ Component, pageProps }) {
   const reduced = useReducedMotion();
+  const router = useRouter();
   useEffect(() => {
     if (
       reduced ||
@@ -26,7 +30,12 @@ export default function App({ Component, pageProps }) {
     import("lenis")
       .then(({ default: Lenis }) => {
         if (disposed) return;
-        lenis = new Lenis({ duration: 0.85, smoothWheel: true, anchors: true });
+        lenis = new Lenis({
+          duration: 0.85,
+          smoothWheel: true,
+          anchors: false,
+          stopInertiaOnNavigate: true,
+        });
         function raf(t) {
           lenis.raf(t);
           rafId = requestAnimationFrame(raf);
@@ -47,7 +56,15 @@ export default function App({ Component, pageProps }) {
 
         <Header />
         <main id="main-content" tabIndex={-1}>
-          <Component {...pageProps} />
+          <motion.div
+            key={router.asPath.split("?")[0].split("#")[0]}
+            className={router.pathname === "/" ? "home-route" : "interior-site"}
+            initial={reduced ? false : { y: 10 }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Component {...pageProps} />
+          </motion.div>
         </main>
         <Footer />
       </MotionConfig>

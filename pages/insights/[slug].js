@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SEO from "../../components/SEO";
+import ReadingNav from "../../components/ReadingNav";
 import PageIntro from "../../components/PageIntro";
 import { insights } from "../../data/insights";
 export default function Article({ article }) {
@@ -9,6 +10,7 @@ export default function Article({ article }) {
     <>
       <SEO title={article.title} description={article.excerpt} />
       <PageIntro
+        image={article.image}
         eyebrow={article.category}
         title={article.title}
         description={article.excerpt}
@@ -24,33 +26,38 @@ export default function Article({ article }) {
             className="object-cover"
           />
         </div>
-        <div className="article-body">
-          <Link href="/insights" className="text-sm text-blue-200">
-            ← All insights
-          </Link>
-          {article.illustrative && (
-            <p className="mt-6 p-5 border border-purple-400/30 rounded-xl bg-purple-400/5 text-sm">
-              Illustrative delivery example. This is not a client testimonial or
-              a claim of achieved results.
-            </p>
-          )}
-          {article.sections.map(([title, body]) => (
-            <motion.section
-              key={title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-            >
-              <h2>{title}</h2>
-              <p>{body}</p>
-            </motion.section>
-          ))}
-          <div className="mt-12 border-t border-white/10 pt-8">
-            <p>Want to explore this approach for your business?</p>
-            <Link href="/contact" className="button-primary mt-5">
-              Talk to DEJOIY ↗
+        <div className="reading-layout">
+          <ReadingNav sections={article.sections} />
+          <div className="article-body">
+            <Link href="/insights" className="text-sm text-blue-200">
+              ← All insights
             </Link>
+            {article.illustrative && (
+              <p className="mt-6 p-5 border border-purple-400/30 rounded-xl bg-purple-400/5 text-sm">
+                Illustrative delivery example. This is not a client testimonial
+                or a claim of achieved results.
+              </p>
+            )}
+            {article.sections.map(([title, body], i) => (
+              <motion.section
+                key={title}
+                id={`reading-${i}`}
+                data-section={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+              >
+                <h2>{title}</h2>
+                <p>{body}</p>
+              </motion.section>
+            ))}
+            <div className="mt-12 border-t border-white/10 pt-8">
+              <p>Want to explore this approach for your business?</p>
+              <Link href="/contact" className="button-primary mt-5">
+                Talk to DEJOIY ↗
+              </Link>
+            </div>
           </div>
         </div>
       </article>

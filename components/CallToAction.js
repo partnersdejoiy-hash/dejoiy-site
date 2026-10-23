@@ -1,25 +1,30 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 export default function CallToAction() {
+  const reduced = useReducedMotion();
   return (
-    <section className="section-wrap py-16">
-      <div className="cta-block premium-cta rounded-3xl p-8 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-        <div className="cta-orbit" aria-hidden="true" />
-        <div>
-          <span className="badge mb-5">Let’s build together</span>
-          <h2 className="font-semibold tracking-tight max-w-xl">
-            Great things start
+    <section className="interior-cta">
+      <div className="section-wrap">
+        <span className="intro-label">Your next chapter starts here</span>
+        <motion.h2
+          initial={reduced ? false : { y: 20 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Let’s make
+          <br />a connection<span>.</span>
+        </motion.h2>
+        <div className="cta-bottom">
+          <p>
+            Bring the challenge. We’ll work through
             <br />
-            with a conversation.
-          </h2>
-          <p className="mt-4 text-slate-400 max-w-lg">
-            Tell us what your customers and operations need. We’ll work through
-            the right approach with you.
+            the possibilities, together.
           </p>
+          <Link href="/contact" className="button-primary">
+            Start a conversation <span aria-hidden="true">↗</span>
+          </Link>
         </div>
-        <Link href="/contact" className="button-primary shrink-0">
-          Discuss your requirements <ArrowUpRight size={18} />
-        </Link>
       </div>
     </section>
   );

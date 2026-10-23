@@ -1,9 +1,8 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import SectionHeading from "../components/SectionHeading";
-import { ArrowRight } from "lucide-react";
-
+import { motion, useReducedMotion } from "framer-motion";
+import PageIntro from "../components/PageIntro";
+import CallToAction from "../components/CallToAction";
 const industries = [
   {
     title: "Retail & eCommerce",
@@ -56,162 +55,88 @@ const industries = [
 ];
 
 export default function IndustriesPage() {
+  const [active, setActive] = useState(0),
+    reduced = useReducedMotion();
+  useEffect(() => {
+    const sync = () => {
+      const i = industries.findIndex(
+        (x) =>
+          x.image.split("/").pop().replace(".jpg", "") ===
+          window.location.hash.slice(1),
+      );
+      if (i >= 0) setActive(i);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
+  const industry = industries[active];
+  function select(i) {
+    setActive(i);
+    window.history.replaceState(
+      null,
+      "",
+      `#${industries[i].image.split("/").pop().replace(".jpg", "")}`,
+    );
+  }
   return (
-    <div className="min-h-screen">
-      <div className="relative py-28 overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(6,182,212,0.16) 0%, transparent 60%)",
-          }}
-        />
-        <div className="section-wrap relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="badge badge-cyan mb-5 inline-flex">
-              Industries
-            </span>
-            <h1
-              className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight max-w-4xl"
-              style={{ color: "#F8FAFC" }}
-            >
-              Sector expertise built for
-              <br />
-              modern operations
-            </h1>
-            <p
-              className="mt-5 text-base md:text-lg max-w-xl leading-relaxed"
-              style={{ color: "#94a3b8" }}
-            >
-              DEJOIY supports diverse industries with tailored workflows,
-              trained talent and premium execution quality.
-            </p>
-          </motion.div>
+    <>
+      <PageIntro
+        eyebrow="Industries"
+        title="Your world. Our shared focus."
+        description="Every sector has its own language, pressures and moments that matter. Explore support built around the context of your business."
+        image={industry.image}
+      />
+      <section className="industry-explorer section-wrap">
+        <div className="explorer-heading">
+          <span className="intro-label">Explore your industry</span>
+          <h2>Context changes everything.</h2>
         </div>
-      </div>
-
-      <div className="section-wrap pb-24">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {industries.map((industry, index) => (
-            <motion.div
-              key={industry.title}
-              id={industry.image.split("/").pop().replace(".jpg", "")}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.05,
-                duration: 0.5,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-3xl min-h-[300px] cursor-pointer"
-              style={{
-                border: "1px solid rgba(255,255,255,0.1)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
-                transition: "border-color 0.4s ease, box-shadow 0.4s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "rgba(6,182,212,0.38)";
-                e.currentTarget.style.boxShadow =
-                  "0 24px 70px rgba(0,0,0,0.55), 0 0 50px rgba(6,182,212,0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-                e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.4)";
-              }}
-            >
-              <Image
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                src={industry.image}
-                alt={industry.title}
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-108"
-                style={{
-                  transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1)",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.transform = "scale(1.08)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.transform = "scale(1)")
-                }
-              />
-              <div
-                className="absolute inset-0 transition-all duration-500"
-                style={{
-                  background:
-                    "linear-gradient(to top, #020617 0%, rgba(2,6,23,0.75) 45%, rgba(2,6,23,0.2) 80%, transparent 100%)",
-                }}
-              />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(2,6,23,0.97) 0%, rgba(2,6,23,0.6) 50%, rgba(2,6,23,0.1) 100%)",
-                }}
-              />
-
-              <div
-                className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, rgba(6,182,212,0.7), transparent)",
-                }}
-              />
-
-              <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                <h3
-                  className="text-[16px] font-semibold leading-tight"
-                  style={{ color: "#F8FAFC" }}
-                >
-                  {industry.title}
-                </h3>
-                <p
-                  className="mt-2 text-[12.5px] leading-relaxed"
-                  style={{ color: "#94a3b8" }}
-                >
-                  {industry.description}
-                </p>
-                <div
-                  className="mt-4 flex items-center gap-1.5 text-[11.5px] font-medium transition-colors duration-300"
-                  style={{ color: "#64748b" }}
-                >
-                  <span className="group-hover:text-[#67e8f9] transition-colors duration-300">
-                    Explore
-                  </span>
-                  <ArrowRight
-                    size={12}
-                    className="transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-[#67e8f9]"
-                  />
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20">
-          <SectionHeading
-            eyebrow="Get started"
-            title="Your industry, our expertise"
-            subtitle="Whatever your sector, DEJOIY delivers tailored operational solutions with measurable results."
-          />
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200 shadow-sm"
+        <div className="industry-layout">
+          <div
+            className="industry-selector"
+            role="group"
+            aria-label="Choose your industry"
           >
-            Speak with an expert
-            <ArrowRight
-              size={15}
-              className="transition-transform duration-200 group-hover:translate-x-0.5"
+            {industries.map((x, i) => (
+              <button
+                aria-pressed={active === i}
+                key={x.title}
+                onClick={() => select(i)}
+              >
+                <span>0{i + 1}</span>
+                {x.title}
+                <span aria-hidden="true">↗</span>
+              </button>
+            ))}
+          </div>
+          <div className="industry-panel" aria-live="polite">
+            <motion.img
+              src={industry.image}
+              key={industry.image}
+              alt=""
+              initial={reduced ? false : { scale: 1.07 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             />
-          </Link>
+            <div className="industry-copy">
+              <span className="intro-label">Your industry / DEJOIY</span>
+              <h3>{industry.title}</h3>
+              <p>{industry.description}</p>
+              <Link
+                href={{
+                  pathname: "/contact",
+                  query: { industry: industry.title },
+                }}
+                className="button-primary"
+              >
+                Discuss your operation ↗
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+      <CallToAction />
+    </>
   );
 }
