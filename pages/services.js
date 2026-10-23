@@ -7,7 +7,7 @@ export default function Services() {
     <>
       <PageIntro
         eyebrow="Our services"
-        title="The support behind your next stage of growth."
+        title="Expertise that connects."
         description="Customer care, back-office support and specialist workflows. Explore the service that fits your business, then shape the delivery plan with us."
       />
       <section className="section-wrap pb-8">

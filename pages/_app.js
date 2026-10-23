@@ -2,11 +2,14 @@ import "@fontsource/inter/latin-400.css";
 import "@fontsource/inter/latin-600.css";
 import "@fontsource/inter/latin-700.css";
 import "../styles/globals.css";
+import "@fontsource/bricolage-grotesque/latin-400.css";
+import "@fontsource/bricolage-grotesque/latin-500.css";
+import "@fontsource/bricolage-grotesque/latin-600.css";
+import "../styles/business.css";
 import { useEffect } from "react";
 import { MotionConfig, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import SmoothCursor from "../components/SmoothCursor";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
 export default function App({ Component, pageProps }) {
@@ -41,7 +44,7 @@ export default function App({ Component, pageProps }) {
     <ErrorBoundary>
       <MotionConfig reducedMotion="user">
         <SEO />
-        <SmoothCursor />
+
         <Header />
         <main id="main-content" tabIndex={-1}>
           <Component {...pageProps} />

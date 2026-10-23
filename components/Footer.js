@@ -64,8 +64,13 @@ export default function Footer() {
             </div>
           ))}
         </div>
+        <div className="footer-wordmark" aria-hidden="true">
+          DEJOIY
+        </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} DEJOIY. All rights reserved.</span>
+          <span>
+            © {new Date().getFullYear()} DEJOIY. All rights reserved.
+          </span>
           <div className="flex gap-6">
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>

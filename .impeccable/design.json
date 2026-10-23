@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T18:27:42.507587+00:00",
+  "title": "Design System: DEJOIY",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Deep green ink",
+        "tonalRamp": [
+          "oklch(15% 0.06 159)",
+          "oklch(26% 0.06 159)",
+          "oklch(38% 0.06 159)",
+          "oklch(49% 0.06 159)",
+          "oklch(61% 0.06 159)",
+          "oklch(72% 0.06 159)",
+          "oklch(84% 0.06 159)",
+          "oklch(95% 0.06 159)"
+        ]
+      },
+      "mint": {
+        "role": "primary",
+        "displayName": "Mint ground",
+        "tonalRamp": [
+          "oklch(15% 0.06 92)",
+          "oklch(26% 0.06 92)",
+          "oklch(38% 0.06 92)",
+          "oklch(49% 0.06 92)",
+          "oklch(61% 0.06 92)",
+          "oklch(72% 0.06 92)",
+          "oklch(84% 0.06 92)",
+          "oklch(95% 0.06 92)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.02 75)",
+          "oklch(26% 0.02 75)",
+          "oklch(38% 0.02 75)",
+          "oklch(49% 0.02 75)",
+          "oklch(61% 0.02 75)",
+          "oklch(72% 0.02 75)",
+          "oklch(84% 0.02 75)",
+          "oklch(95% 0.02 75)"
+        ]
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "Coral action",
+        "tonalRamp": [
+          "oklch(15% 0.06 33)",
+          "oklch(26% 0.06 33)",
+          "oklch(38% 0.06 33)",
+          "oklch(49% 0.06 33)",
+          "oklch(61% 0.06 33)",
+          "oklch(72% 0.06 33)",
+          "oklch(84% 0.06 33)",
+          "oklch(95% 0.06 33)"
+        ]
+      },
+      "green": {
+        "role": "primary",
+        "displayName": "Green chapter",
+        "tonalRamp": [
+          "oklch(15% 0.06 161)",
+          "oklch(26% 0.06 161)",
+          "oklch(38% 0.06 161)",
+          "oklch(49% 0.06 161)",
+          "oklch(61% 0.06 161)",
+          "oklch(72% 0.06 161)",
+          "oklch(84% 0.06 161)",
+          "oklch(95% 0.06 161)"
+        ]
+      },
+      "delivery-ground": {
+        "role": "secondary",
+        "displayName": "Soft delivery green",
+        "tonalRamp": [
+          "oklch(15% 0.06 100)",
+          "oklch(26% 0.06 100)",
+          "oklch(38% 0.06 100)",
+          "oklch(49% 0.06 100)",
+          "oklch(61% 0.06 100)",
+          "oklch(72% 0.06 100)",
+          "oklch(84% 0.06 100)",
+          "oklch(95% 0.06 100)"
+        ]
+      },
+      "industry-ground": {
+        "role": "secondary",
+        "displayName": "Warm blush",
+        "tonalRamp": [
+          "oklch(15% 0.02 34)",
+          "oklch(26% 0.02 34)",
+          "oklch(38% 0.02 34)",
+          "oklch(49% 0.02 34)",
+          "oklch(61% 0.02 34)",
+          "oklch(72% 0.02 34)",
+          "oklch(84% 0.02 34)",
+          "oklch(95% 0.02 34)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Hero display",
+        "purpose": "Desktop homepage hero; responsive overrides documented in DESIGN.md."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "interactive",
+        "value": "0.25s ease",
+        "purpose": "Homepage controls and links."
+      },
+      {
+        "name": "accordion",
+        "value": "0.45s cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Delivery panel expansion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "760px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "wide",
+        "value": "1700px"
+      }
+    ],
+    "notes": [
+      "Tonal ramps are synthesized panel previews; they are not production CSS tokens.",
+      "Production sources: styles/business.css; components/BusinessHome.js, ConnectionScene.js, ServiceCard.js, PageIntro.js, Header.js, Footer.js; inherited primitives in styles/globals.css.",
+      "Service card snippet shows its text region only; production adds a 230px cover photograph."
+    ]
+  },
+  "components": [
+    {
+      "name": "Homepage action",
+      "kind": "button",
+      "refersTo": "button-world",
+      "description": "Homepage action extracted from the shipped component styles.",
+      "html": "<a class=\"ds-button-world\" href=\"#contact\">Start a conversation <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-button-world{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:28px;background:var(--world-ink);color:var(--world-paper);padding:18px 24px;border:0;border-radius:0;font-size:17px;font-weight:500;text-decoration:none;transition:transform .25s,background .25s;}.ds-button-world:hover{background:var(--world-green);transform:translateY(-2px);}.ds-button-world:focus-visible{outline:3px solid var(--world-coral,#fa7759);outline-offset:5px;}"
+    },
+    {
+      "name": "Interior primary",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Interior primary extracted from the shipped component styles.",
+      "html": "<a class=\"ds-button-primary\" href=\"#contact\">Start a conversation <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-button-primary{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:28px;background:var(--world-mint);color:var(--world-ink);padding:14px 22px;border:0;border-radius:0;font-size:17px;font-weight:500;text-decoration:none;transition:transform .25s,background .25s;}.ds-button-primary:hover{background:#edf5e5;transform:translateY(-2px);}.ds-button-primary:focus-visible{outline:3px solid var(--world-coral,#fa7759);outline-offset:5px;}"
+    },
+    {
+      "name": "Interior secondary",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Interior secondary extracted from the shipped component styles.",
+      "html": "<a class=\"ds-button-secondary\" href=\"#contact\">Start a conversation <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-button-secondary{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:inline-flex;align-items:center;justify-content:center;gap:28px;background:#245647;color:var(--world-paper);padding:14px 22px;border:0;border-radius:0;font-size:17px;font-weight:500;text-decoration:none;transition:transform .25s,background .25s;}.ds-button-secondary:hover{background:#326a59;transform:translateY(-2px);}.ds-button-secondary:focus-visible{outline:3px solid var(--world-coral,#fa7759);outline-offset:5px;}"
+    },
+    {
+      "name": "Service tab",
+      "kind": "button",
+      "refersTo": "service-tab",
+      "description": "Service tab extracted from the shipped component styles.",
+      "html": "<button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\">Customer experience <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></button>",
+      "css": ".ds-tab{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%;min-height:78px;padding:24px;border:0;background:var(--world-mint);color:var(--world-ink);font-size:21px;text-align:left;cursor:pointer;}.ds-tab[aria-selected=\"true\"]{background:var(--world-ink);color:var(--world-paper);}.ds-tab:hover svg{transform:translate(3px,-3px);}.ds-tab:focus-visible{outline:3px solid var(--world-coral,#fa7759);outline-offset:5px;}"
+    },
+    {
+      "name": "Main navigation",
+      "kind": "nav",
+      "description": "Main navigation extracted from the shipped component styles.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#services\" aria-current=\"page\">Services</a><a href=\"#about\">About</a><a href=\"#careers\">Careers</a></nav>",
+      "css": ".ds-nav{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:flex;gap:24px;padding:24px;background:var(--world-mint);color:var(--world-ink);font-size:15px;}.ds-nav a{color:inherit;text-decoration:none;}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{text-decoration:underline;text-underline-offset:6px;}.ds-nav a:focus-visible{outline:3px solid var(--world-coral,#fa7759);outline-offset:5px;}"
+    },
+    {
+      "name": "Shared form field",
+      "kind": "input",
+      "description": "Square ink field with paper text, soft green border and mint focus.",
+      "html": "<label class=\"ds-field-label\">Work email<input class=\"ds-field\" type=\"email\" placeholder=\"you@company.com\"/></label>",
+      "css": ".ds-field-label{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:grid;gap:8px;color:var(--world-paper);background:var(--world-ink);padding:24px;}.ds-field{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);padding:14px 18px;border-radius:0;background:var(--world-ink);border:1px solid #698e7d;font-size:14px;color:var(--world-paper);}.ds-field::placeholder{color:#c5d8ca;}.ds-field:focus{border-color:var(--world-mint);box-shadow:none;outline:2px solid var(--world-mint);outline-offset:2px;}"
+    },
+    {
+      "name": "Service card text",
+      "kind": "card",
+      "refersTo": "service-card",
+      "description": "Service card text extracted from the shipped component styles.",
+      "html": "<a class=\"ds-card\" href=\"#service\"><h3>Customer experience <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></h3><p>Voice, chat and email support that brings clear ownership to every customer interaction.</p><span>Explore service</span></a>",
+      "css": ".ds-card{font-family:var(--world-type,\"Bricolage Grotesque\",Inter,sans-serif);display:flex;flex-direction:column;padding:26px;background:var(--world-mint);color:var(--world-ink);text-decoration:none;}.ds-card h3{display:flex;justify-content:space-between;gap:20px;margin:0;font-size:27px;line-height:1.1;letter-spacing:-.03em;font-weight:600;}.ds-card p{font-size:17px;line-height:1.5;margin:20px 0 24px;}.ds-card span{font-size:16px;margin-top:auto;}.ds-card:focus-visible{outline:3px solid var(--world-coral,#fa7759);outline-offset:5px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Colour chapters",
+    "overview": "Colour chapters give DEJOIY a bold, human-led business presence: uninterrupted mint, paper, deep green and coral fields carry oversized warm grotesk headlines and direct routes into services. Three linked sculptural rings express the shared metaphor \u201cPeople. Process. Possibility.\u201d\n\nThis is a code-led implementation, with no approved image composition. The homepage establishes the full visual language; shared interiors preserve their content and functions within green surfaces, mint controls and image-led services. Repository photography is illustrative, not verified team photography.",
+    "keyCharacteristics": [
+      "Large colour fields and tightly tracked type",
+      "Square controls and image-led service surfaces",
+      "Linked sculptural rings with restrained responsive motion"
+    ],
+    "rules": [
+      {
+        "name": "The Chapter Field Rule",
+        "body": "Use large uninterrupted colour fields to establish section boundaries.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do use the shared Bricolage Grotesque stack and green/mint palette.",
+      "Do retain existing routes and functional content when extending interiors.",
+      "Do identify workplace imagery as illustrative where context requires it.",
+      "Do preserve keyboard controls, visible focus and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don\u2019t add fabricated commercial proof, client marks or testimonials.",
+      "Don\u2019t replace chapter fields with decorative gradients or glass effects.",
+      "Don\u2019t describe a rendering fallback as an approved image composition.",
+      "Don\u2019t introduce navy/violet field styling into the green interior surfaces."
+    ]
+  }
+}

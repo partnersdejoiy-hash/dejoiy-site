@@ -50,9 +50,9 @@ export default function ContactPage() {
               className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight"
               style={{ color: "#F8FAFC" }}
             >
-              Let's build your next
+              Let’s build
               <br />
-              <span className="gradient-text">operating advantage</span>
+              what’s next.
             </h1>
             <p
               className="mt-5 text-base leading-relaxed max-w-xl"
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   <div>
                     <div
                       className="text-[11px] font-medium uppercase tracking-wider mb-1"
-                      style={{ color: "#64748b" }}
+                      style={{ color: "#dcebcf" }}
                     >
                       {detail.label}
                     </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
             <div className="glass-card rounded-3xl p-6">
               <div
                 className="text-[11px] font-semibold uppercase tracking-wider mb-4"
-                style={{ color: "#64748b" }}
+                style={{ color: "#dcebcf" }}
               >
                 What to expect
               </div>
