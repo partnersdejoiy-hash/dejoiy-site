@@ -43,7 +43,12 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                aria-current={router.asPath === href ? "page" : undefined}
+                aria-current={
+                  router.pathname === href ||
+                  router.pathname.startsWith(href + "/")
+                    ? "page"
+                    : undefined
+                }
               >
                 {label}
               </Link>
@@ -73,7 +78,12 @@ export default function Header() {
             <Link
               href={href}
               key={href}
-              aria-current={router.asPath === href ? "page" : undefined}
+              aria-current={
+                router.pathname === href ||
+                router.pathname.startsWith(href + "/")
+                  ? "page"
+                  : undefined
+              }
             >
               {label}
             </Link>

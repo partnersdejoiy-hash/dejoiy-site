@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T19:31:52.906547+00:00",
+  "title": "Design System: The DEJOIY Connection",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "displayName": "Blue",
+        "role": "primary",
+        "tonalRamp": [
+          "oklch(15% 0.14 265)",
+          "oklch(26% 0.14 265)",
+          "oklch(38% 0.14 265)",
+          "oklch(49% 0.14 265)",
+          "oklch(61% 0.14 265)",
+          "oklch(72% 0.14 265)",
+          "oklch(84% 0.14 265)",
+          "oklch(95% 0.14 265)"
+        ]
+      },
+      "pink": {
+        "displayName": "Pink",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.14 350)",
+          "oklch(26% 0.14 350)",
+          "oklch(38% 0.14 350)",
+          "oklch(49% 0.14 350)",
+          "oklch(61% 0.14 350)",
+          "oklch(72% 0.14 350)",
+          "oklch(84% 0.14 350)",
+          "oklch(95% 0.14 350)"
+        ]
+      },
+      "cyan": {
+        "displayName": "Cyan",
+        "role": "secondary",
+        "tonalRamp": [
+          "oklch(15% 0.09 205)",
+          "oklch(26% 0.09 205)",
+          "oklch(38% 0.09 205)",
+          "oklch(49% 0.09 205)",
+          "oklch(61% 0.09 205)",
+          "oklch(72% 0.09 205)",
+          "oklch(84% 0.09 205)",
+          "oklch(95% 0.09 205)"
+        ]
+      },
+      "ink": {
+        "displayName": "Ink",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.035 270)",
+          "oklch(26% 0.035 270)",
+          "oklch(38% 0.035 270)",
+          "oklch(49% 0.035 270)",
+          "oklch(61% 0.035 270)",
+          "oklch(72% 0.035 270)",
+          "oklch(84% 0.035 270)",
+          "oklch(95% 0.035 270)"
+        ]
+      },
+      "night": {
+        "displayName": "Night",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.04 270)",
+          "oklch(26% 0.04 270)",
+          "oklch(38% 0.04 270)",
+          "oklch(49% 0.04 270)",
+          "oklch(61% 0.04 270)",
+          "oklch(72% 0.04 270)",
+          "oklch(84% 0.04 270)",
+          "oklch(95% 0.04 270)"
+        ]
+      },
+      "paper": {
+        "displayName": "Paper",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.01 270)",
+          "oklch(26% 0.01 270)",
+          "oklch(38% 0.01 270)",
+          "oklch(49% 0.01 270)",
+          "oklch(61% 0.01 270)",
+          "oklch(72% 0.01 270)",
+          "oklch(84% 0.01 270)",
+          "oklch(95% 0.01 270)"
+        ]
+      },
+      "soft": {
+        "displayName": "Soft",
+        "role": "neutral",
+        "tonalRamp": [
+          "oklch(15% 0.025 265)",
+          "oklch(26% 0.025 265)",
+          "oklch(38% 0.025 265)",
+          "oklch(49% 0.025 265)",
+          "oklch(61% 0.025 265)",
+          "oklch(72% 0.025 265)",
+          "oklch(84% 0.025 265)",
+          "oklch(95% 0.025 265)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Editorial hero",
+        "purpose": "Final desktop hero role; responsive overrides in DESIGN.md."
+      }
+    },
+    "shadows": [
+      {
+        "name": "signal-pill",
+        "value": "0 10px 40px #17336b14",
+        "purpose": "Floating scene annotation."
+      },
+      {
+        "name": "delivery-pulse",
+        "value": "0 0 30px #ec3aa1",
+        "purpose": "Selected delivery-stage indicator."
+      }
+    ],
+    "motion": [
+      {
+        "name": "authored-ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Shared interaction and transition easing."
+      },
+      {
+        "name": "reveal",
+        "value": "0.9s",
+        "purpose": "Viewport translation reveal."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "760px"
+      },
+      {
+        "name": "compact",
+        "value": "1100px"
+      },
+      {
+        "name": "wide",
+        "value": "1700px"
+      },
+      {
+        "name": "compact-phone-height",
+        "value": "780px"
+      },
+      {
+        "name": "compact-desktop-height",
+        "value": "740px"
+      },
+      {
+        "name": "interior-compact",
+        "value": "1000px"
+      },
+      {
+        "name": "interior-phone",
+        "value": "700px"
+      }
+    ],
+    "notes": [
+      "Tonal ramps are synthesized panel previews, not production CSS tokens.",
+      "Source: styles/business.css; components/BusinessHome.js, ConnectionScene.js, Brand.js, ServiceCard.js, Header.js and Footer.js.",
+      "Service-card snippet shows its text region; production adds a 230px cover image.",
+      "Offscreen rendering is suspended; GPU resources are disposed on unmount, not whenever the scene leaves the viewport.",
+      "Inactive manifesto text uses #7b8499 on #fafbff at its large text role.",
+      "Height breakpoints apply to viewport height: 780px maximum with phone widths, 740px maximum with desktop widths.",
+      "Scene phase changes explicitly invalidate paused/reduced static frames.",
+      "styles/interiors.css overrides the business theme on every non-home route; page-specific explorer and reading compositions are documented in DESIGN.md.",
+      "Final interior field keyboard focus is a cobalt 2px outline with 3px offset, alongside the translucent cobalt focus ring.",
+      "DeliveryPlan adds Discover/Prepare/Improve selection to all eight service detail routes; its measures are planning criteria, not guarantees.",
+      "Portal, help, checklist and request-status surfaces receive explicit light-theme contrast overrides; custom 404 uses shared brand colours.",
+      "Native CSS smooth anchors use root scroll-padding-top 110px; Lenis anchors are disabled, stopInertiaOnNavigate is enabled and bundled Lenis CSS is imported. Article section scroll margin is zero.",
+      "ReadingNav uses passive scroll and resize listeners, coalesced through a single pending animation frame, selecting the last section with top <=165px.",
+      "Interior color-scheme is light; article paragraphs and list items explicitly use muted ink.",
+      "Insight imagery reuses existing customer-experience, back-office and careers photographs; no new assets were created."
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary arrow action",
+      "kind": "button",
+      "description": "Primary arrow action from the current V2 implementation.",
+      "html": "<a href=\"#contact\" class=\"ds-action\">Start a conversation<span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></span></a>",
+      "css": ".ds-action{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:inline-flex;align-items:center;gap:28px;min-height:56px;padding:10px 10px 10px 24px;background:var(--dejoiy-blue);color:white;border-radius:40px;text-decoration:none;font-size:16px;font-weight:500;transition:transform .5s cubic-bezier(.22,1,.36,1),background .5s;}.ds-action span{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:white;color:var(--dejoiy-blue);}.ds-action:hover{background:#143fcb;transform:translateY(-2px);}.ds-action:active{transform:scale(.98);}.ds-action:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}",
+      "refersTo": "action-primary"
+    },
+    {
+      "name": "Text arrow link",
+      "kind": "button",
+      "description": "Text arrow link from the current V2 implementation.",
+      "html": "<a href=\"#services\" class=\"ds-link\">Explore our expertise<span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></span></a>",
+      "css": ".ds-link{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:inline-flex;align-items:center;gap:20px;min-height:46px;font-size:16px;font-weight:500;color:var(--dejoiy-ink);text-decoration:none;}.ds-link span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--dejoiy-soft);color:var(--dejoiy-blue);transition:transform .5s cubic-bezier(.22,1,.36,1),background .5s;}.ds-link:hover span{transform:translate(3px,-3px);background:#e0e8ff;}.ds-link:active{transform:scale(.98);}.ds-link:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}"
+    },
+    {
+      "name": "Expertise tab",
+      "kind": "button",
+      "description": "Expertise tab from the current V2 implementation.",
+      "html": "<button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\">Customer experience <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></button>",
+      "css": ".ds-tab{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 24px;border:0;border-radius:14px;background:#e2e9fa;color:var(--dejoiy-ink);font-size:18px;cursor:pointer;transition:background .4s,color .4s;}.ds-tab[aria-selected=\"true\"]{background:var(--dejoiy-blue);color:white;}.ds-tab:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}",
+      "refersTo": "service-tab"
+    },
+    {
+      "name": "Main navigation",
+      "kind": "nav",
+      "description": "Main navigation from the current V2 implementation.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#services\" aria-current=\"page\">Services</a><a href=\"#about\">About</a><a href=\"#careers\">Careers</a></nav>",
+      "css": ".ds-nav{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:flex;gap:25px;padding:24px;background:var(--dejoiy-paper);color:var(--dejoiy-ink);font-size:14px;}.ds-nav a{color:inherit;text-decoration:none;}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{color:var(--dejoiy-blue);}.ds-nav a:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}"
+    },
+    {
+      "name": "Channel selector",
+      "kind": "chip",
+      "description": "Channel selector from the current V2 implementation.",
+      "html": "<div class=\"ds-channels\" aria-label=\"Choose a customer channel\"><button aria-pressed=\"true\">Voice</button><button aria-pressed=\"false\">Chat</button><button aria-pressed=\"false\">Email</button></div>",
+      "css": ".ds-channels{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:inline-flex;gap:3px;padding:5px;background:#edf1fb;border-radius:35px;}.ds-channels button{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);padding:10px 13px;border:0;background:none;color:var(--dejoiy-muted);border-radius:26px;font-size:13px;cursor:pointer;transition:background .35s,color .35s;}.ds-channels button[aria-pressed=\"true\"]{background:white;color:var(--dejoiy-blue);}.ds-channels button:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}"
+    },
+    {
+      "name": "Light interior field",
+      "kind": "input",
+      "description": "White interior field with ink text and cobalt border, ring and keyboard focus outline.",
+      "html": "<label class=\"ds-label\">Work email<input class=\"ds-field\" type=\"email\" placeholder=\"you@company.com\"/></label>",
+      "css": ".ds-label{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:grid;gap:8px;padding:24px;background:var(--dejoiy-paper);color:var(--dejoiy-ink);}.ds-field{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);padding:14px 18px;border:1px solid #b6c1d7;border-radius:9px;background:white;color:var(--dejoiy-ink);font-size:14px;}.ds-field::placeholder{color:#647088;}.ds-field:focus{background:white;border-color:var(--dejoiy-blue);box-shadow:0 0 0 3px #2354ed20;outline:2px solid #b3ceff;outline-offset:2px;}.ds-field:focus-visible{outline:2px solid var(--dejoiy-blue);outline-offset:3px;}",
+      "refersTo": "field"
+    },
+    {
+      "name": "Service card text region",
+      "kind": "card",
+      "description": "Service card text region from the current V2 implementation.",
+      "html": "<a class=\"ds-card\" href=\"#service\"><h3>Customer experience <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></h3><p>Voice, chat and email support that brings clear ownership to every customer interaction.</p><span>Explore service</span></a>",
+      "css": ".ds-card{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:flex;flex-direction:column;padding:28px;background:white;color:var(--dejoiy-ink);text-decoration:none;border-radius:20px;}.ds-card h3{display:flex;justify-content:space-between;gap:20px;margin:0;font-size:27px;line-height:1.1;letter-spacing:-.03em;font-weight:600;}.ds-card p{font-size:17px;line-height:1.5;color:var(--dejoiy-muted);margin:20px 0 24px;}.ds-card span{font-size:16px;color:var(--dejoiy-blue);margin-top:auto;}.ds-card:focus-visible{outline:3px solid var(--dejoiy-blue,#2354ed);outline-offset:5px;}",
+      "refersTo": "service-card"
+    },
+    {
+      "name": "Interior explorer selector",
+      "kind": "button",
+      "description": "Numbered pressed-state selector for service or industry exploration.",
+      "html": "<button class=\"ds-explorer\" aria-pressed=\"true\"><span>01</span>Customer experience<span aria-hidden=\"true\">\u2197</span></button>",
+      "css": ".ds-explorer{font-family:var(--dejoiy-type,\"Bricolage Grotesque\",sans-serif);display:flex;align-items:center;gap:18px;width:100%;min-height:72px;padding:23px 12px;border:0;border-top:1px solid #cbd2e1;background:transparent;color:var(--dejoiy-ink);text-align:left;font-size:20px;transition:background .25s,padding .4s cubic-bezier(.22,1,.36,1);}.ds-explorer span:first-child{font-size:11px;}.ds-explorer span:last-child{margin-left:auto;}.ds-explorer[aria-pressed=true]{background:var(--dejoiy-blue);color:white;padding-left:22px;border-color:transparent;}.ds-explorer:hover:not([aria-pressed=true]){background:#e8edfa;padding-left:20px;}.ds-explorer:focus-visible{outline:3px solid var(--dejoiy-blue);outline-offset:5px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The DEJOIY Connection",
+    "overview": "The DEJOIY Connection uses a white editorial foreground, deep navy operational chapters and cobalt, pink and cyan accents drawn from the brand direction. Bricolage Grotesque keeps the business voice warm and direct. A layered, reflective D connects the opening narrative to the identity, replacing the earlier mint/coral rings.\n\nMotion explains a customer request moving through Connect, Understand and Resolve. The homepage receives this authored composition; all non-home routes now receive a light interior wrapper, while services, industries, about, careers, people, contact and articles add page-specific exploration or reading layouts. Existing routes and functional flows remain the product constraints. This code-led implementation has no approved image composition and makes no verified novelty claim. Workplace photography remains illustrative.",
+    "keyCharacteristics": [
+      "White/navy editorial contrast with brand colour accents",
+      "A reflective layered D and topology-changing particles",
+      "Scroll-linked narrative, photographic aperture and word emphasis",
+      "Rounded service surfaces and pill actions"
+    ],
+    "rules": [
+      {
+        "name": "The Brand Connection Rule",
+        "body": "Keep the cobalt, pink and cyan relationship visible through the authored scene and purposeful accents; use white/navy fields for readable business content.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do use the current DEJOIY palette and Bricolage Grotesque stack.",
+      "Do make motion support the Connect, Understand and Resolve narrative.",
+      "Do preserve keyboard controls, static fallbacks and reduced-motion behavior.",
+      "Do preserve existing routes, forms and interior content.",
+      "Do describe workplace photography as illustrative when context requires it."
+    ],
+    "donts": [
+      "Don\u2019t restore the rejected mint/coral ring direction.",
+      "Don\u2019t claim the shared theme is a sitewide composition overhaul.",
+      "Don\u2019t invent clients, metrics, testimonials, certifications or verified novelty.",
+      "Don\u2019t gate narrative readability behind an opacity entrance."
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# DEJOIY business website
+
+DEJOIY provides people-led customer experience, back-office operations, AI data operations, trust and safety, moderation, sales support, model evaluation and financial compliance support. Audience: businesses evaluating an outsourcing partner; secondary visitors are applicants and employees. Primary action: discuss requirements via the existing contact page. Preserve all existing service URLs, enquiry forms, careers, resources, help, tracking and employee-document functions. No invented clients, certifications, office locations, metrics or testimonials. Existing service/careers photography is illustrative, not verified team photography.
