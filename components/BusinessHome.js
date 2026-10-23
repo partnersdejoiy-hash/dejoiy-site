@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,301 +7,535 @@ import {
   ArrowUpRight,
   ArrowRight,
   ArrowDown,
-  Plus,
-  Minus,
   Pause,
   Play,
+  Plus,
+  Minus,
+  Headphones,
+  MessageSquare,
+  Mail,
 } from "lucide-react";
 import { services } from "../data/services";
 import { insights } from "../data/insights";
 const Scene = dynamic(() => import("./ConnectionScene"), { ssr: false });
-const pathways = [
+const chapters = [
   {
-    label: "Customer experience",
-    title: "Make every conversation count.",
-    description:
-      "Voice, chat and email support that brings clear ownership to every customer interaction.",
-    slugs: ["customer-experience", "sales-support"],
+    word: "Connect.",
+    title: "Every channel.\nReal connection.",
+    body: "Voice, chat or email. Bring every customer conversation into a shared experience, with a clear path to the right person.",
+    detail: "Customer experience & sales support",
+    href: "/services/customer-experience",
+  },
+  {
+    word: "Understand.",
+    title: "Smart systems.\nHuman care.",
+    body: "People bring context to the work. We connect playbooks, human judgment and quality review before the next decision is made.",
+    detail: "AI operations, moderation & trust",
+    href: "/services/ai-data-operations",
+  },
+  {
+    word: "Resolve.",
+    title: "Make every\nhandoff count.",
+    body: "Clear ownership. Agreed escalation paths. A feedback loop that helps your next customer experience become a better one.",
+    detail: "Business operations & quality",
+    href: "/services/back-office",
+  },
+];
+const groups = [
+  {
+    name: "Customer experience",
+    headline: "Care that feels like your brand.",
+    copy: "Be there for the conversations that matter, with ownership from first contact to resolution.",
     image: "/services/customer-experience.jpg",
-    alt: "Illustrative customer support setting",
-    note: "Care that carries your brand.",
+    slugs: ["customer-experience", "sales-support"],
   },
   {
-    label: "Business operations",
-    title: "Give good work a clear path.",
-    description:
-      "Accurate processing, thoughtful documentation and dependable handoffs for your everyday operations.",
-    slugs: ["back-office", "financial-compliance"],
-    image: "/services/back-office.jpg",
-    alt: "Illustrative business operations setting",
-    note: "Clarity from input to outcome.",
-  },
-  {
-    label: "AI & digital trust",
-    title: "Put human judgment to work.",
-    description:
-      "Human review, evaluation and policy-led decisions for the moments automation cannot handle alone.",
+    name: "AI & digital trust",
+    headline: "Human care. Clear standards.",
+    copy: "Bring context, calibration and consistent review to the work that needs a human perspective.",
+    image: "/services/ai-data-operations.jpg",
     slugs: [
       "ai-data-operations",
       "ai-model-training",
       "trust-safety",
       "content-moderation",
     ],
-    image: "/services/ai-data-operations.jpg",
-    alt: "Illustration of AI data workflows",
-    note: "Intelligence needs perspective.",
+  },
+  {
+    name: "Business operations",
+    headline: "Better flow. From input to outcome.",
+    copy: "Connect documentation, processing and review in an operation built around accuracy and accountability.",
+    image: "/services/back-office.jpg",
+    slugs: ["back-office", "financial-compliance"],
   },
 ];
 const stages = [
   [
     "Understand",
     "Start with your customers.",
-    "We map your goals, customer journeys and contact reasons to find the moments that need care.",
-    "Discovery, journey mapping, success measures",
+    "Map business goals, contact reasons and the moments that need a human touch.",
   ],
   [
     "Design",
     "Give every request a path.",
-    "Together, we define channels, responsibilities, knowledge and escalation rules before the first handoff.",
-    "Playbooks, ownership, escalation paths",
+    "Define channels, responsibilities, knowledge and escalation rules before the first handoff.",
   ],
   [
     "Deliver",
-    "Equip people to do great work.",
-    "Training, agreed tools and clear working practices connect your requirements with day-to-day delivery.",
-    "People, training, approved tools",
+    "Equip people for good work.",
+    "Bring playbooks, training and agreed tools into one consistent workflow.",
   ],
   [
     "Improve",
-    "Make the next experience better.",
-    "Quality reviews and shared feedback help turn recurring issues into practical improvements.",
-    "Quality sampling, calibration, feedback",
+    "Close the loop with quality.",
+    "Review interactions, learn from exceptions and turn feedback into practical improvements.",
   ],
 ];
-const industries = [
-  ["Retail & commerce", "retail"],
-  ["Technology", "technology"],
-  ["Travel & hospitality", "travel"],
-  ["Financial services", "financial"],
-];
-function Reveal({ children, className = "", ...props }) {
+function ArrowLink({ children, href, className = "" }) {
+  return (
+    <Link href={href} className={`dejoiy-link ${className}`}>
+      {children}
+      <span>
+        <ArrowUpRight size={19} strokeWidth={1.5} />
+      </span>
+    </Link>
+  );
+}
+function Reveal({ children, className = "" }) {
   return (
     <motion.div
       className={className}
       initial={false}
-      whileInView={{ y: [18, 0] }}
-      viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-      {...props}
+      whileInView={{ y: [32, 0] }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
   );
 }
 export default function BusinessHome() {
-  const [active, setActive] = useState(0),
-    [stage, setStage] = useState(0),
-    [paused, setPaused] = useState(false);
-  const chosen = pathways[active];
-  const film = useRef(null);
+  const story = useRef(null),
+    photo = useRef(null),
+    manifesto = useRef(null),
+    film = useRef(null);
+  const progressRef = useRef(0);
+  const [view, setView] = useState(-1),
+    [channel, setChannel] = useState(0),
+    [paused, setPaused] = useState(false),
+    [group, setGroup] = useState(0),
+    [stage, setStage] = useState(0);
   const reduced = useReducedMotion();
+  useEffect(() => {
+    let revert,
+      disposed = false;
+    Promise.all([import("gsap"), import("gsap/dist/ScrollTrigger")]).then(
+      ([g, s]) => {
+        if (disposed) return;
+        const gsap = g.gsap || g.default,
+          ScrollTrigger = s.ScrollTrigger || s.default;
+        gsap.registerPlugin(ScrollTrigger);
+        const context = gsap.context(() => {
+          ScrollTrigger.create({
+            trigger: story.current,
+            start: "top top",
+            end: "bottom bottom",
+            onUpdate: (self) => {
+              progressRef.current = self.progress;
+              story.current.style.setProperty(
+                "--story-progress",
+                self.progress,
+              );
+              story.current
+                .querySelectorAll(".chapter-track i")
+                .forEach((bar, i) => {
+                  bar.style.transform = `scaleX(${Math.max(0, Math.min(1, self.progress * 3 - i))})`;
+                });
+              setView(
+                self.progress < 0.08
+                  ? -1
+                  : Math.min(2, Math.floor(self.progress * 3)),
+              );
+            },
+          });
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            gsap.fromTo(
+              photo.current.querySelector(".human-aperture"),
+              { clipPath: "inset(13% 17% 13% 17% round 150px)", scale: 0.9 },
+              {
+                clipPath: "inset(0% 0% 0% 0% round 0px)",
+                scale: 1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: photo.current,
+                  start: "top top",
+                  end: "55% bottom",
+                  scrub: 1,
+                },
+              },
+            );
+            gsap.fromTo(
+              photo.current.querySelector("img"),
+              { scale: 1.16 },
+              {
+                scale: 1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: photo.current,
+                  start: "top top",
+                  end: "bottom bottom",
+                  scrub: 1,
+                },
+              },
+            );
+            gsap.fromTo(
+              photo.current.querySelector(".human-photo-copy"),
+              { y: 80, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: photo.current,
+                  start: "20% top",
+                  end: "50% top",
+                  scrub: 1,
+                },
+              },
+            );
+            gsap.to(manifesto.current.querySelectorAll(".manifesto-word"), {
+              color: "#121835",
+              stagger: 0.13,
+              ease: "none",
+              scrollTrigger: {
+                trigger: manifesto.current,
+                start: "top 65%",
+                end: "bottom 55%",
+                scrub: 1,
+              },
+            });
+          }
+        });
+        revert = () => context.revert();
+        ScrollTrigger.refresh();
+      },
+    );
+    return () => {
+      disposed = true;
+      revert?.();
+    };
+  }, []);
+  const current = Math.max(0, view);
+  const started = view >= 0;
+  const jump = (i) => {
+    const rect = story.current.getBoundingClientRect();
+    const top =
+      scrollY +
+      rect.top +
+      (story.current.offsetHeight - innerHeight) * (i / 3 + 0.11);
+    window.scrollTo({ top, behavior: reduced ? "instant" : "smooth" });
+  };
+  const selected = groups[group];
   return (
-    <div className="business-world">
-      <section className="connection-hero">
-        <div className="connection-hero-top">
-          <h1>
-            Better,
-            <br />
-            together.
-          </h1>
-          <motion.div
-            className="hero-intro"
-            initial={false}
-            animate={{ y: [16, 0] }}
-            transition={{ duration: 0.7 }}
-          >
-            <p>
-              People-led BPO.
-              <br />
-              Intelligently connected.
-            </p>
-            <p>
-              We bring care to customer experience, clarity to operations, and
-              human judgment to AI.
-            </p>
-            <Link className="world-button dark" href="/contact">
-              Let’s build your next chapter <ArrowUpRight size={20} />
-            </Link>
-          </motion.div>
-        </div>
-        <div className="hero-object">
-          <Scene active={active} paused={paused} />
-          <div className="object-caption">
-            <span>People. Process. Possibility.</span>
-            <button
-              onClick={() => setPaused(!paused)}
-              aria-label={paused ? "Play 3D animation" : "Pause 3D animation"}
-              aria-pressed={paused}
+    <div className="business-world dejoiy-v2">
+      <section
+        ref={story}
+        className={`connection-story ${started ? "story-started" : ""}`}
+        aria-label="The DEJOIY connection"
+      >
+        <div className="connection-stage">
+          <div className="story-copy">
+            <div className="story-intro">
+              <span className="story-marker">
+                <span /> People-led. Possibility-driven.
+              </span>
+              <h1>
+                Good business.
+                <br />
+                Great humans.
+              </h1>
+              <p>
+                Customer experience, business operations and AI. Connected by
+                people who care about getting it right.
+              </p>
+              <ArrowLink href="/contact" className="primary">
+                Build your next chapter
+              </ArrowLink>
+            </div>
+            <div className="chapter-copy" aria-live="off">
+              {chapters.map((c, i) => (
+                <div
+                  className={`chapter-text ${i === current ? "is-current" : ""}`}
+                  key={c.word}
+                  aria-hidden={i !== current}
+                >
+                  <span className="chapter-word">{c.word}</span>
+                  <h2>
+                    {c.title.split("\n").map((t, n) => (
+                      <span key={t}>
+                        {t}
+                        {n === 0 && <br />}
+                      </span>
+                    ))}
+                  </h2>
+                  <p>{c.body}</p>
+                  <ArrowLink href={c.href}>{c.detail}</ArrowLink>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="story-visual">
+            <Scene
+              progressRef={progressRef}
+              phase={view}
+              channel={channel}
+              paused={paused}
+            />
+            <div className="scene-annotation annotation-top">
+              <span className="annotation-dot" />
+              The DEJOIY connection
+            </div>
+            <div className="scene-annotation annotation-bottom">
+              <span>
+                {
+                  [
+                    "A conversation starts here.",
+                    "Human judgment enters the loop.",
+                    "A clear path to resolution.",
+                  ][current]
+                }
+              </span>
+              <button
+                type="button"
+                onClick={() => setPaused(!paused)}
+                aria-label={
+                  paused ? "Play 3D experience" : "Pause 3D experience"
+                }
+                aria-pressed={paused}
+              >
+                {paused ? <Play size={15} /> : <Pause size={15} />}
+              </button>
+            </div>
+            <div
+              className={`signal-label signal-label-${current}`}
+              aria-hidden="true"
             >
-              {paused ? <Play size={16} /> : <Pause size={16} />}
-            </button>
+              <span className="signal-spark" />
+              {
+                [
+                  `${["Voice", "Chat", "Email"][channel]} conversation starts`,
+                  "Context meets care",
+                  "Ownership → resolution",
+                ][current]
+              }
+            </div>
+          </div>
+          <div className="story-controls">
+            <div
+              className="channel-switch"
+              aria-label="Choose a customer channel"
+            >
+              {[
+                ["Voice", Headphones],
+                ["Chat", MessageSquare],
+                ["Email", Mail],
+              ].map(([name, Icon], i) => (
+                <button
+                  key={name}
+                  onClick={() => setChannel(i)}
+                  aria-pressed={channel === i}
+                >
+                  <Icon size={17} strokeWidth={1.5} />
+                  {name}
+                </button>
+              ))}
+            </div>
+            <div className="story-chapters" aria-label="Explore the connection">
+              {chapters.map((c, i) => (
+                <button
+                  key={c.word}
+                  onClick={() => jump(i)}
+                  aria-current={current === i ? "step" : undefined}
+                >
+                  <span className="chapter-track">
+                    <i
+                      style={{
+                        transform: `scaleX(${Math.max(0, Math.min(1, progressRef.current * 3 - i))})`,
+                      }}
+                    />
+                  </span>
+                  {c.word}
+                </button>
+              ))}
+            </div>
+            <a href="#human" className="story-scroll">
+              Scroll to connect <ArrowDown size={17} />
+            </a>
           </div>
         </div>
-        <div className="hero-bottom">
-          <a href="#possibilities">
-            A more connected way to work <ArrowDown size={18} />
-          </a>
-          <span>Customer experience · Operations · AI</span>
+      </section>
+      <section ref={photo} className="human-reveal" id="human">
+        <div className="human-sticky">
+          <div className="human-aperture">
+            <Image
+              src="/brand/careers-hero.jpg"
+              fill
+              sizes="100vw"
+              alt="Illustrative workplace collaboration"
+            />
+            <div className="human-photo-copy">
+              <h2>
+                People make
+                <br />
+                it matter.
+              </h2>
+              <p>
+                Technology makes connections possible.
+                <br />
+                People make them matter.
+              </p>
+              <ArrowLink href="/our-people">
+                Meet the people behind DEJOIY
+              </ArrowLink>
+            </div>
+          </div>
         </div>
       </section>
-      <section className="possibility-chapter" id="possibilities">
-        <Reveal className="chapter-heading">
+      <section className="human-manifesto" ref={manifesto}>
+        <p>
+          {"A great experience is never just a process. It is someone listening. Someone taking ownership. Someone making the next step feel effortless."
+            .split(" ")
+            .map((word, i) => (
+              <span className="manifesto-word" key={i}>
+                {word}{" "}
+              </span>
+            ))}
+        </p>
+        <span>That’s the human difference.</span>
+      </section>
+      <section className="expertise-chapter" id="expertise">
+        <Reveal className="v2-heading">
           <h2>
-            Your next
+            One partner.
             <br />
-            possibility.
+            Many strengths.
           </h2>
           <p>
-            Bring your customer journeys, everyday processes and specialist
-            workflows into focus. Where should we start?
+            Your challenges don’t live in separate boxes. Neither should the
+            teams solving them.
           </p>
         </Reveal>
         <div
-          className="pathway-tabs"
+          className="expertise-tabs"
           role="tablist"
-          aria-label="Explore business needs"
+          aria-label="Explore expertise"
         >
-          {pathways.map((p, i) => (
+          {groups.map((g, i) => (
             <button
-              key={p.label}
-              id={`pathway-tab-${i}`}
               role="tab"
-              aria-selected={active === i}
-              aria-controls="pathway-panel"
-              tabIndex={active === i ? 0 : -1}
+              key={g.name}
+              id={`expertise-tab-${i}`}
+              aria-controls="expertise-panel"
+              aria-selected={group === i}
+              tabIndex={group === i ? 0 : -1}
+              onClick={() => setGroup(i)}
               onKeyDown={(e) => {
                 if (
                   ["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)
                 ) {
                   e.preventDefault();
-                  const next =
+                  const n =
                     e.key === "Home"
                       ? 0
                       : e.key === "End"
                         ? 2
                         : (i + (e.key === "ArrowRight" ? 1 : 2)) % 3;
-                  setActive(next);
-                  document.getElementById(`pathway-tab-${next}`)?.focus();
+                  setGroup(n);
+                  document.getElementById(`expertise-tab-${n}`)?.focus();
                 }
               }}
-              onClick={() => setActive(i)}
             >
-              {p.label}
+              {g.name}
+              <ArrowUpRight size={20} strokeWidth={1.5} />
             </button>
           ))}
         </div>
         <div
-          className="pathway-panel"
-          id="pathway-panel"
+          className="expertise-stage"
           role="tabpanel"
-          aria-labelledby={`pathway-tab-${active}`}
+          id="expertise-panel"
+          aria-labelledby={`expertise-tab-${group}`}
         >
-          <div className="pathway-photo">
+          <div className="expertise-stage-photo">
             <Image
-              src={chosen.image}
-              alt={chosen.alt}
+              src={selected.image}
               fill
-              sizes="(max-width: 760px) 100vw, 50vw"
+              sizes="(max-width:760px) 100vw, 50vw"
+              alt={`Illustrative ${selected.name.toLowerCase()} setting`}
             />
           </div>
-          <div className="pathway-copy">
-            <h3>{chosen.title}</h3>
-            <p>{chosen.description}</p>
-            <div className="pathway-links">
-              {chosen.slugs.map((slug) => {
-                const s = services.find((s) => s.slug === slug);
-                return (
-                  <Link key={slug} href={`/services/${slug}`}>
-                    {s.title}
-                    <ArrowUpRight size={21} />
-                  </Link>
-                );
-              })}
+          <div className="expertise-stage-copy">
+            <h3>{selected.headline}</h3>
+            <p>{selected.copy}</p>
+            <div>
+              {selected.slugs.map((slug) => (
+                <ArrowLink href={`/services/${slug}`} key={slug}>
+                  {services.find((s) => s.slug === slug).title}
+                </ArrowLink>
+              ))}
             </div>
-            <Link href="/services" className="world-text-link">
-              Explore all our expertise <ArrowRight size={20} />
-            </Link>
           </div>
         </div>
       </section>
-      <section className="human-chapter">
-        <Reveal>
+      <section className="delivery-chapter-v2">
+        <Reveal className="v2-heading">
           <h2>
-            People make
-            <br />
-            it matter.
-          </h2>
-        </Reveal>
-        <div className="human-story">
-          <p>Technology connects the work. People make it matter.</p>
-          <div>
-            <p>
-              Behind every query, every decision and every handoff is a person.
-              We build operations around that simple truth—with care, clear
-              standards and accountable delivery.
-            </p>
-            <Link href="/about" className="world-text-link">
-              Get to know DEJOIY <ArrowUpRight size={22} />
-            </Link>
-          </div>
-        </div>
-        <Reveal className="human-photo">
-          <Image
-            src="/brand/careers-hero.jpg"
-            alt="Illustrative workplace collaboration"
-            fill
-            sizes="100vw"
-          />
-          <span>Good work starts with people.</span>
-        </Reveal>
-      </section>
-      <section className="delivery-chapter" id="delivery">
-        <Reveal className="chapter-heading">
-          <h2>
-            Service.
+            Good service.
             <br />
             By design.
           </h2>
           <p>
-            A connected operation gives each handoff a purpose. Explore how we
-            turn your requirements into a considered delivery approach.
+            From the first conversation to the next improvement. Every step has
+            a purpose—and an owner.
           </p>
         </Reveal>
-        <div className="delivery-accordion">
-          {stages.map(([name, title, copy, detail], i) => (
+        <div className="delivery-workspace">
+          <div className="delivery-spine" aria-hidden="true">
+            <div className="delivery-wire" />
             <div
-              key={name}
-              className={`delivery-stage stage-${i} ${stage === i ? "is-open" : ""}`}
-            >
-              <button
-                aria-expanded={stage === i}
-                aria-controls={`stage-content-${i}`}
-                onClick={() => setStage(i)}
+              className="delivery-pulse"
+              style={{ transform: `translateY(${stage * 88}px)` }}
+            />
+            <span>Understand</span>
+            <span>Design</span>
+            <span>Deliver</span>
+            <span>Improve</span>
+          </div>
+          <div className="delivery-steps">
+            {stages.map(([name, title, copy], i) => (
+              <div
+                key={name}
+                className={`delivery-row ${stage === i ? "is-open" : ""}`}
               >
-                <span>{name}</span>
-                {stage === i ? <Minus size={23} /> : <Plus size={23} />}
-              </button>
-              <div id={`stage-content-${i}`} hidden={stage !== i}>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-                <span className="stage-detail">{detail}</span>
+                <button
+                  onClick={() => setStage(i)}
+                  aria-expanded={stage === i}
+                  aria-controls={`delivery-${i}`}
+                >
+                  <span>{name}</span>
+                  {stage === i ? <Minus size={22} /> : <Plus size={22} />}
+                </button>
+                <div hidden={stage !== i} id={`delivery-${i}`}>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
-      <section className="industry-chapter">
-        <Reveal className="chapter-heading">
+      <section className="industries-chapter-v2">
+        <Reveal className="v2-heading">
           <h2>
             Your world.
             <br />
@@ -309,143 +543,137 @@ export default function BusinessHome() {
           </h2>
           <div>
             <p>
-              Different industries. Different challenges. An approach shaped
-              around the people you serve.
+              Customer expectations change by industry. Our approach starts with
+              yours.
             </p>
-            <Link href="/industries" className="world-text-link">
-              Explore your industry <ArrowUpRight size={22} />
-            </Link>
+            <ArrowLink href="/industries">Find your industry</ArrowLink>
           </div>
         </Reveal>
-        <div className="industry-controls">
-          <span>Explore the industries we support</span>
+        <div
+          className="industry-film-v2"
+          ref={film}
+          role="region"
+          aria-label="Industries"
+          tabIndex={0}
+        >
+          {[
+            ["Retail & commerce", "retail"],
+            ["Technology", "technology"],
+            ["Travel & hospitality", "travel"],
+            ["Financial services", "financial"],
+          ].map(([name, slug], i) => (
+            <Link
+              key={slug}
+              href={`/industries#${slug}`}
+              className={`industry-window industry-window-${i}`}
+            >
+              <div>
+                <Image
+                  src={`/industries/${slug}.jpg`}
+                  fill
+                  sizes="(max-width:760px) 80vw, 34vw"
+                  alt={`Illustrative ${name.toLowerCase()} setting`}
+                />
+                <span>
+                  <ArrowUpRight size={24} strokeWidth={1.5} />
+                </span>
+              </div>
+              <h3>{name}</h3>
+            </Link>
+          ))}
+        </div>
+        <div className="film-controls">
+          <p>Different worlds. The same care.</p>
           <div>
-            {[-1, 1].map((direction) => (
+            {[-1, 1].map((d) => (
               <button
-                key={direction}
-                aria-label={
-                  direction === 1 ? "Next industries" : "Previous industries"
-                }
+                key={d}
+                aria-label={d === 1 ? "Next industries" : "Previous industries"}
                 onClick={() =>
                   film.current?.scrollBy({
-                    left: direction * film.current.clientWidth * 0.65,
+                    left: d * film.current.clientWidth * 0.65,
                     behavior: reduced ? "auto" : "smooth",
                   })
                 }
               >
                 <ArrowRight
-                  size={22}
-                  style={{
-                    transform: direction === -1 ? "rotate(180deg)" : undefined,
-                  }}
+                  size={21}
+                  style={{ transform: d === -1 ? "rotate(180deg)" : undefined }}
                 />
               </button>
             ))}
           </div>
         </div>
-        <div
-          ref={film}
-          className="industry-film"
-          role="region"
-          aria-label="Industry gallery"
-          tabIndex={0}
-        >
-          {industries.map(([name, slug]) => (
-            <Link
-              href={`/industries#${slug}`}
-              key={slug}
-              className="industry-frame"
-            >
-              <div className="industry-image">
-                <Image
-                  src={`/industries/${slug}.jpg`}
-                  fill
-                  sizes="(max-width: 760px) 80vw, 35vw"
-                  alt={`Illustrative ${name.toLowerCase()} setting`}
-                />
-              </div>
-              <span>
-                {name}
-                <ArrowUpRight size={23} />
-              </span>
-            </Link>
-          ))}
-        </div>
       </section>
-      <section className="ideas-chapter">
-        <Reveal className="chapter-heading">
+      <section className="thinking-chapter">
+        <Reveal className="v2-heading">
           <h2>
             A fresh
             <br />
             perspective.
           </h2>
-          <Link href="/insights" className="world-text-link">
-            Explore our thinking <ArrowUpRight size={22} />
-          </Link>
+          <ArrowLink href="/insights">Explore our thinking</ArrowLink>
         </Reveal>
-        <div className="ideas-layout">
+        <div className="thinking-stories">
           {insights.slice(0, 3).map((item, i) => (
             <Link
-              className={`idea-story idea-${i}`}
               href={`/insights/${item.slug}`}
               key={item.slug}
+              className={`thinking-story thinking-${i}`}
             >
-              <div className="idea-image">
+              <div className="thinking-image">
                 <Image
                   src={item.image}
-                  fill
-                  sizes="(max-width: 760px) 100vw, 50vw"
                   alt=""
+                  fill
+                  sizes="(max-width:760px) 100vw, 50vw"
                 />
               </div>
+              <span>{item.category}</span>
               <h3>
                 {
                   [
-                    "Support you can rely on",
-                    "Human judgment in AI",
-                    "Consistent policy review",
+                    "Support customers can rely on",
+                    "Where human judgment belongs",
+                    "Make policy review consistent",
                   ][i]
                 }
-                <ArrowUpRight size={23} />
+                <ArrowUpRight size={22} strokeWidth={1.5} />
               </h3>
               <p>{item.excerpt}</p>
             </Link>
           ))}
         </div>
       </section>
-      <section className="next-chapter">
+      <section className="future-chapter">
+        <div className="future-mark" aria-hidden="true">
+          D
+        </div>
         <Reveal>
           <h2>
-            Next starts
+            What’s next?
             <br />
-            together.
+            Let’s build it.
           </h2>
-        </Reveal>
-        <div className="next-actions">
           <p>
-            Tell us what your customers and operations need. We’ll work through
-            the right approach with you.
+            Tell us what your customers and operations need.
+            <br />
+            We’ll work through the right approach with you.
           </p>
-          <Link href="/contact" className="world-button dark">
-            Start a conversation <ArrowUpRight size={22} />
-          </Link>
-        </div>
+          <ArrowLink className="primary" href="/contact">
+            Start a conversation
+          </ArrowLink>
+        </Reveal>
       </section>
-      <section className="help-band">
-        <h2>Here for something else?</h2>
+      <section className="help-band-v2">
+        <h2>Here to help.</h2>
         <div>
-          <Link href="/careers">
-            Find your next role <ArrowUpRight size={20} />
-          </Link>
-          <Link href="/employee-documents">
-            Employee documents <ArrowUpRight size={20} />
-          </Link>
-          <Link href="/employee-verification">
-            Verify employment <ArrowUpRight size={20} />
-          </Link>
-          <Link href="/help">
-            Help & request tracking <ArrowUpRight size={20} />
-          </Link>
+          <ArrowLink href="/careers">Your next career move</ArrowLink>
+          <ArrowLink href="/employee-documents">Employee documents</ArrowLink>
+          <ArrowLink href="/employee-verification">
+            Employment verification
+          </ArrowLink>
+          <ArrowLink href="/help">Help & request tracking</ArrowLink>
         </div>
       </section>
     </div>

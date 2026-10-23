@@ -1,161 +1,164 @@
 ---
-name: DEJOIY — Better, together
-description: Bold colour chapters for connected, human-led business operations.
+name: The DEJOIY Connection
+description: Editorial white and navy with a motion-led branded D narrative.
 colors:
-  ink: "#123d35"
-  mint: "#dcebcf"
-  paper: "#f7f8f2"
-  coral: "#fa7759"
-  green: "#154c40"
-  muted: "#476355"
-  delivery-ground: "#c8dabd"
-  delivery-dark: "#174c40"
-  delivery-mid: "#89b69c"
-  delivery-light: "#b3d1b4"
-  delivery-paper: "#e9edda"
-  industry-ground: "#f2ded4"
-  link-surface: "#e9ede3"
-  interior-surface: "#1c5045"
-  interior-hover: "#255f50"
-  primary-hover: "#edf5e5"
-  secondary-surface: "#245647"
-  secondary-hover: "#326a59"
-  interior-copy: "#e1e9dc"
-  field-border: "#698e7d"
-  field-placeholder: "#c5d8ca"
+  ink: "#10152d"
+  blue: "#2354ed"
+  pink: "#e91b8d"
+  cyan: "#00b8cc"
+  paper: "#fafbff"
+  soft: "#eff3fd"
+  muted: "#566078"
+  night: "#060c23"
+  white: "#ffffff"
+  blue-hover: "#143fcb"
+  tab-surface: "#e2e9fa"
+  delivery-surface: "#101b3a"
+  delivery-open: "#182c5d"
+  interior-surface: "#101e41"
+  interior-hover: "#16274f"
+  field-surface: "#08132c"
+  field-border: "#60769e"
+  field-focus: "#b3ceff"
+  field-placeholder: "#becde8"
+  manifesto-inactive: "#7b8499"
 typography:
   display:
-    fontFamily: '"Bricolage Grotesque", "Inter", sans-serif'
-    fontSize: "clamp(100px, 12vw, 176px)"
+    fontFamily: '"Bricolage Grotesque", sans-serif'
+    fontSize: "clamp(64px, 6.15vw, 96px)"
     fontWeight: 600
-    lineHeight: 0.87
-    letterSpacing: "-0.04em"
+    lineHeight: 1.01
+    letterSpacing: "-0.055em"
   headline:
-    fontFamily: '"Bricolage Grotesque", "Inter", sans-serif'
-    fontSize: "clamp(46px, 6.5vw, 94px)"
+    fontFamily: '"Bricolage Grotesque", sans-serif'
+    fontSize: "clamp(46px, 6vw, 88px)"
     fontWeight: 600
     lineHeight: 1.02
-    letterSpacing: "-0.04em"
+    letterSpacing: "-0.045em"
   title:
-    fontSize: "clamp(28px, 3vw, 44px)"
+    fontSize: "clamp(28px, 3vw, 42px)"
     fontWeight: 600
     lineHeight: 1.1
-    letterSpacing: "-0.04em"
+    letterSpacing: "-0.045em"
   body:
-    fontFamily: '"Bricolage Grotesque", "Inter", sans-serif'
+    fontFamily: '"Bricolage Grotesque", sans-serif'
     fontSize: "18px"
-    fontWeight: 400
-    lineHeight: 1.5
+    lineHeight: 1.55
   label:
-    fontSize: "15px"
+    fontSize: "14px"
 rounded:
-  square: "0"
-  round-control: "50%"
+  field: "12px"
+  tab: "14px"
+  accordion: "16px"
+  story-image: "18px"
+  service-card: "20px"
+  industry-image: "22px"
+  service-stage: "24px"
+  action: "40px"
+  circle: "50%"
 spacing:
-  chapter: "130px"
-  chapter-mobile: "80px"
-  gutter: "4vw"
-  gutter-mobile: "5vw"
+  gutter: "5vw"
+  chapter: "140px"
+  chapter-phone: "85px"
 components:
-  button-world:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    padding: "18px 24px"
-    height: "60px"
-    rounded: "{rounded.square}"
-  button-primary:
-    backgroundColor: "{colors.mint}"
-    textColor: "{colors.ink}"
-    padding: "14px 22px"
-    rounded: "{rounded.square}"
-  button-secondary:
-    backgroundColor: "{colors.secondary-surface}"
-    textColor: "{colors.paper}"
-    padding: "14px 22px"
-    rounded: "{rounded.square}"
+  action-primary:
+    backgroundColor: "{colors.blue}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.action}"
+    padding: "10px 10px 10px 24px"
   service-tab:
-    backgroundColor: "{colors.mint}"
+    backgroundColor: "{colors.tab-surface}"
     textColor: "{colors.ink}"
-    padding: "24px"
+    rounded: "{rounded.tab}"
+    padding: "23px 24px"
   service-tab-selected:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
+    backgroundColor: "{colors.blue}"
+    textColor: "{colors.white}"
   service-card:
-    backgroundColor: "{colors.mint}"
+    backgroundColor: "{colors.white}"
     textColor: "{colors.ink}"
-    rounded: "{rounded.square}"
+    rounded: "{rounded.service-card}"
+  field:
+    backgroundColor: "{colors.field-surface}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.field}"
+    padding: "14px 18px"
 ---
 
 # Design System: DEJOIY
 
 ## Overview
 
-**Creative North Star: "Colour chapters"**
+**Creative North Star: "The DEJOIY Connection"**
 
-Colour chapters give DEJOIY a bold, human-led business presence: uninterrupted mint, paper, deep green and coral fields carry oversized warm grotesk headlines and direct routes into services. Three linked sculptural rings express the shared metaphor “People. Process. Possibility.”
+The DEJOIY Connection uses a white editorial foreground, deep navy operational chapters and cobalt, pink and cyan accents drawn from the brand direction. Bricolage Grotesque keeps the business voice warm and direct. A layered, reflective D connects the opening narrative to the identity, replacing the earlier mint/coral rings.
 
-This is a code-led implementation, with no approved image composition. The homepage establishes the full visual language; shared interiors preserve their content and functions within green surfaces, mint controls and image-led services. Repository photography is illustrative, not verified team photography.
+Motion explains a customer request moving through Connect, Understand and Resolve. The homepage receives this authored composition; shared interiors retain their existing content and functional layouts with the updated navy/blue theme, shared navigation and image-led service cards. This code-led implementation has no approved image composition and makes no verified novelty claim. Workplace photography remains illustrative.
 
 **Key Characteristics:**
-- Large colour fields and tightly tracked type
-- Square controls and image-led service surfaces
-- Linked sculptural rings with restrained responsive motion
+- White/navy editorial contrast with brand colour accents
+- A reflective layered D and topology-changing particles
+- Scroll-linked narrative, photographic aperture and word emphasis
+- Rounded service surfaces and pill actions
 
 ## Colors
 
 ### Primary
-Deep green ink anchors text on light fields, dark calls to action and the footer. Mint is the welcoming hero and navigation ground, service-card surface and interior primary action. Green provides the people chapter and interior introductions.
+Cobalt blue drives primary calls to action, selected expertise tabs, chapter progress and navigation emphasis. Deep ink carries text on white; night anchors delivery, footer and the shared interior body.
 
 ### Secondary
-Coral marks the closing conversation chapter, text selection and global focus outlines. Delivery uses four distinct green tones on a soft green ground. Industry imagery sits on a warm blush ground. These are implemented chapter assignments, not a synthesized tonal scale.
+Pink supplies small signal accents and text selection; cyan completes the brand triad in the sculptural scene. The reflective D and particle shaders use authored colour variants for lighting and material response rather than exact flat CSS colours.
 
 ### Neutral
-Paper supports light chapters and text on dark fields. The quieter link surface distinguishes service links. Interior surfaces and hover tones remain green; interior supporting copy uses its lighter neutral token. Muted is declared in the source but currently has no selector consumer.
+Paper is the homepage ground, soft supports expertise and thinking surfaces, and muted carries supporting text on light sections. White cards and pale blue tab surfaces separate interactive content without heavy borders. Navy interior surfaces, blue-grey borders and light blue field focus preserve dark-page legibility.
 
-**The Chapter Field Rule.** Use large uninterrupted colour fields to establish section boundaries.
+**The Brand Connection Rule.** Keep the cobalt, pink and cyan relationship visible through the authored scene and purposeful accents; use white/navy fields for readable business content.
 
 ## Typography
 
-Bricolage Grotesque is self-hosted in weights (400/500/600), with Inter and sans-serif fallbacks. One warm grotesk carries display and body text; no separate serif or mono voice is implemented.
+Self-hosted Bricolage Grotesque weights (400/500/600) provide the active family. Inter remains loaded by the app for compatibility but is not in the current business-theme stack.
 
-The frontmatter records desktop homepage roles. Hero display overrides to (13vw) below (1100px), (11.8vw) at (761–1000px), and (22vw) on phones. General phone chapter headings use (12vw); the people and closing chapters use (14vw). Homepage body falls to (17px), with paragraphs typically limited to (48ch). Hero introduction uses (30px), then (25px) at narrower widths. Service-card titles use (27px), leading (1.1), tracking (-0.03em); their body uses (17px/1.5). Interior introductions use (clamp(44px, 6vw, 88px)) with leading (1.02), inherited tracking (-0.058em), and an (18ch) maximum. Footer wordmark uses (clamp(90px, 20vw, 310px)), leading (0.9), tracking (-0.065em).
+The frontmatter records final desktop roles, including late cascade overrides. Hero display becomes (6.5vw) below (1100px) and (12.2vw) at (760px) and below. Scroll chapter titles use (clamp(40px, 4.1vw, 62px)), leading (1.05); chapter descriptions generally use (18px/1.6) with a (37ch) limit. Homepage body becomes (17px) on phones. The manifesto starts in its inactive blue-grey token before scroll emphasis darkens words to ink; its inactive colour is intended for the large text role. The manifesto is (clamp(32px, 4vw, 58px)), weight (500), leading (1.22), tracking (-0.035em), with a (26ch) limit. Interior titles use (clamp(44px, 6vw, 88px)), leading (1.03), and an (18ch) maximum. The footer wordmark is (21vw), weight (600), tracking (-0.065em).
 
 ## Layout
 
-Homepage chapters use desktop gutters and chapter spacing from the frontmatter. The hero pairs headline and introduction in a (1.2fr/1fr) grid with an (8vw) gap. Its ring object is (460px) tall with a (-35px) top margin, overridden to (290px) and zero margin on phones. These final cascade values supersede earlier declarations in the same stylesheet.
+The homepage uses (5vw) gutters and the chapter spacing in the frontmatter. Its opening story spans (360svh), with a sticky stage below the (84px) header and a (46%/54%) editorial copy/visual split. Stage height is (100svh - 84px), minimum (620px); at compact desktop widths the split becomes (48%/52%) with a (610px) minimum. Beyond (1700px), stage gutters center a (1550px) content region. Header/footer containers cap at (1600px).
 
-Service pathways and human story use two columns; ideas use an asymmetric (1.2fr/1fr) grid with a lead image spanning two rows. Industry cards form a native scrolling, snapping filmstrip with explicit previous/next controls (48px square): (35%) width normally, (42%) below (1100px), (82%) on phones. Delivery panels occupy a fixed (480px) height on desktop; one expands to four shares while closed labels rotate vertically.
-
-At (760px) and below, navigation becomes a menu, chapters stack, tabs become vertical, the accordion becomes an auto-height vertical stack, and chapter gutters/spacing use their mobile values. Header minimum height changes from (94px) to (78px); its contact action stays visible. Header and footer containers cap at (1600px). Beyond (1700px), chapter side padding centers a (1500px) content region. Interior introductions use (100px 0 70px), then (65px 0 50px) on phones.
+On phones at (760px) and below, the header becomes (74px), the story spans (300svh), and the sticky stage becomes a block with a (700px) minimum. Copy occupies the top; the scene is positioned beneath it; chapter and channel controls stack at the bottom. These remain sticky narrative sections rather than a separate mobile composition. Height-aware rules compact the stage when phone width is at most (760px) and viewport height is at most (780px): stage minimum height is removed, copy minimum becomes (255px), hero type becomes (10.5vw), chapter titles become (8.5vw), and scene annotations condense. At desktop widths from (761px) with height at most (740px), stage/visual minimum heights are removed, hero type becomes (5vw), chapter titles become (3.8vw), and copy spacing tightens. The human photo section spans (220svh) with a sticky viewport. Expertise uses an equal image/copy split, delivery a (1fr/1.3fr) workspace, thinking an asymmetric (1.15fr/1fr) grid. Narrow screens stack these surfaces. Industry cards scroll and snap natively, with (33%) desktop widths, then (40%) at compact widths; alternating cards are vertically staggered.
 
 ## Elevation & Depth
 
-Flat colour and photographic crop create structural separation. Shared glass surfaces explicitly remove blur and box shadow. The linked torus scene supplies the signature material depth through directional lighting, roughness (0.24) and metalness (0.28); ring materials use their own green, coral and cream values, distinct from the chapter tokens. Imagery crops with cover and gently scales on hover. The scene is decorative and hidden from assistive technology.
+The identity scene supplies real material depth: three bevelled extruded D layers use physical materials with metalness (0.78), roughness (0.18), clearcoat (1) and clearcoat roughness (0.14). PMREM-filtered RoomEnvironment reflections, directional lights and ACES filmic tone mapping shape the finish. GPU particles morph from a halo into a review network and output lanes as the scroll narrative advances. These are authored metaphors, not representations of verified operational data.
+
+Most content surfaces stay flat and tonal. The header uses a translucent paper ground with (14px) backdrop blur. The floating signal pill uses shadow (0 10px 40px #17336b14); delivery uses a localized luminous pulse (0 0 30px #ec3aa1). Shared interior glass classes remove blur and shadows.
 
 ## Shapes
 
-Chapters, service imagery and primary/secondary buttons use square edges. A circular (40px) pause control is the intentional round exception. Shared form fields are square, with ink backgrounds, paper text, soft green borders and pale green placeholders. Focus uses a mint (2px) outline with (2px) offset and removes the legacy violet shadow.
+Pill actions and circular arrow discs replace square homepage controls. Expertise tabs, service stages, image windows, service cards and accordion rows use the distinct corner values in the frontmatter. Shared form fields use the smaller field radius. The D motif repeats as a dimensional identity in the hero and as a large quiet typographic backdrop in the closing navy chapter.
 
 ## Components
 
-- **Navigation:** original brand artwork on a paper plaque, mint header, plain text links with underlined hover/current state. The mobile menu exposes expanded state, closes on route changes, and supports Escape with focus restoration.
-- **Actions:** homepage dark buttons lift (-3px) on hover and turn green; shared interior primary buttons are mint and secondary buttons dark green. The header action is ink on paper text, with (14px 23px) padding. Global keyboard focus is a coral (3px) outline with (5px) offset.
-- **Service selector:** semantic tabs expose selected state and support arrows, Home and End. The chosen image, service links and description update together. The selected pathway also changes the emphasized ring when the scene is animating.
-- **Service card:** a linked image-led tile with a (230px) photo, (26px) text padding, heading/arrow, description and bottom-aligned service label. Hover scales the photograph to (1.045).
-- **Delivery accordion:** native buttons with aria-expanded and controlled hidden content. Expansion animates flex over (0.45s) with cubic-bezier(0.22, 1, 0.36, 1).
-- **Page introduction:** green field with a large paper title, explanatory copy and optional children. Entrance is (0.7s); reduced-motion preference suppresses its initial offset.
-- **Connection scene:** dynamically loaded Three.js; capped device pixel ratio (1.5), SVG fallback, pause control, pointer tilt, offscreen/document-hidden suspension and resource disposal. Reduced motion and pause stop the animation frame loop after a static render. Selection, resize and media-preference changes invalidate the static scene and request a fresh frame.
-- **Footer:** deep ink ground, paper text, grouped routes and an oversized decorative DEJOIY wordmark. Typography remains mixed-scale for utility navigation and the closing brand gesture.
+- **Brand/navigation:** original logo image plus a Bricolage DEJOIY lockup and “People. Possibility.” subtitle. Desktop links turn cobalt on hover/current route; phone navigation exposes expanded state, supports Escape and closes on route changes. The contact action remains visible.
+- **Arrow action:** primary blue pill with an inset white circular arrow; hover darkens blue and lifts (-2px), while active scales to (0.98). Text links carry a pale blue circular arrow that moves diagonally on hover. The closing chapter reverses the primary action to white with a blue arrow disc.
+- **Narrative controls:** Voice/Chat/Email buttons use aria-pressed and emphasize the corresponding scene layer and particle accent. Connect/Understand/Resolve buttons jump to scroll chapters and use aria-current="step". Inactive chapter copy is hidden; active copy appears without an opacity transition gating readability. A pause control exposes its pressed state.
+- **Expertise tabs:** tablist/tabpanel semantics, selected state, roving tab index, ArrowLeft/ArrowRight and Home/End. Selection replaces the illustrative image, headline, copy and service routes together.
+- **Delivery:** native accordion buttons expose aria-expanded/aria-controls and reveal one content panel. An adjacent decorative spine moves a luminous dot to the selected stage.
+- **Industry filmstrip:** focusable named region, native overflow/touch scroll and snap positions, plus labelled previous/next controls. Image hover zooms to (1.055), with the circular arrow rotating (45deg).
+- **Service card:** shared interior image-led white tile, (230px) photograph, (28px) copy padding, ink heading and blue service label. Hover photo scale is (1.04) over (0.8s).
+- **Shared fields:** dark navy background, white text, blue-grey border and pale blue placeholder; focus retains the field background and uses a pale blue (2px) outline at (2px) offset without a shadow.
 
-Homepage link/button transitions use (0.25s ease); image zooms range from (0.6s) to (1s). Reduced-motion CSS suppresses homepage transforms/transitions while preserving caption centering; the application also uses MotionConfig reducedMotion="user". Shared form fields use their own mint focus outline. Contact utility labels use mint for contrast on dark green surfaces. The people photograph enters through the same restrained Reveal wrapper as chapter headings.
+The scene is dynamically loaded and decorative (aria-hidden). Device pixel ratio caps at (1.25) below (700px), otherwise (1.6). Offscreen and hidden-document rendering pauses; unmount disposes geometry, materials, environment resources, observers, listeners and renderer. Paused/reduced mode renders static frames on invalidation and stops its continuous animation loop. It uses an SVG D fallback if WebGL fails or loses context. Progress enters through a shared ref; phase changes explicitly invalidate the static scene, so paused/reduced rendering redraws when Connect, Understand or Resolve changes. Channel, pause, resize and media changes also request a static frame; the paused scene does not redraw on every scroll tick.
+
+GSAP ScrollTrigger drives the photographic aperture from a rounded inset to a full viewport, photo scale (1.16→1), photo-copy reveal and manifesto word colour emphasis. These visual effects are installed only when reduced motion is not requested at initialization. Reduced-motion CSS restores an unclipped static photograph, visible photo copy and ink manifesto text; the app also uses MotionConfig reducedMotion="user". Viewport Reveal wrappers use (0.9s) with a (32px) vertical range and initial=false. Interactive motion generally uses cubic-bezier(0.22, 1, 0.36, 1). Global focus is a cobalt (3px) outline at (5px) offset; fields have their own focus style.
 
 ## Do's and Don'ts
 
-- Do use the shared Bricolage Grotesque stack and green/mint palette.
-- Do retain existing routes and functional content when extending interiors.
-- Do identify workplace imagery as illustrative where context requires it.
-- Do preserve keyboard controls, visible focus and reduced-motion behavior.
-- Don’t add fabricated commercial proof, client marks or testimonials.
-- Don’t replace chapter fields with decorative gradients or glass effects.
-- Don’t describe a rendering fallback as an approved image composition.
-- Don’t introduce navy/violet field styling into the green interior surfaces.
+- Do use the current DEJOIY palette and Bricolage Grotesque stack.
+- Do make motion support the Connect, Understand and Resolve narrative.
+- Do preserve keyboard controls, static fallbacks and reduced-motion behavior.
+- Do preserve existing routes, forms and interior content.
+- Do describe workplace photography as illustrative when context requires it.
+- Don’t restore the rejected mint/coral ring direction.
+- Don’t claim the shared theme is a sitewide composition overhaul.
+- Don’t invent clients, metrics, testimonials, certifications or verified novelty.
+- Don’t gate narrative readability behind an opacity entrance.

@@ -96,7 +96,7 @@ export default function ContactPage() {
                   <div>
                     <div
                       className="text-[11px] font-medium uppercase tracking-wider mb-1"
-                      style={{ color: "#dcebcf" }}
+                      style={{ color: "#d7e2ff" }}
                     >
                       {detail.label}
                     </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
             <div className="glass-card rounded-3xl p-6">
               <div
                 className="text-[11px] font-semibold uppercase tracking-wider mb-4"
-                style={{ color: "#dcebcf" }}
+                style={{ color: "#d7e2ff" }}
               >
                 What to expect
               </div>
