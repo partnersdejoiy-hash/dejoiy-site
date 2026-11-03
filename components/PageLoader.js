@@ -24,7 +24,7 @@ export default function PageLoader() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
             >
-              <img src="/logo.png" alt="DEJOIY" className="h-12 w-12 object-contain" />
+              <img src="/brand/dejoiy-mark-on-dark.svg" alt="DEJOIY" className="h-12 w-auto object-contain" />
               <motion.div
                 className="absolute -inset-3 rounded-full border border-[#7C3AED]/40"
                 animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}

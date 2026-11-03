@@ -65,8 +65,9 @@ export default function SEO({ title, description, noindex = false }) {
       <title>{t}</title>
       <meta name="description" content={d} key="description" />
       <link rel="canonical" href={canonical} key="canonical" />
-      <link rel="icon" type="image/png" href="/favicon.png" />
-      <link rel="apple-touch-icon" href="/favicon.png" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <meta name="theme-color" content="#020617" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:title" content={t} key="og:title" />

@@ -24,9 +24,8 @@ with a mocked mail provider. It does not send real email.
 - `data/jobs.js`: role descriptions; applications register interest, not guaranteed vacancies.
 - `components/SEO.js`: page titles, descriptions, canonical URLs and social metadata.
 - `public/sitemap.xml`: update when adding or removing public routes.
-- `public/logo.png` and `public/favicon.png`: original owner-supplied assets. Do not
-  recolour, crop, redraw or replace the artwork. The logo uses a light background
-  for contrast and retains its original 3:2 ratio.
+- `public/brand/dejoiy-wordmark.svg`, `public/favicon.svg` and `public/favicon.png`:
+  owner-supplied :Dejoiy logo kit assets. Do not recolour, crop or redraw the artwork.
 
 Unverified client counts, country counts, model counts and placeholder social
 links have been removed from the published experience. Add client results,

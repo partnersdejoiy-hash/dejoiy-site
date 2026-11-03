@@ -652,12 +652,12 @@ button {
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   overflow: hidden;
-  width: 108px;
-  height: 72px;
+  padding: 0 16px;
+  height: 56px;
 }
 .brand-plaque img {
-  width: 108px;
-  height: 72px;
+  width: auto;
+  height: 32px;
   object-fit: contain;
   max-width: none;
 }
@@ -1129,10 +1129,11 @@ button {
     gap: 12px;
     min-height: 80px;
   }
-  .brand-plaque,
+  .brand-plaque {
+    height: 48px;
+  }
   .brand-plaque img {
-    width: 96px;
-    height: 64px;
+    height: 28px;
   }
   .header-cta {
     font-size: 12px;
