@@ -2798,3 +2798,14 @@ h1, h2, h3, .section-title { font-family: var(--gz-display) !important; letter-s
 .workflow-step p { color: var(--gz-ink-2) !important; }
 .gz-photo-card { border: var(--gz-line); box-shadow: var(--gz-shadow); transition: transform .3s var(--gz-spring), box-shadow .3s var(--gz-spring); }
 .gz-photo-card:hover { transform: translate(-4px, -4px) rotate(-.6deg); box-shadow: var(--gz-shadow-up); }
+/* Bold Dmail-style tints (visible, with dark ink text) */
+:root { --gz-t-blue: #5fa0f5; --gz-t-pink: #ea5b9f; --gz-t-lime: #6fd98a; --gz-t-sky: #64d1bd; --gz-t-orange: #ef8f4c; --gz-t-butter: #f5d05a; }
+.service-tile p, .resource-card p, .glass-card p, .service-tile span, .resource-card span { color: #1c1c1c !important; }
+.premium-cta, .cta-block { background: var(--gz-t-blue) !important; }
+.premium-cta *, .cta-block * { color: var(--gz-ink) !important; }
+.premium-cta .button-primary, .cta-block .button-primary { background: var(--gz-ink) !important; box-shadow: 4px 4px 0 #fff !important; }
+.premium-cta .button-primary, .premium-cta .button-primary *, .cta-block .button-primary, .cta-block .button-primary * { color: #fff !important; }
+.premium-scene { background: var(--gz-t-blue) !important; color: var(--gz-ink); }
+.premium-scene .scene-topline, .premium-scene .scene-coordinate { color: var(--gz-ink) !important; }
+.scene-orbit { border-color: rgba(20, 20, 20, .35) !important; }
+.connection-sculpture span { border-color: var(--gz-ink) !important; }
