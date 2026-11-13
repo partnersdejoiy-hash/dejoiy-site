@@ -2967,3 +2967,38 @@ main > section.section-space:nth-of-type(8){--band:var(--c-butter)}
   85%,100%{left:calc(24px + 2 * ((100% - 52px) / 3 + 10px));transform:none;background:var(--c-lime)}
 }
 @media (max-width:900px){.ops-mover{top:160px}}
+
+/* ═══ Gloss layer: glassy highlight on every colour card, soft depth, shine on hover ═══ */
+:root{
+  --gloss:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.18) 38%,rgba(255,255,255,0) 52%,rgba(20,20,20,.04) 100%);
+  --sheen:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.6) 50%,transparent 58%);
+  --depth:4px 4px 0 var(--c-ink),0 24px 44px -22px rgba(20,20,20,.5);
+  --depth-up:6px 6px 0 var(--c-ink),0 30px 54px -22px rgba(20,20,20,.55);
+}
+html body :is(.service-tile,.resource-card,.glass-card,.insight-card,.workflow-step,.help-route,.portal-panel,.cta-block,.premium-cta,.gz-photo-card,.industry-card,.job-card,.request-list-item,.scene-detail,.stage,.help-hero,.contact-card,.form-status):not(#gz){
+  background-image:var(--sheen),var(--gloss) !important;
+  background-size:260% 100%,100% 100% !important;
+  background-position:120% 0,0 0 !important;
+  background-repeat:no-repeat !important;
+  box-shadow:var(--depth),inset 0 1.5px 0 rgba(255,255,255,.75) !important;
+  transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s ease,background-position .9s ease !important;
+}
+html body :is(.service-tile,.resource-card,.glass-card,.insight-card,.workflow-step,.help-route,.gz-photo-card,.industry-card,.job-card,.request-list-item):not(#gz):hover{
+  background-position:-20% 0,0 0 !important;
+  box-shadow:var(--depth-up),inset 0 1.5px 0 rgba(255,255,255,.75) !important;
+  transform:translate(-3px,-3px) !important;
+}
+/* hero card: glassy blue with a light top edge */
+html body .premium-scene:not(#gz){background-image:linear-gradient(160deg,rgba(255,255,255,.4),rgba(255,255,255,.08) 40%,rgba(255,255,255,0) 60%) !important;box-shadow:6px 6px 0 var(--c-ink),0 40px 80px -30px rgba(4,16,63,.7),inset 0 2px 0 rgba(255,255,255,.6) !important}
+/* small chips, bubbles and board cards inside the hero */
+html body :is(.bubble,.qa li,.ops-col,.ops-mover,.care-chips span,.sticker,.scene-switcher button,.scene-detail-icon,.service-symbol,.help-icon,.badge,.eyebrow):not(#gz){background-image:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 55%) !important}
+/* buttons: glossy pill-cards */
+html body :is(.button-primary,.button-secondary,.gz-chip):not(#gz){background-image:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.08) 50%,rgba(20,20,20,.05)) !important;box-shadow:4px 4px 0 var(--c-ink),0 14px 26px -14px rgba(20,20,20,.5),inset 0 1.5px 0 rgba(255,255,255,.85) !important}
+html body :is(.button-primary,.button-secondary):not(#gz):hover{box-shadow:6px 6px 0 var(--c-ink),0 18px 30px -14px rgba(20,20,20,.55),inset 0 1.5px 0 rgba(255,255,255,.85) !important}
+html body :is(.button-primary,.button-secondary):not(#gz):disabled{background-image:none !important;box-shadow:2px 2px 0 var(--c-ink) !important}
+/* page heroes and colour bands: soft light from the top-left */
+html body .page-intro:not(#gz){background-image:radial-gradient(60% 80% at 15% 0%,rgba(255,255,255,.35),transparent 60%) !important}
+html body .experience-statement,html body main > section.section-space:nth-of-type(4),html body main > section.section-space:nth-of-type(6),html body main > section.section-space:nth-of-type(8){background-image:radial-gradient(50% 90% at 10% 0%,rgba(255,255,255,.3),transparent 65%)}
+/* form fields: soft inner glass */
+html body :is(.field,input.field,select.field,textarea.field):not(#gz){box-shadow:inset 0 2px 6px rgba(20,20,20,.08),0 1px 0 rgba(255,255,255,.8) !important}
+@media (prefers-reduced-motion:reduce){html body :is(.service-tile,.resource-card,.insight-card,.gz-photo-card):not(#gz){transition:none !important}}
