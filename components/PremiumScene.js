@@ -1,5 +1,4 @@
-import { Component, useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -11,14 +10,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-// Official MIT-licensed ThreeUI Community renderer; loaded only on capable desktops.
-const LiquidForm = dynamic(
-  () =>
-    import("@designcodeio/threeui/components/LiquidFormBackground").then(
-      (m) => m.LiquidFormBackground,
-    ),
-  { ssr: false, loading: () => null },
-);
 const capabilities = [
   {
     label: "Customer care",
@@ -43,89 +34,27 @@ const capabilities = [
     icon: ShieldCheck,
   },
 ];
-class SceneBoundary extends Component {
-  state = { failed: false };
-  static getDerivedStateFromError() {
-    return { failed: true };
-  }
-  render() {
-    return this.state.failed ? null : this.props.children;
-  }
-}
 export default function PremiumScene() {
   const ref = useRef(null);
   const inView = useInView(ref, { margin: "40px" });
   const reduced = useReducedMotion();
-  const [capable, setCapable] = useState(false);
   const [visible, setVisible] = useState(true);
   const [paused, setPaused] = useState(false);
   const [active, setActive] = useState(0);
-  const [settled, setSettled] = useState(false);
-  const [slowDevice, setSlowDevice] = useState(false);
+  const [picked, setPicked] = useState(false);
   useEffect(() => {
-    const timer = setTimeout(() => setSettled(true), 1700);
-    return () => clearTimeout(timer);
-  }, []);
-  useEffect(() => {
-    const media = window.matchMedia(
-      "(min-width: 900px) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-    );
-    const evaluate = () => {
-      if (!media.matches || navigator.connection?.saveData) {
-        setCapable(false);
-        return;
-      }
-      const canvas = document.createElement("canvas");
-      const gl = canvas.getContext("webgl", {
-        failIfMajorPerformanceCaveat: true,
-      });
-      setCapable(!!gl);
-      gl?.getExtension("WEBGL_lose_context")?.loseContext();
-    };
     const visibility = () => setVisible(!document.hidden);
-    evaluate();
     visibility();
-    media.addEventListener("change", evaluate);
     document.addEventListener("visibilitychange", visibility);
-    return () => {
-      media.removeEventListener("change", evaluate);
-      document.removeEventListener("visibilitychange", visibility);
-    };
+    return () => document.removeEventListener("visibilitychange", visibility);
   }, []);
   const moving = !reduced && !paused && visible && inView;
-  const renderShader = capable && moving && settled && !slowDevice;
+  // Tabs rotate on their own until someone picks one
   useEffect(() => {
-    if (!renderShader) return;
-    let frame,
-      started = 0,
-      frames = 0;
-    const deadline = performance.now() + 8000;
-    const sample = (time) => {
-      if (!ref.current?.querySelector(".dejoiy-liquid canvas")) {
-        if (time > deadline) {
-          setSlowDevice(true);
-          return;
-        }
-        frame = requestAnimationFrame(sample);
-        return;
-      }
-      if (!started) started = time;
-      frames++;
-      if (time - started >= 2000) {
-        if ((frames * 1000) / (time - started) < 22) setSlowDevice(true);
-        return;
-      }
-      frame = requestAnimationFrame(sample);
-    };
-    const contextLost = () => setSlowDevice(true);
-    const host = ref.current;
-    host?.addEventListener("webglcontextlost", contextLost, true);
-    frame = requestAnimationFrame(sample);
-    return () => {
-      cancelAnimationFrame(frame);
-      host?.removeEventListener("webglcontextlost", contextLost, true);
-    };
-  }, [renderShader]);
+    if (!moving || picked) return;
+    const t = setTimeout(() => setActive((a) => (a + 1) % capabilities.length), 6500);
+    return () => clearTimeout(t);
+  }, [moving, picked, active]);
   const selected = capabilities[active];
   const Icon = selected.icon;
   return (
@@ -140,34 +69,11 @@ export default function PremiumScene() {
         <span>DEJOIY / 01</span>
       </div>
       <div className="scene-art" aria-hidden="true">
-        <div className="scene-halo" />
-        <div className="connection-sculpture">
-          <span />
-          <span />
-          <span />
+        <div className={`stage stage-${active}`} key={active}>
+          {active === 0 && <CareStage />}
+          {active === 1 && <OpsStage />}
+          {active === 2 && <QualityStage />}
         </div>
-        {renderShader && (
-          <SceneBoundary>
-            <LiquidForm
-              className="dejoiy-liquid"
-              speed={0.36}
-              morph={0.7}
-              mouseAmount={0.11}
-              camera={5.8}
-              tintAmount={0.18}
-              tintHue={235}
-            />
-          </SceneBoundary>
-        )}
-        <div className="scene-orbit orbit-a">
-          <i />
-        </div>
-        <div className="scene-orbit orbit-b">
-          <i />
-        </div>
-        <div className="scene-coordinate coordinate-one">PEOPLE</div>
-        <div className="scene-coordinate coordinate-two">PROCESS</div>
-        <div className="scene-coordinate coordinate-three">INTELLIGENCE</div>
       </div>
       <button
         type="button"
@@ -201,13 +107,79 @@ export default function PremiumScene() {
             type="button"
             key={item.slug}
             aria-pressed={active === i}
-            onClick={() => setActive(i)}
+            onClick={() => {
+              setActive(i);
+              setPicked(true);
+            }}
           >
             <span>0{i + 1}</span>
             {item.label}
           </button>
         ))}
       </div>
+    </div>
+  );
+}
+
+// 01 Customer care: a conversation that gets resolved
+function CareStage() {
+  return (
+    <div className="care">
+      <div className="care-chips">
+        <span>Voice</span>
+        <span className="on">Chat</span>
+        <span>Email</span>
+      </div>
+      <p className="bubble bubble-in">Hi! My order still hasn&apos;t arrived.</p>
+      <p className="typing">
+        <i />
+        <i />
+        <i />
+      </p>
+      <p className="bubble bubble-out">Found it. It reaches you tomorrow by 10 am.</p>
+      <p className="bubble bubble-in small">That&apos;s perfect, thank you!</p>
+      <span className="sticker">Resolved in 2 min</span>
+    </div>
+  );
+}
+// 02 Operations: a ticket moves through the board
+function OpsStage() {
+  return (
+    <div className="ops">
+      {["Queue", "Working", "Done"].map((c, i) => (
+        <div className={`ops-col ops-col-${i}`} key={c}>
+          <b>{c}</b>
+          <span className="ops-card ghost" />
+          <span className="ops-card ghost short" />
+        </div>
+      ))}
+      <span className="ops-mover">
+        <b>#4821</b> Refund check
+      </span>
+      <span className="ops-count">
+        <b>128</b> handled today
+      </span>
+    </div>
+  );
+}
+// 03 Quality: score ring fills, checks tick in
+function QualityStage() {
+  return (
+    <div className="qa">
+      <div className="qa-ring">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" className="qa-track" />
+          <circle cx="60" cy="60" r="50" className="qa-fill" />
+        </svg>
+        <span>
+          <b>97%</b>QA score
+        </span>
+      </div>
+      <ul>
+        <li>Tone checked</li>
+        <li>Policy followed</li>
+        <li>Escalated on time</li>
+      </ul>
     </div>
   );
 }
