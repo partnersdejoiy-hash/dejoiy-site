@@ -2894,3 +2894,5 @@ main > section.section-space:nth-of-type(8){--band:var(--c-butter)}
 .help-faqs a{color:var(--c-ink) !important;font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
 @media (max-width:760px){.page-intro::before{width:240px;height:240px;right:-120px;top:-150px}.page-intro::after{width:120px;height:120px;right:-40px;bottom:-80px;top:auto}}
 .mobile-nav a.gz-chip{font:800 1rem/1.2 "Plus Jakarta Sans",sans-serif !important;padding:.85rem .8rem !important;display:block}
+/* disabled buttons must look disabled */
+.button-primary:disabled,.button-secondary:disabled,button.button-primary[disabled]{opacity:.5 !important;cursor:not-allowed !important;transform:none !important;box-shadow:2px 2px 0 var(--c-ink) !important;background:#e9e2d4 !important}

@@ -48,7 +48,15 @@ export default function Access() {
           >
             {busy ? "Confirming access…" : "Confirm and continue"}
           </button>
-          <PortalNotice message={error} error />
+          <PortalNotice
+            message={
+              error ||
+              (!token && !busy
+                ? "This page opens from the link in your email. The link is missing or has already been used, so request a new one below."
+                : "")
+            }
+            error={!!error}
+          />
           <Link href="/help/track" className="text-[#2f6bff] text-sm block mt-5">
             Request a new access link ↗
           </Link>
