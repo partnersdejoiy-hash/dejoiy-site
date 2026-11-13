@@ -1,11 +1,18 @@
+import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { initRibbons } from "../lib/ribbons";
 import Link from "next/link";
 import { ArrowUpRight, ArrowDown, ArrowRight } from "lucide-react";
 import PremiumScene from "./PremiumScene";
 export default function HeroSection() {
   const reduced = useReducedMotion();
+  const hero = useRef(null);
+  // light ribbons behind the home hero, same as dejoiy.co.in
+  useEffect(() => {
+    initRibbons(hero.current);
+  }, []);
   return (
-    <section className="bpo-hero premium-hero">
+    <section ref={hero} className="bpo-hero premium-hero">
       <div className="hero-atmosphere" aria-hidden="true" />
       <div className="section-wrap relative z-10 w-full">
         <div className="hero-layout">

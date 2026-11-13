@@ -56,7 +56,7 @@ export default function ContactPage() {
             </h1>
             <p
               className="mt-5 text-base leading-relaxed max-w-xl"
-              style={{ color: "#6b6b6b" }}
+              style={{ color: "#141414" }}
             >
               Tell us about your goals and DEJOIY will design the right support,
               AI operations or back-office solution.
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   <div>
                     <div
                       className="text-[11px] font-medium uppercase tracking-wider mb-1"
-                      style={{ color: "#6b6b6b" }}
+                      style={{ color: "#141414" }}
                     >
                       {detail.label}
                     </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
             <div className="glass-card rounded-3xl p-6">
               <div
                 className="text-[11px] font-semibold uppercase tracking-wider mb-4"
-                style={{ color: "#6b6b6b" }}
+                style={{ color: "#141414" }}
               >
                 What to expect
               </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                   <div
                     key={i}
                     className="flex items-start gap-2.5 text-[13px]"
-                    style={{ color: "#6b6b6b" }}
+                    style={{ color: "#141414" }}
                   >
                     <div
                       className="mt-1.5 h-1.5 w-1.5 rounded-full shrink-0"

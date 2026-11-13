@@ -21,7 +21,16 @@ export default function App({ Component, pageProps }) {
   const reduced = useReducedMotion();
   const router = useRouter();
   useEffect(() => {
-    const onRoute = (url) => window.joiGuide?.setPage(joiPage(url));
+    // data-route picks the page-hero colour in globals.css
+    const setRoute = (url) => {
+      const parts = (url || "/").split(/[?#]/)[0].split("/").filter(Boolean);
+      document.body.dataset.route = parts[parts.length - 1] || "home";
+    };
+    setRoute(router.asPath);
+    const onRoute = (url) => {
+      setRoute(url);
+      window.joiGuide?.setPage(joiPage(url));
+    };
     router.events.on("routeChangeComplete", onRoute);
     return () => router.events.off("routeChangeComplete", onRoute);
   }, [router.events]);

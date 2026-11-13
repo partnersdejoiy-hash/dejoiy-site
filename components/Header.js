@@ -76,9 +76,17 @@ export default function Header() {
               aria-current={router.asPath === href ? "page" : undefined}
             >
               {label}
+              <span aria-hidden="true">→</span>
             </Link>
           ))}
-          <Link href="/contact">Talk to our team ↗</Link>
+          <div className="gz-mnav-ctas">
+            <Link href="/contact" className="gz-chip gz-chip-lime">
+              Talk to our team
+            </Link>
+            <a href="https://dejoiy.co.in" className="gz-chip gz-chip-white">
+              dejoiy.co.in
+            </a>
+          </div>
         </nav>
       </header>
     </>
