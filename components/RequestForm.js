@@ -117,7 +117,7 @@ export default function RequestForm({
       aria-busy={busy}
     >
       {intro && (
-        <p className="text-sm text-slate-400 leading-relaxed">{intro}</p>
+        <p className="text-sm text-[#5a5a5a] leading-relaxed">{intro}</p>
       )}
       <div className="honeypot" aria-hidden="true">
         <label htmlFor={`${kind}-website`}>Leave this field empty</label>
@@ -226,7 +226,7 @@ export default function RequestForm({
             className="field w-full text-sm"
             aria-describedby={`${kind}-file-help`}
           />
-          <p id={`${kind}-file-help`} className="text-xs text-slate-400 mt-2">
+          <p id={`${kind}-file-help`} className="text-xs text-[#5a5a5a] mt-2">
             PDF only, up to 2 MB. Sent as a private email attachment to the
             DEJOIY team. Do not include government IDs or unrelated sensitive
             information.
@@ -236,7 +236,7 @@ export default function RequestForm({
           )}
         </div>
       )}
-      <label className="flex items-start gap-3 text-xs text-slate-300 leading-relaxed">
+      <label className="flex items-start gap-3 text-xs text-[#3f3f3f] leading-relaxed">
         <input
           type="checkbox"
           name="consent"
@@ -248,7 +248,7 @@ export default function RequestForm({
             ? "I confirm I am authorised to request this verification and share the attached letter. "
             : "I agree to share these details with DEJOIY to respond to this request. "}
           I have read the{" "}
-          <Link href="/privacy" className="text-blue-200 underline">
+          <Link href="/privacy" className="text-[#2f6bff] underline">
             privacy notice
           </Link>
           .
@@ -266,7 +266,7 @@ export default function RequestForm({
             <p className="mt-2">
               You can also contact{" "}
               <a
-                className="text-blue-200 underline"
+                className="text-[#2f6bff] underline"
                 href="mailto:hello@corp.dejoiy.com"
               >
                 hello@corp.dejoiy.com
@@ -283,7 +283,7 @@ export default function RequestForm({
       >
         {busy ? "Sending securely…" : submitLabel}
       </button>
-      <p className="text-xs text-slate-400">
+      <p className="text-xs text-[#5a5a5a]">
         * Required fields. Please send only information relevant to your
         request.
       </p>

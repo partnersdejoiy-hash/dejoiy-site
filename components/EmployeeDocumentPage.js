@@ -46,7 +46,7 @@ export default function EmployeeDocumentPage({
       />
       <section className="section-wrap pb-20">
         <Link
-          className="text-sm text-blue-200 inline-flex gap-2 mb-8"
+          className="text-sm text-[#2f6bff] inline-flex gap-2 mb-8"
           href="/help"
         >
           <ArrowLeft size={17} /> All support options
@@ -85,7 +85,7 @@ export default function EmployeeDocumentPage({
               </ul>
               <p>{selected.note}</p>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed mt-5">
+            <p className="text-sm text-[#5a5a5a] leading-relaxed mt-5">
               Turnaround depends on record checks and the request. The people
               team will confirm the next step after review.
             </p>
@@ -131,7 +131,7 @@ export default function EmployeeDocumentPage({
                 <h2 className="text-2xl font-semibold mt-3 mb-4">
                   {selected.title}
                 </h2>
-                <p className="text-sm text-slate-400 leading-relaxed mb-6">
+                <p className="text-sm text-[#5a5a5a] leading-relaxed mb-6">
                   Your request is sent to our team by email. Keep the reference
                   for follow-up; online status tracking is not available yet.
                 </p>

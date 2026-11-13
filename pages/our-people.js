@@ -84,7 +84,7 @@ export default function OurPeoplePage() {
             <span className="badge mb-5 inline-flex">Our People</span>
             <h1
               className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight"
-              style={{ color: "#F8FAFC" }}
+              style={{ color: "#141414" }}
             >
               The team powering
               <br />
@@ -92,7 +92,7 @@ export default function OurPeoplePage() {
             </h1>
             <p
               className="mt-6 max-w-xl text-base md:text-lg leading-relaxed"
-              style={{ color: "#94a3b8" }}
+              style={{ color: "#6b6b6b" }}
             >
               DEJOIY combines operational rigor, service excellence and AI-first
               thinking through a team built for modern enterprise delivery.
@@ -107,9 +107,9 @@ export default function OurPeoplePage() {
                   key={tag}
                   className="rounded-full px-4 py-2 text-[12.5px]"
                   style={{
-                    border: "1px solid rgba(255,255,255,0.14)",
-                    background: "rgba(255,255,255,0.07)",
-                    color: "#CBD5E1",
+                    border: "1px solid rgba(20, 20, 20, 0.46)",
+                    background: "rgba(20, 20, 20, 0.042)",
+                    color: "#3f3f3f",
                   }}
                 >
                   {tag}
@@ -133,13 +133,13 @@ export default function OurPeoplePage() {
             </div>
             <h2
               className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight"
-              style={{ color: "#F8FAFC" }}
+              style={{ color: "#141414" }}
             >
               Meet the people behind DEJOIY
             </h2>
             <p
               className="mt-4 text-[15px] md:text-base leading-relaxed"
-              style={{ color: "#94a3b8" }}
+              style={{ color: "#6b6b6b" }}
             >
               A modern workforce built around empathy, precision, security and
               execution quality.
@@ -159,8 +159,8 @@ export default function OurPeoplePage() {
                 whileHover={{ y: -8 }}
                 className="group relative overflow-hidden rounded-3xl min-h-[380px] cursor-pointer"
                 style={{
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                  border: "1px solid rgba(20, 20, 20, 0.4)",
+                  boxShadow: "0 8px 32px rgba(20, 20, 20, 0.12)",
                   transition: "border-color 0.4s ease, box-shadow 0.4s ease",
                 }}
                 onMouseEnter={(e) => {
@@ -189,24 +189,24 @@ export default function OurPeoplePage() {
                       : {}
                   }
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#fff6e8] via-[#fff6e8]/30 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-5">
                   <div>
                     <h3
                       className="text-[15px] font-semibold leading-snug"
-                      style={{ color: "#F8FAFC" }}
+                      style={{ color: "#141414" }}
                     >
                       {person.name}
                     </h3>
                     <p
                       className="text-[11.5px] font-medium mt-0.5"
-                      style={{ color: "#c4b5fd" }}
+                      style={{ color: "#d1157a" }}
                     >
                       {person.role}
                     </p>
                     <p
                       className="mt-2.5 text-[12px] leading-relaxed italic"
-                      style={{ color: "#94a3b8" }}
+                      style={{ color: "#6b6b6b" }}
                     >
                       "{person.quote}"
                     </p>
@@ -223,20 +223,20 @@ export default function OurPeoplePage() {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(37,99,235,0.14) 0%, transparent 50%, rgba(6,182,212,0.1) 100%)",
+                  "linear-gradient(135deg, rgba(47, 107, 255, 0.14) 0%, transparent 50%, rgba(212, 255, 58, 0.1) 100%)",
               }}
             />
             <div className="relative max-w-3xl">
               <span className="badge mb-5 inline-flex">Growing Team</span>
               <h2
                 className="text-2xl md:text-4xl font-bold leading-tight"
-                style={{ color: "#F8FAFC" }}
+                style={{ color: "#141414" }}
               >
                 We're thrilled to welcome more people to this wall
               </h2>
               <p
                 className="mt-4 text-sm md:text-base leading-relaxed max-w-2xl"
-                style={{ color: "#94a3b8" }}
+                style={{ color: "#6b6b6b" }}
               >
                 The people you see here are shaping DEJOIY today — and we're
                 excited to welcome many more innovators, builders and dreamers
@@ -244,7 +244,7 @@ export default function OurPeoplePage() {
               </p>
               <Link
                 href="/careers"
-                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200"
+                className="button-primary group mt-8"
               >
                 See open roles
                 <ArrowRight

@@ -12,7 +12,7 @@ export default function CallToAction() {
             <br />
             with a conversation.
           </h2>
-          <p className="mt-4 text-slate-400 max-w-lg">
+          <p className="mt-4 text-[#5a5a5a] max-w-lg">
             Tell us what your customers and operations need. We’ll work through
             the right approach with you.
           </p>

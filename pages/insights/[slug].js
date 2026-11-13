@@ -25,7 +25,7 @@ export default function Article({ article }) {
           />
         </div>
         <div className="article-body">
-          <Link href="/insights" className="text-sm text-blue-200">
+          <Link href="/insights" className="text-sm text-[#2f6bff]">
             ← All insights
           </Link>
           {article.illustrative && (
@@ -46,7 +46,7 @@ export default function Article({ article }) {
               <p>{body}</p>
             </motion.section>
           ))}
-          <div className="mt-12 border-t border-white/10 pt-8">
+          <div className="mt-12 border-t border-black/20 pt-8">
             <p>Want to explore this approach for your business?</p>
             <Link href="/contact" className="button-primary mt-5">
               Talk to DEJOIY ↗

@@ -18,7 +18,7 @@ const teams = [
     quote:
       "Powering next-generation AI systems with structured human intelligence.",
     image: "/employees/team2.jpg",
-    accent: "#7C3AED",
+    accent: "#ff4fa3",
     glow: "rgba(124,58,237,0.25)",
   },
   {
@@ -59,13 +59,13 @@ export default function EmployeeGrid() {
             y: -10,
             transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
           }}
-          className="group relative overflow-hidden rounded-3xl cursor-pointer min-h-[420px]"
+          className="gz-photo-card group relative overflow-hidden rounded-3xl cursor-pointer min-h-[420px]"
           style={{
-            background: "rgba(15,23,42,0.7)",
+            background: "rgba(255, 246, 232, 0.7)",
             backdropFilter: "blur(14px)",
             WebkitBackdropFilter: "blur(14px)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            boxShadow: "0 8px 40px rgba(0,0,0,0.5)",
+            border: "1px solid rgba(20, 20, 20, 0.4)",
+            boxShadow: "0 8px 40px rgba(20, 20, 20, 0.15)",
           }}
         >
           <Image
@@ -87,14 +87,14 @@ export default function EmployeeGrid() {
           <div
             className="absolute inset-0 transition-all duration-500"
             style={{
-              background: `linear-gradient(to top, #020617 0%, rgba(2,6,23,0.82) 38%, rgba(2,6,23,0.25) 65%, transparent 100%)`,
+              background: `linear-gradient(to top, #ffffff 0%, rgba(255, 246, 232, 0.82) 38%, rgba(20, 20, 20, 0.03) 65%, transparent 100%)`,
             }}
           />
 
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
             style={{
-              background: `linear-gradient(to top, rgba(2,6,23,0.98) 0%, rgba(2,6,23,0.78) 42%, rgba(2,6,23,0.12) 100%)`,
+              background: `linear-gradient(to top, rgba(255, 246, 232, 0.98) 0%, rgba(255, 246, 232, 0.78) 42%, rgba(20, 20, 20, 0.014) 100%)`,
             }}
           />
 
@@ -123,20 +123,20 @@ export default function EmployeeGrid() {
               </p>
               <h3
                 className="text-[15px] font-semibold leading-snug"
-                style={{ color: "#F8FAFC" }}
+                style={{ color: "#141414" }}
               >
                 {team.name}
               </h3>
               <p
                 className="mt-2.5 text-[12.5px] leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-500"
-                style={{ color: "#CBD5E1" }}
+                style={{ color: "#3f3f3f" }}
               >
                 "{team.quote}"
               </p>
 
               <Link
                 href="/our-people"
-                className="mt-4 inline-flex items-center gap-2 text-sm text-blue-200"
+                className="mt-4 inline-flex items-center gap-2 text-sm text-[#2f6bff]"
               >
                 Meet our people <ArrowRight size={14} />
               </Link>

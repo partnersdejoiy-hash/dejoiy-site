@@ -31,7 +31,7 @@ export default function Careers() {
           ].map(([t, d]) => (
             <div className="glass rounded-3xl p-7" key={t}>
               <h2 className="text-xl font-semibold">{t}</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mt-4">{d}</p>
+              <p className="text-[#5a5a5a] text-sm leading-relaxed mt-4">{d}</p>
             </div>
           ))}
         </div>
@@ -44,9 +44,9 @@ export default function Careers() {
             during recruitment.
           </p>
           <JobListings />
-          <p className="text-sm text-slate-400 mt-8">
+          <p className="text-sm text-[#5a5a5a] mt-8">
             Have another skill to share?{" "}
-            <Link className="text-blue-200" href="/careers/general-interest">
+            <Link className="text-[#2f6bff]" href="/careers/general-interest">
               Send a general application ↗
             </Link>
           </p>

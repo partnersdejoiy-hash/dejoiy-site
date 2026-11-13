@@ -53,7 +53,7 @@ function EdgeLine({ from, to, index, inView }) {
 
   return (
     <g>
-      <path d={d} stroke="rgba(167,139,250,0.35)" strokeWidth="1" fill="none" />
+      <path d={d} stroke="rgba(209, 21, 122, 0.35)" strokeWidth="1" fill="none" />
       <motion.path
         ref={pathRef}
         d={d}
@@ -98,8 +98,8 @@ function NodeCircle({ node, index, inView }) {
         cx={node.x}
         cy={node.y}
         r={18}
-        fill="rgba(107,92,255,0.04)"
-        stroke="rgba(167,139,250,0.35)"
+        fill="rgba(47, 107, 255, 0.04)"
+        stroke="rgba(209, 21, 122, 0.35)"
         strokeWidth="1"
         initial={{ scale: 0, opacity: 0 }}
         animate={inView ? { scale: [0, 1.2, 1], opacity: 1 } : {}}
@@ -157,7 +157,7 @@ export default function NeuralNetworkViz() {
           className="absolute inset-0 rounded-full pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse, rgba(107,92,255,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse, rgba(47, 107, 255, 0.08) 0%, transparent 70%)",
             filter: "blur(30px)",
             transform: "scale(1.3)",
           }}
@@ -169,7 +169,7 @@ export default function NeuralNetworkViz() {
         >
           <defs>
             <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="rgba(46,123,255,0.3)" />
+              <stop offset="0%" stopColor="rgba(47, 107, 255, 0.3)" />
               <stop offset="100%" stopColor="transparent" />
             </radialGradient>
           </defs>
@@ -200,7 +200,7 @@ export default function NeuralNetworkViz() {
                   cx={node.x}
                   cy={node.y}
                   r="5"
-                  fill="#a78bfa"
+                  fill="#d1157a"
                 />
               ),
             )}
@@ -210,7 +210,7 @@ export default function NeuralNetworkViz() {
             x="220"
             y="335"
             textAnchor="middle"
-            fill="#94a3b8"
+            fill="#6b6b6b"
             fontSize="9"
             fontFamily="Inter, sans-serif"
             letterSpacing="2"

@@ -48,7 +48,7 @@ export default function ContactPage() {
             <span className="badge mb-5 inline-flex">Contact</span>
             <h1
               className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight"
-              style={{ color: "#F8FAFC" }}
+              style={{ color: "#141414" }}
             >
               Let's build your next
               <br />
@@ -56,7 +56,7 @@ export default function ContactPage() {
             </h1>
             <p
               className="mt-5 text-base leading-relaxed max-w-xl"
-              style={{ color: "#94a3b8" }}
+              style={{ color: "#6b6b6b" }}
             >
               Tell us about your goals and DEJOIY will design the right support,
               AI operations or back-office solution.
@@ -66,9 +66,9 @@ export default function ContactPage() {
       </div>
 
       <div className="section-wrap pb-24">
-        <div className="mb-8 p-5 border border-white/10 rounded-2xl text-sm text-slate-300">
+        <div className="mb-8 p-5 border border-black/20 rounded-2xl text-sm text-[#3f3f3f]">
           Looking for careers or employee documents?{" "}
-          <Link href="/help" className="text-blue-200 underline">
+          <Link href="/help" className="text-[#2f6bff] underline">
             Find the right support team ↗
           </Link>
         </div>
@@ -86,9 +86,9 @@ export default function ContactPage() {
                   <div
                     className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl"
                     style={{
-                      background: "rgba(37,99,235,0.15)",
-                      border: "1px solid rgba(37,99,235,0.28)",
-                      color: "#93c5fd",
+                      background: "rgba(47, 107, 255, 0.15)",
+                      border: "1px solid rgba(47, 107, 255, 0.5)",
+                      color: "#2f6bff",
                     }}
                   >
                     {detail.icon}
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   <div>
                     <div
                       className="text-[11px] font-medium uppercase tracking-wider mb-1"
-                      style={{ color: "#64748b" }}
+                      style={{ color: "#6b6b6b" }}
                     >
                       {detail.label}
                     </div>
@@ -104,14 +104,14 @@ export default function ContactPage() {
                       <a
                         href={detail.href}
                         className="text-sm font-medium transition-colors"
-                        style={{ color: "#F8FAFC" }}
+                        style={{ color: "#141414" }}
                       >
                         {detail.value}
                       </a>
                     ) : (
                       <div
                         className="text-sm font-medium"
-                        style={{ color: "#F8FAFC" }}
+                        style={{ color: "#141414" }}
                       >
                         {detail.value}
                       </div>
@@ -124,7 +124,7 @@ export default function ContactPage() {
             <div className="glass-card rounded-3xl p-6">
               <div
                 className="text-[11px] font-semibold uppercase tracking-wider mb-4"
-                style={{ color: "#64748b" }}
+                style={{ color: "#6b6b6b" }}
               >
                 What to expect
               </div>
@@ -138,12 +138,12 @@ export default function ContactPage() {
                   <div
                     key={i}
                     className="flex items-start gap-2.5 text-[13px]"
-                    style={{ color: "#94a3b8" }}
+                    style={{ color: "#6b6b6b" }}
                   >
                     <div
                       className="mt-1.5 h-1.5 w-1.5 rounded-full shrink-0"
                       style={{
-                        background: "linear-gradient(135deg, #7C3AED, #2563EB)",
+                        background: "linear-gradient(135deg, #ff4fa3, #2f6bff)",
                       }}
                     />
                     {item}
@@ -163,7 +163,7 @@ export default function ContactPage() {
             <div className="glass-card rounded-3xl p-8">
               <h2
                 className="text-[17px] font-semibold mb-6"
-                style={{ color: "#F8FAFC" }}
+                style={{ color: "#141414" }}
               >
                 Send us a message
               </h2>

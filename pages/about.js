@@ -27,7 +27,7 @@ export default function About() {
         ].map(([t, d]) => (
           <div key={t} className="glass p-8 rounded-3xl">
             <h2 className="text-2xl font-semibold">{t}</h2>
-            <p className="mt-5 text-slate-400 leading-relaxed">{d}</p>
+            <p className="mt-5 text-[#5a5a5a] leading-relaxed">{d}</p>
           </div>
         ))}
         <Link

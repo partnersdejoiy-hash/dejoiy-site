@@ -46,8 +46,8 @@ export default function WorldPresence() {
         <svg viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true">
           <path
             d="M8 20L20 12 35 20 28 35 22 39 27 50 23 72 17 58 15 38ZM42 22L53 15 70 18 91 28 87 47 71 45 65 56 58 40 54 38 54 60 46 64 40 45 43 34ZM78 62L89 57 96 67 88 72Z"
-            fill="rgba(96,165,250,.12)"
-            stroke="rgba(147,197,253,.2)"
+            fill="rgba(47, 107, 255, 0.12)"
+            stroke="rgba(47, 107, 255, 0.2)"
             strokeWidth=".4"
           />
           {regions.slice(1).map((r) => (
@@ -55,7 +55,7 @@ export default function WorldPresence() {
               key={r.id}
               d={`M66 52 Q${r.x} 8 ${r.x} ${r.y}`}
               fill="none"
-              stroke={active === r.id ? "#a78bfa" : "#334155"}
+              stroke={active === r.id ? "#ff4fa3" : "#334155"}
               strokeWidth=".4"
               strokeDasharray="1 1"
             />
@@ -88,17 +88,17 @@ export default function WorldPresence() {
       <div className="coverage-detail" aria-live="polite">
         <span className="eyebrow">{region.zone}</span>
         <h3 className="text-xl font-semibold mt-2">{region.label}</h3>
-        <p className="text-sm text-slate-300 mt-3 leading-relaxed">
+        <p className="text-sm text-[#3f3f3f] mt-3 leading-relaxed">
           {region.copy}
         </p>
         <Link
           href={{ pathname: "/contact", query: { region: region.label } }}
-          className="inline-block text-sm text-blue-200 mt-5"
+          className="inline-block text-sm text-[#2f6bff] mt-5"
         >
           Discuss this region ↗
         </Link>
       </div>
-      <p className="px-6 pb-5 text-xs text-slate-400">
+      <p className="px-6 pb-5 text-xs text-[#5a5a5a]">
         Coverage, languages and operating hours are agreed for each engagement.
         This map is a planning guide, not a list of office locations.
       </p>

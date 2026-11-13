@@ -16,14 +16,14 @@ export default function SectionHeading({ eyebrow, title, subtitle, center = fals
       )}
       <h2
         className="text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight"
-        style={{ color: "#F8FAFC" }}
+        style={{ color: "#141414" }}
       >
         {title}
       </h2>
       {subtitle && (
         <p
           className="mt-4 text-[15px] md:text-base leading-relaxed"
-          style={{ color: "#94a3b8" }}
+          style={{ color: "#6b6b6b" }}
         >
           {subtitle}
         </p>

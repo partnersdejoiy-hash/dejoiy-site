@@ -18,24 +18,24 @@ export default function Custom404() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-lg mx-auto"
         >
-          <div className="text-[11px] font-medium uppercase tracking-[0.25em] text-white/30 mb-5">Error 404</div>
-          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold text-white leading-tight tracking-tight">
+          <div className="text-[11px] font-medium uppercase tracking-[0.25em] text-black/30 mb-5">Error 404</div>
+          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-bold text-[#141414] leading-tight tracking-tight">
             Page not<br />found
           </h1>
-          <p className="mt-5 text-base text-white/45 leading-relaxed">
+          <p className="mt-5 text-base text-black/45 leading-relaxed">
             The page you're looking for doesn't exist or may have moved.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Link
               href="/"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200"
+              className="button-primary group"
             >
               <Home size={15} />
               Back to home
             </Link>
             <button
               onClick={() => window.history.back()}
-              className="group inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/[0.09] transition-all duration-200"
+              className="group inline-flex items-center gap-2 rounded-full border border-black/20 bg-black/[0.05] px-6 py-3 text-sm font-medium text-black/70 hover:text-[#141414] hover:bg-black/[0.09] transition-all duration-200"
             >
               <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-0.5" />
               Go back

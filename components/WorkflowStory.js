@@ -72,7 +72,7 @@ export default function WorkflowStory() {
                 0{i + 1} / {name}
               </span>
               <h3 className="text-xl font-semibold mt-3">{title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mt-3">
+              <p className="text-[#5a5a5a] text-sm leading-relaxed mt-3">
                 {description}
               </p>
             </motion.article>

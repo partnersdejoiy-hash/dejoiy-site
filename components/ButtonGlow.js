@@ -7,8 +7,8 @@ export default function ButtonGlow({ href = "#", children, secondary = false, ar
       href={href}
       className={`group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 ${
         secondary
-          ? "border border-white/[0.12] bg-white/[0.05] text-white/80 hover:text-white hover:bg-white/[0.09]"
-          : "bg-white text-[#020617] hover:bg-white/90 shadow-sm"
+          ? "border border-black/20 bg-black/[0.05] text-black/80 hover:text-[#141414] hover:bg-black/[0.09]"
+          : "bg-[#141414] !text-white hover:bg-black shadow-[0_5px_0_#d4ff3a]"
       }`}
     >
       {children}

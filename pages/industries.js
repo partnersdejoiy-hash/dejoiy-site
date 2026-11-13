@@ -63,7 +63,7 @@ export default function IndustriesPage() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(6,182,212,0.16) 0%, transparent 60%)",
+              "radial-gradient(ellipse 70% 50% at 50% -10%, rgba(212, 255, 58, 0.16) 0%, transparent 60%)",
           }}
         />
         <div className="section-wrap relative">
@@ -77,7 +77,7 @@ export default function IndustriesPage() {
             </span>
             <h1
               className="text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight max-w-4xl"
-              style={{ color: "#F8FAFC" }}
+              style={{ color: "#141414" }}
             >
               Sector expertise built for
               <br />
@@ -85,7 +85,7 @@ export default function IndustriesPage() {
             </h1>
             <p
               className="mt-5 text-base md:text-lg max-w-xl leading-relaxed"
-              style={{ color: "#94a3b8" }}
+              style={{ color: "#6b6b6b" }}
             >
               DEJOIY supports diverse industries with tailored workflows,
               trained talent and premium execution quality.
@@ -110,8 +110,8 @@ export default function IndustriesPage() {
               whileHover={{ y: -8 }}
               className="group relative overflow-hidden rounded-3xl min-h-[300px] cursor-pointer"
               style={{
-                border: "1px solid rgba(255,255,255,0.1)",
-                boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                border: "1px solid rgba(20, 20, 20, 0.4)",
+                boxShadow: "0 8px 32px rgba(20, 20, 20, 0.12)",
                 transition: "border-color 0.4s ease, box-shadow 0.4s ease",
               }}
               onMouseEnter={(e) => {
@@ -144,14 +144,14 @@ export default function IndustriesPage() {
                 className="absolute inset-0 transition-all duration-500"
                 style={{
                   background:
-                    "linear-gradient(to top, #020617 0%, rgba(2,6,23,0.75) 45%, rgba(2,6,23,0.2) 80%, transparent 100%)",
+                    "linear-gradient(to top, #ffffff 0%, rgba(255, 246, 232, 0.75) 45%, rgba(20, 20, 20, 0.024) 80%, transparent 100%)",
                 }}
               />
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(2,6,23,0.97) 0%, rgba(2,6,23,0.6) 50%, rgba(2,6,23,0.1) 100%)",
+                    "linear-gradient(to top, rgba(255, 246, 232, 0.97) 0%, rgba(20, 20, 20, 0.072) 50%, rgba(20, 20, 20, 0.012) 100%)",
                 }}
               />
 
@@ -159,26 +159,26 @@ export default function IndustriesPage() {
                 className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, rgba(6,182,212,0.7), transparent)",
+                    "linear-gradient(90deg, transparent, rgba(212, 255, 58, 0.7), transparent)",
                 }}
               />
 
               <div className="absolute inset-0 p-6 flex flex-col justify-end">
                 <h3
                   className="text-[16px] font-semibold leading-tight"
-                  style={{ color: "#F8FAFC" }}
+                  style={{ color: "#141414" }}
                 >
                   {industry.title}
                 </h3>
                 <p
                   className="mt-2 text-[12.5px] leading-relaxed"
-                  style={{ color: "#94a3b8" }}
+                  style={{ color: "#6b6b6b" }}
                 >
                   {industry.description}
                 </p>
                 <div
                   className="mt-4 flex items-center gap-1.5 text-[11.5px] font-medium transition-colors duration-300"
-                  style={{ color: "#64748b" }}
+                  style={{ color: "#6b6b6b" }}
                 >
                   <span className="group-hover:text-[#67e8f9] transition-colors duration-300">
                     Explore
@@ -201,7 +201,7 @@ export default function IndustriesPage() {
           />
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#020617] hover:bg-white/90 transition-all duration-200 shadow-sm"
+            className="button-primary group"
           >
             Speak with an expert
             <ArrowRight

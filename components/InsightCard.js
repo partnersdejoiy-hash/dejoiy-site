@@ -30,10 +30,10 @@ export default function InsightCard({
         <div className="p-6">
           <span className="eyebrow">{category}</span>
           <h3 className="text-xl font-semibold mt-4 leading-snug">{title}</h3>
-          <p className="text-sm text-slate-400 mt-3 leading-relaxed">
+          <p className="text-sm text-[#5a5a5a] mt-3 leading-relaxed">
             {excerpt}
           </p>
-          <span className="inline-block mt-6 text-sm text-blue-200">
+          <span className="inline-block mt-6 text-sm text-[#2f6bff]">
             Read article <span aria-hidden="true">↗</span>
           </span>
         </div>

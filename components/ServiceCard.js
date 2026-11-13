@@ -54,7 +54,7 @@ export default function ServiceCard({ slug, title, description, index = 0 }) {
           </span>
           <ArrowUpRight
             size={20}
-            className="text-slate-400 group-hover:text-white transition-colors"
+            className="text-[#5a5a5a] group-hover:text-[#141414] transition-colors"
           />
         </div>
         <div className="service-symbol" aria-hidden="true">
@@ -62,10 +62,10 @@ export default function ServiceCard({ slug, title, description, index = 0 }) {
           <span />
         </div>
         <h3 className="mt-5 text-xl font-semibold">{title}</h3>
-        <p className="mt-3 text-sm text-slate-400 leading-relaxed">
+        <p className="mt-3 text-sm text-[#5a5a5a] leading-relaxed">
           {description}
         </p>
-        <span className="mt-7 inline-flex text-sm text-blue-200">
+        <span className="mt-7 inline-flex text-sm text-[#2f6bff]">
           Explore service <span className="sr-only">: {title}</span>
         </span>
       </Link>

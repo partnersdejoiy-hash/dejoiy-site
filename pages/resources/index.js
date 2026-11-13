@@ -57,7 +57,7 @@ export default function Resources() {
             </button>
           ))}
         </div>
-        <p className="text-sm text-slate-400 mb-6" aria-live="polite">
+        <p className="text-sm text-[#5a5a5a] mb-6" aria-live="polite">
           {matches.length} {matches.length === 1 ? "resource" : "resources"}{" "}
           available
         </p>
@@ -80,10 +80,10 @@ export default function Resources() {
                 <h2 className="text-xl font-semibold mt-4 leading-snug">
                   <Link href={`/resources/${r.slug}`}>{r.title}</Link>
                 </h2>
-                <p className="text-sm text-slate-400 mt-3 leading-relaxed">
+                <p className="text-sm text-[#5a5a5a] mt-3 leading-relaxed">
                   {r.description}
                 </p>
-                <p className="text-xs text-slate-400 mt-6">
+                <p className="text-xs text-[#5a5a5a] mt-6">
                   {r.minutes} min read · TXT · {(r.bytes / 1024).toFixed(1)} KB
                 </p>
                 <div className="resource-card-actions">

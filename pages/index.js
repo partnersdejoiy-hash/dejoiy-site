@@ -84,7 +84,7 @@ export default function Home() {
               ].map(([t, d]) => (
                 <div className="glass rounded-2xl p-5" key={t}>
                   <h3 className="font-semibold text-sm">{t}</h3>
-                  <p className="text-sm text-slate-400 mt-2">{d}</p>
+                  <p className="text-sm text-[#5a5a5a] mt-2">{d}</p>
                 </div>
               ))}
             </div>

@@ -14,7 +14,7 @@ export default function Resource({ resource: r }) {
       />
       <section className="section-wrap pb-20 resource-detail">
         <aside className="portal-panel h-fit">
-          <Link href="/resources" className="text-sm text-blue-200">
+          <Link href="/resources" className="text-sm text-[#2f6bff]">
             ← Resource library
           </Link>
           <h2 className="text-lg font-semibold mt-6">At a glance</h2>
@@ -49,7 +49,7 @@ export default function Resource({ resource: r }) {
           >
             <Printer size={17} /> Print / save as PDF
           </button>
-          <p className="text-xs text-slate-400 mt-4">
+          <p className="text-xs text-[#5a5a5a] mt-4">
             Open access. No email or account required.
           </p>
         </aside>

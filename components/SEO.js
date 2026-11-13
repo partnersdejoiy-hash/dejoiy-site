@@ -41,14 +41,6 @@ const meta = {
     "Employee Verification",
     "Submit an authorised employment verification request to DEJOIY.",
   ],
-  "/privacy": [
-    "Privacy Notice",
-    "How enquiries, applications and verification requests are handled on the DEJOIY business website.",
-  ],
-  "/terms": [
-    "Website Terms",
-    "Information about using DEJOIY’s business website.",
-  ],
 };
 export default function SEO({ title, description, noindex = false }) {
   const router = useRouter();
@@ -68,7 +60,7 @@ export default function SEO({ title, description, noindex = false }) {
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      <meta name="theme-color" content="#020617" />
+      <meta name="theme-color" content="#fff6e8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:title" content={t} key="og:title" />
       <meta property="og:description" content={d} key="og:description" />

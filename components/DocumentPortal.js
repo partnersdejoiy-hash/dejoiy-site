@@ -105,7 +105,7 @@ export function EmailAccess({ staff = false }) {
       <h2 className="text-2xl font-semibold mt-5">
         {staff ? "Staff access" : "Start with your email"}
       </h2>
-      <p className="text-slate-400 text-sm leading-relaxed mt-3">
+      <p className="text-[#5a5a5a] text-sm leading-relaxed mt-3">
         {staff
           ? "Access is limited to approved DEJOIY reviewers."
           : "We’ll email a private, single-use link. No password or public website account is needed."}
@@ -134,7 +134,7 @@ export function EmailAccess({ staff = false }) {
         <ArrowUpRight size={17} />
       </button>
       <PortalNotice {...status} />
-      <p className="text-xs text-slate-400 mt-4">
+      <p className="text-xs text-[#5a5a5a] mt-4">
         Links expire after 15 minutes. Only open links you requested. See our{" "}
         <Link href="/privacy" className="underline">
           privacy notice
@@ -155,7 +155,7 @@ export function PortalOffline({ staff = false }) {
           ? "The review desk is not active yet."
           : "Following up on an email request?"}
       </h2>
-      <p className="text-slate-400 leading-relaxed mt-4">
+      <p className="text-[#5a5a5a] leading-relaxed mt-4">
         {staff
           ? "Private storage and approved reviewer access must be configured before this desk can accept requests."
           : "Online status tracking is not available yet. Our team can help by email — include the reference from your original submission."}
@@ -231,13 +231,13 @@ export function RequestComposer({
   if (saved)
     return (
       <div className="portal-panel">
-        <CheckCircle2 className="text-emerald-300" size={32} />
+        <CheckCircle2 className="text-[#15803d]" size={32} />
         <h2 className="text-2xl font-semibold mt-5">Your request is saved.</h2>
-        <p className="text-slate-300 mt-3">
+        <p className="text-[#3f3f3f] mt-3">
           Reference{" "}
           <span className="break-all font-mono text-sm">{saved.id}</span>
         </p>
-        <p className="text-sm text-slate-400 mt-3">
+        <p className="text-sm text-[#5a5a5a] mt-3">
           {saved.notificationAccepted
             ? "The team notification was accepted for email delivery."
             : "The request is safely stored, but the team notification could not be sent. Contact our team with this reference if you need help."}
@@ -254,11 +254,11 @@ export function RequestComposer({
     <div className="portal-panel">
       <div className="flex flex-wrap justify-between gap-3">
         <h2 className="text-2xl font-semibold">Your document request</h2>
-        <Link href="/help/track" className="text-sm text-blue-200">
+        <Link href="/help/track" className="text-sm text-[#2f6bff]">
           Your requests ↗
         </Link>
       </div>
-      <p className="text-sm text-slate-400 mt-3 break-all">
+      <p className="text-sm text-[#5a5a5a] mt-3 break-all">
         Verified email: {session.email}
       </p>
       <form
@@ -333,7 +333,7 @@ export function RequestComposer({
           />
         </div>
         <PDFInput required={requestType.attachmentRequired} />
-        <label className="flex gap-3 items-start text-sm text-slate-300">
+        <label className="flex gap-3 items-start text-sm text-[#3f3f3f]">
           <input className="mt-1" type="checkbox" name="consent" required />
           <span>
             I am authorised to submit these details and have read the{" "}
@@ -370,7 +370,7 @@ export function PDFInput({
         className="field w-full text-sm"
         aria-describedby={`${id}-help`}
       />
-      <p id={`${id}-help`} className="text-xs text-slate-400 mt-2">
+      <p id={`${id}-help`} className="text-xs text-[#5a5a5a] mt-2">
         PDF only, up to 2 MB. Available only through authorised request access.
         Do not include government IDs, bank details or unrelated personal
         information.
@@ -417,14 +417,14 @@ export function RequestDetails({ record, session, onRefresh }) {
         <span className={`request-status status-${r.status}`}>
           {documentStatuses[r.status]}
         </span>
-        <span className="text-xs text-slate-400">
+        <span className="text-xs text-[#5a5a5a]">
           Updated {new Date(r.updated_at).toLocaleDateString("en-GB")}
         </span>
       </div>
       <h2 className="text-2xl font-semibold mt-5">
         {findDocumentType(r.type)?.title}
       </h2>
-      <p className="font-mono text-xs text-slate-400 break-all mt-3">{r.id}</p>
+      <p className="font-mono text-xs text-[#5a5a5a] break-all mt-3">{r.id}</p>
       <dl className="request-details">
         {Object.entries(r.details)
           .filter(([, value]) => value)
@@ -465,7 +465,7 @@ export function RequestDetails({ record, session, onRefresh }) {
           ))}
         </div>
       ) : (
-        <p className="text-sm text-slate-400 mt-3">No documents attached.</p>
+        <p className="text-sm text-[#5a5a5a] mt-3">No documents attached.</p>
       )}
       <h3 className="font-semibold mt-8">Request history</h3>
       <ol className="request-timeline">
@@ -496,7 +496,7 @@ export function RequestDetails({ record, session, onRefresh }) {
         <form
           key={r.version}
           onSubmit={submit}
-          className="border-t border-white/10 pt-7 mt-7 space-y-5"
+          className="border-t border-black/20 pt-7 mt-7 space-y-5"
         >
           <h3 className="text-xl font-semibold">
             {staff ? "Review this request" : "Send the missing information"}
@@ -560,7 +560,7 @@ export function RequestDetails({ record, session, onRefresh }) {
             id="reply-file"
           />
           {staff && (
-            <label className="flex gap-3 text-sm text-slate-300">
+            <label className="flex gap-3 text-sm text-[#3f3f3f]">
               <input className="mt-1" type="checkbox" name="releaseConfirmed" />
               <span>
                 I have checked the employment records, requester authority and
@@ -668,7 +668,7 @@ export function RequestDesk({ enabled, staff = false, selectedId }) {
   return (
     <>
       <div className="portal-toolbar">
-        <p className="text-sm text-slate-300 break-all">
+        <p className="text-sm text-[#3f3f3f] break-all">
           {session.role === "staff" ? "Review desk" : "Private requests"} ·{" "}
           {session.email}
         </p>
@@ -721,7 +721,7 @@ export function RequestDesk({ enabled, staff = false, selectedId }) {
             ))}
           </select>
           {fetching && (
-            <p role="status" className="text-sm text-slate-400">
+            <p role="status" className="text-sm text-[#5a5a5a]">
               Loading requests…
             </p>
           )}
@@ -747,7 +747,7 @@ export function RequestDesk({ enabled, staff = false, selectedId }) {
           {!fetching &&
             !requests.filter((r) => filter === "all" || r.status === filter)
               .length && (
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-[#5a5a5a]">
                 No requests in this view. Email-only submissions do not appear
                 here.
               </p>
@@ -778,7 +778,7 @@ export function RequestDesk({ enabled, staff = false, selectedId }) {
             <h2 className="text-2xl font-semibold mt-5">
               Your information stays private.
             </h2>
-            <p className="text-slate-400 mt-3">
+            <p className="text-[#5a5a5a] mt-3">
               Select a request to see its history, next steps and documents.
             </p>
           </div>

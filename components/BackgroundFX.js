@@ -37,7 +37,7 @@ function ParticleDot({ x, y, delay }) {
         top: `${y}%`,
         width: "2px",
         height: "2px",
-        background: "rgba(148,163,184,0.65)",
+        background: "rgba(20, 20, 20, 0.325)",
       }}
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: [0, 1, 0], scale: [0, 1.6, 0] }}
@@ -84,7 +84,7 @@ export default function BackgroundFX() {
           marginLeft: "-400px",
           marginTop: "-400px",
           background:
-            "radial-gradient(circle, rgba(37,99,235,0.13) 0%, rgba(124,58,237,0.08) 45%, transparent 70%)",
+            "radial-gradient(circle, rgba(47, 107, 255, 0.13) 0%, rgba(255, 79, 163, 0.08) 45%, transparent 70%)",
           filter: "blur(60px)",
         }}
         initial={{ scale: 1 }}
@@ -96,7 +96,7 @@ export default function BackgroundFX() {
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(37,99,235,0.45), rgba(124,58,237,0.45), transparent)",
+            "linear-gradient(90deg, transparent, rgba(47, 107, 255, 0.45), rgba(255, 79, 163, 0.45), transparent)",
         }}
       />
     </div>

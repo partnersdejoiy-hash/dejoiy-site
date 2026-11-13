@@ -8,35 +8,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg:       "#020617",
-        surface:  "#0B1226",
-        surface2: "#111A3A",
-        blue:     "#2563EB",
-        purple:   "#7C3AED",
-        cyan:     "#06B6D4",
-        "text-primary":   "#F8FAFC",
-        "text-secondary": "#CBD5E1",
-        "text-muted":     "#94a3b8",
-        "text-dim":       "#64748b"
+        bg:       "#fff6e8",
+        surface:  "#ffffff",
+        surface2: "#ffe680",
+        blue:     "#2f6bff",
+        purple:   "#ff4fa3",
+        cyan:     "#0a8fc4",
+        "text-primary":   "#141414",
+        "text-secondary": "#3f3f3f",
+        "text-muted":     "#6b6b6b",
+        "text-dim":       "#8a8a8a"
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"]
+        sans: ["Plus Jakarta Sans", "Inter", "ui-sans-serif", "system-ui", "-apple-system", "sans-serif"]
       },
       boxShadow: {
-        glow:        "0 0 40px rgba(124,58,237,0.4)",
-        "glow-sm":   "0 0 20px rgba(124,58,237,0.3)",
-        "glow-blue": "0 0 40px rgba(37,99,235,0.4)",
-        "glow-cyan": "0 0 40px rgba(6,182,212,0.35)",
-        card:        "0 20px 60px rgba(0,0,0,0.5)",
-        mega:        "0 30px 80px rgba(0,0,0,0.55)"
+        glow:        "5px 5px 0 #141414",
+        "glow-sm":   "3px 3px 0 #141414",
+        "glow-blue": "5px 5px 0 #2f6bff",
+        "glow-cyan": "5px 5px 0 #d4ff3a",
+        card:        "5px 5px 0 #141414",
+        mega:        "8px 8px 0 #141414"
       },
       backgroundImage: {
         "hero-gradient":
-          "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(37,99,235,0.22) 0%, transparent 60%), linear-gradient(180deg, #020617 0%, #030A1A 100%)",
-        "card-gradient-1": "linear-gradient(135deg, rgba(37,99,235,0.14), rgba(124,58,237,0.1))",
-        "card-gradient-2": "linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.1))",
-        "card-gradient-3": "linear-gradient(135deg, rgba(6,182,212,0.1), rgba(37,99,235,0.12))",
-        "cta-gradient":    "linear-gradient(135deg, rgba(37,99,235,0.18), rgba(124,58,237,0.18))"
+          "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(47,107,255,0.18) 0%, transparent 60%), #fff6e8",
+        "card-gradient-1": "linear-gradient(135deg, #a9c2ff, #a9c2ff)",
+        "card-gradient-2": "linear-gradient(135deg, #ffa8d2, #ffa8d2)",
+        "card-gradient-3": "linear-gradient(135deg, #e4ff80, #e4ff80)",
+        "cta-gradient":    "linear-gradient(135deg, #2f6bff, #2f6bff)"
       },
       borderRadius: {
         "2xl": "1rem",
@@ -56,8 +56,8 @@ module.exports = {
           "50%":     { transform: "translateY(-12px)" }
         },
         pulseGlow: {
-          "0%,100%": { boxShadow: "0 0 0 rgba(124,58,237,0)" },
-          "50%":     { boxShadow: "0 0 50px rgba(124,58,237,0.55)" }
+          "0%,100%": { boxShadow: "0 0 0 rgba(255,79,163,0)" },
+          "50%":     { boxShadow: "0 0 30px rgba(255,79,163,0.45)" }
         }
       }
     }

@@ -18,7 +18,7 @@ const services = [
     id: "ai",
     label: "AI Operations",
     icon: <Brain size={16} />,
-    color: "#7C3AED",
+    color: "#d1157a",
     description:
       "Human-in-the-loop AI workflows — annotation, validation and model evaluation at enterprise scale.",
     viz: "neural",
@@ -27,7 +27,7 @@ const services = [
     id: "data",
     label: "Data Intelligence",
     icon: <Database size={16} />,
-    color: "#2563EB",
+    color: "#2f6bff",
     description:
       "Structured data pipelines that transform raw inputs into actionable business intelligence.",
     viz: "pipeline",
@@ -36,7 +36,7 @@ const services = [
     id: "cx",
     label: "Customer Experience",
     icon: <Headphones size={16} />,
-    color: "#06B6D4",
+    color: "#2f6bff",
     description:
       "Omnichannel support operations with premium response quality at global scale.",
     viz: "flow",
@@ -45,7 +45,7 @@ const services = [
     id: "trust",
     label: "Trust & Safety",
     icon: <ShieldCheck size={16} />,
-    color: "#00D4AA",
+    color: "#0a8fc4",
     description:
       "Policy enforcement, fraud review and risk management for modern digital platforms.",
     viz: "shield",
@@ -54,7 +54,7 @@ const services = [
     id: "ops",
     label: "Back Office Ops",
     icon: <Briefcase size={16} />,
-    color: "#FF9A3C",
+    color: "#ff7a2f",
     description:
       "Resilient admin workflows, reconciliation and documentation processing pipelines.",
     viz: "workflow",
@@ -142,7 +142,7 @@ function PipelineViz({ color }) {
         y1="180"
         x2="400"
         y2="180"
-        stroke="rgba(255,255,255,0.06)"
+        stroke="rgba(20, 20, 20, 0.06)"
         strokeWidth="1"
       />
       {bars.map((h, i) => {
@@ -258,7 +258,7 @@ function FlowViz({ color }) {
             x={s.x}
             y={s.y + 4}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(20, 20, 20, 0.7)"
             fontSize="12"
             fontFamily="Inter,sans-serif"
             initial={{ opacity: 0 }}
@@ -457,8 +457,8 @@ export default function AIServicesViz() {
             }}
             className={`group w-full flex items-center gap-3.5 rounded-2xl px-4 py-3.5 text-left transition-all duration-300 ${
               active === i
-                ? "border border-white/[0.12] bg-white/[0.06]"
-                : "border border-transparent hover:border-white/[0.06] hover:bg-white/[0.03]"
+                ? "border border-black/20 bg-black/[0.06]"
+                : "border border-transparent hover:border-black/20 hover:bg-black/[0.03]"
             }`}
           >
             <div
@@ -466,7 +466,7 @@ export default function AIServicesViz() {
               style={{
                 background:
                   active === i ? `${s.color}20` : "rgba(255,255,255,0.04)",
-                color: active === i ? s.color : "rgba(255,255,255,0.4)",
+                color: active === i ? s.color : "rgba(20, 20, 20, 0.4)",
                 boxShadow: active === i ? `0 0 16px ${s.color}30` : "none",
               }}
             >
@@ -474,7 +474,7 @@ export default function AIServicesViz() {
             </div>
             <div className="flex-1 min-w-0">
               <div
-                className={`text-[13.5px] font-semibold transition-colors ${active === i ? "text-white" : "text-white/55"}`}
+                className={`text-[13.5px] font-semibold transition-colors ${active === i ? "text-[#141414]" : "text-black/55"}`}
               >
                 {s.label}
               </div>
@@ -483,7 +483,7 @@ export default function AIServicesViz() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="text-[12px] text-slate-300 mt-1 leading-relaxed"
+                  className="text-[12px] text-[#3f3f3f] mt-1 leading-relaxed"
                 >
                   {s.description}
                 </motion.div>
@@ -510,7 +510,7 @@ export default function AIServicesViz() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.02]"
+            className="relative overflow-hidden rounded-3xl border border-black/20 bg-black/[0.02]"
             style={{ minHeight: "320px" }}
           >
             <div
@@ -538,8 +538,8 @@ export default function AIServicesViz() {
               ) : (
                 <div className="h-full flex flex-col justify-center text-center gap-4">
                   <p className="text-xl font-semibold">{svc.label}</p>
-                  <p className="text-sm text-slate-300">{svc.description}</p>
-                  <p className="text-sm text-blue-200">
+                  <p className="text-sm text-[#3f3f3f]">{svc.description}</p>
+                  <p className="text-sm text-[#2f6bff]">
                     Define → Process → Review → Improve
                   </p>
                 </div>

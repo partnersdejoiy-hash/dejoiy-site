@@ -3,14 +3,28 @@ import "@fontsource/inter/latin-600.css";
 import "@fontsource/inter/latin-700.css";
 import "../styles/globals.css";
 import { useEffect } from "react";
+import Script from "next/script";
+import { useRouter } from "next/router";
 import { MotionConfig, useReducedMotion } from "framer-motion";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SmoothCursor from "../components/SmoothCursor";
 import SEO from "../components/SEO";
 import ErrorBoundary from "../components/ErrorBoundary";
+// Joi guide: which script lines to use for a URL (first path segment)
+function joiPage(path) {
+  const seg = (path || "/").split(/[?#]/)[0].split("/")[1] || "home";
+  return seg;
+}
+
 export default function App({ Component, pageProps }) {
   const reduced = useReducedMotion();
+  const router = useRouter();
+  useEffect(() => {
+    const onRoute = (url) => window.joiGuide?.setPage(joiPage(url));
+    router.events.on("routeChangeComplete", onRoute);
+    return () => router.events.off("routeChangeComplete", onRoute);
+  }, [router.events]);
   useEffect(() => {
     if (
       reduced ||
@@ -47,6 +61,7 @@ export default function App({ Component, pageProps }) {
           <Component {...pageProps} />
         </main>
         <Footer />
+        <Script src="/joi/joi-lines.js" strategy="afterInteractive" />
       </MotionConfig>
     </ErrorBoundary>
   );

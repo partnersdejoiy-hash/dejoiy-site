@@ -46,7 +46,7 @@ export default function Insights() {
             </button>
           ))}
         </div>
-        <p className="text-sm text-slate-400 mb-6" aria-live="polite">
+        <p className="text-sm text-[#5a5a5a] mb-6" aria-live="polite">
           {items.length} {items.length === 1 ? "article" : "articles"} · {topic}
         </p>
         {!items.length && (

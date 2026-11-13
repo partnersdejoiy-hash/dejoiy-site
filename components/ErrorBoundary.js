@@ -27,8 +27,8 @@ export default class ErrorBoundary extends Component {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            background: "#020617",
-            color: "#F8FAFC",
+            background: "#ffffff",
+            color: "#141414",
             fontFamily: "Inter, sans-serif",
             padding: "2rem",
             textAlign: "center",
@@ -36,10 +36,10 @@ export default class ErrorBoundary extends Component {
           }}
         >
           <div style={{ fontSize: "2rem" }}>⚠</div>
-          <h2 style={{ fontSize: "1.1rem", fontWeight: 600, color: "#F8FAFC" }}>
+          <h2 style={{ fontSize: "1.1rem", fontWeight: 600, color: "#141414" }}>
             Something went wrong
           </h2>
-          <p style={{ fontSize: "0.85rem", color: "#64748b", maxWidth: "420px" }}>
+          <p style={{ fontSize: "0.85rem", color: "#6b6b6b", maxWidth: "420px" }}>
             {this.state.error?.message || "An unexpected error occurred."}
           </p>
           <button
@@ -51,9 +51,9 @@ export default class ErrorBoundary extends Component {
               marginTop: "1rem",
               padding: "0.5rem 1.5rem",
               borderRadius: "9999px",
-              background: "rgba(124,58,237,0.15)",
-              border: "1px solid rgba(124,58,237,0.35)",
-              color: "#c4b5fd",
+              background: "rgba(255, 79, 163, 0.15)",
+              border: "1px solid rgba(255, 79, 163, 0.5)",
+              color: "#d1157a",
               fontSize: "0.8rem",
               cursor: "pointer"
             }}

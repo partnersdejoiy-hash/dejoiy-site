@@ -11,7 +11,7 @@ export default function JobListings() {
           <div>
             <span className="eyebrow">{job.dept}</span>
             <h3 className="mt-3 text-lg font-semibold">{job.title}</h3>
-            <p className="mt-2 text-sm text-slate-400">
+            <p className="mt-2 text-sm text-[#5a5a5a]">
               {job.location} · Register your interest
             </p>
           </div>

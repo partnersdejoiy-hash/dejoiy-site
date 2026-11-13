@@ -5,6 +5,10 @@ module.exports = {
   async redirects() {
     return [
       { source: "/favicon.ico", destination: "/favicon.png", permanent: true },
+      // One set of terms and privacy for every DEJOIY platform lives on dejoiy.co.in
+      { source: "/privacy", destination: "https://www.dejoiy.co.in/privacy", permanent: false },
+      { source: "/terms", destination: "https://www.dejoiy.co.in/terms", permanent: false },
+      { source: "/legal", destination: "https://www.dejoiy.co.in/legal#business", permanent: false },
     ];
   },
   async headers() {

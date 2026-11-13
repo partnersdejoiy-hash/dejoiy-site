@@ -35,7 +35,7 @@ export default function Service({ service }) {
             sizes="(max-width: 1280px) 100vw, 1200px"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fff6e8]/90 to-transparent" />
           <h2 className="absolute bottom-8 left-8 text-2xl md:text-4xl font-semibold">
             {service.title}
           </h2>
@@ -50,7 +50,7 @@ export default function Service({ service }) {
               {service.tasks.map((t, i) => (
                 <li
                   key={t}
-                  className="flex gap-4 text-slate-300 leading-relaxed"
+                  className="flex gap-4 text-[#3f3f3f] leading-relaxed"
                 >
                   <span className="text-purple-300 text-sm pt-1">0{i + 1}</span>
                   {t}
@@ -67,13 +67,13 @@ export default function Service({ service }) {
               {service.measures.map((m) => (
                 <li
                   key={m}
-                  className="border-b border-white/10 pb-4 text-slate-200"
+                  className="border-b border-black/20 pb-4 text-[#3f3f3f]"
                 >
                   {m}
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm text-slate-400 leading-relaxed">
+            <p className="mt-5 text-sm text-[#5a5a5a] leading-relaxed">
               Scope, access controls, service levels and reporting are agreed
               before delivery. These are planning measures, not performance
               guarantees.

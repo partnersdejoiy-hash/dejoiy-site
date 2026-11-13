@@ -94,7 +94,7 @@ export default function Help() {
               What brings you to DEJOIY?
             </h2>
           </div>
-          <p className="text-slate-400 max-w-sm">
+          <p className="text-[#5a5a5a] max-w-sm">
             Four clear paths. The right team.
             <br />
             Less searching, more moving forward.
@@ -121,7 +121,7 @@ export default function Help() {
               type="search"
             />
           </label>
-          <p className="text-xs text-slate-400 mt-3" aria-live="polite">
+          <p className="text-xs text-[#5a5a5a] mt-3" aria-live="polite">
             {faqs.length} matching topics
           </p>
         </div>

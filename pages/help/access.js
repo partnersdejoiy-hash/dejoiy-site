@@ -37,7 +37,7 @@ export default function Access() {
           <h1 className="text-3xl font-semibold mt-5">
             Open your request centre.
           </h1>
-          <p className="text-slate-400 mt-4 leading-relaxed">
+          <p className="text-[#5a5a5a] mt-4 leading-relaxed">
             Continue only if you requested this access link. It can be used once
             and expires after 15 minutes.
           </p>
@@ -49,7 +49,7 @@ export default function Access() {
             {busy ? "Confirming access…" : "Confirm and continue"}
           </button>
           <PortalNotice message={error} error />
-          <Link href="/help/track" className="text-blue-200 text-sm block mt-5">
+          <Link href="/help/track" className="text-[#2f6bff] text-sm block mt-5">
             Request a new access link ↗
           </Link>
         </div>
